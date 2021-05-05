@@ -19,7 +19,7 @@ class StartUpViewModel extends BaseViewModel {
       log.v('User sync complete. User profile: $currentUser');
 
       if (!currentUser.hasAddress) {
-        _navigationService.navigateTo(Routes.addressSelectionView);
+        await _navigationService.navigateTo(Routes.addressSelectionView);
       } else {
         // navigate to home view
       }

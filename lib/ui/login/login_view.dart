@@ -1,3 +1,4 @@
+import 'package:customer/generated/l10n.dart';
 import 'package:customer/ui/dumb_widgets/authentication_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -12,6 +13,8 @@ import 'login_viewmodel.dart';
   FormTextField(name: 'phone'),
 ])
 class LoginView extends StatelessWidget with $LoginView {
+  final _formKey = GlobalKey<FormState>();
+
   LoginView({Key? key}) : super(key: key);
 
   @override
@@ -21,23 +24,39 @@ class LoginView extends StatelessWidget with $LoginView {
       builder: (context, model, child) => Scaffold(
           body: AuthenticationLayout(
         busy: model.isBusy,
-        onMainButtonTapped: model.saveData,
+        onMainButtonTapped: () {
+          if (_formKey.currentState!.validate()) {
+            model.saveData();
+          }
+        },
         onCreateAccountTapped: model.navigateToCreateAccount,
         validationMessage: model.validationMessage,
-        title: 'Welcome',
+        title: S.of(context).formPageAppBarTitle,
         subtitle: 'Enter your email address to sign in. Enjoy your food',
         mainButtonTitle: 'SIGN IN',
-        form: Column(
-          children: [
-            TextField(
-              decoration: InputDecoration(labelText: 'Email'),
-              controller: emailController,
-            ),
-            TextField(
-              decoration: InputDecoration(labelText: 'Password'),
-              controller: passwordController,
-            ),
-          ],
+        form: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Email'),
+                controller: emailController,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please Please';
+                  }
+                },
+              ),
+              TextField(
+                decoration: InputDecoration(labelText: 'Password'),
+                controller: passwordController,
+              ),
+              ElevatedButton(
+                onPressed: model.changeLocale,
+                child: child,
+              )
+            ],
+          ),
         ),
         onBackPressed: () => Text('nono'),
         onForgotPassword: () {},

@@ -4,3 +4,5 @@ analyzer:
   exclude:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
+    - "**/*.form.dart"
+    - "lib/app/app.*.dart"
