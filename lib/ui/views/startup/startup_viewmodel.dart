@@ -1,7 +1,7 @@
-import 'package:customer/app/app.locator.dart';
-import 'package:customer/app/app.logger.dart';
-import 'package:customer/app/app.router.dart';
-import 'package:customer/services/user_service.dart';
+import 'package:flutter_starter/app/app.locator.dart';
+import 'package:flutter_starter/app/app.logger.dart';
+import 'package:flutter_starter/app/app.router.dart';
+import 'package:flutter_starter/services/user_service.dart';
 import 'package:pedantic/pedantic.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';

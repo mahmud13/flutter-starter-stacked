@@ -1,6 +1,6 @@
-import 'package:customer/generated/l10n.dart';
-import 'package:customer/ui/shared/ui_helpers.dart';
-import 'package:customer/ui/widgets/busy_button.dart';
+import 'package:flutter_starter/generated/l10n.dart';
+import 'package:flutter_starter/ui/shared/ui_helpers.dart';
+import 'package:flutter_starter/ui/widgets/busy_button.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';

@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:customer/ui/shared/styles.dart';
-import 'package:customer/ui/shared/ui_helpers.dart';
+import 'package:flutter_starter/ui/shared/styles.dart';
+import 'package:flutter_starter/ui/shared/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:auth_buttons/auth_buttons.dart';
 

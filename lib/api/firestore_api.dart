@@ -1,8 +1,8 @@
-import 'package:customer/app/app.logger.dart';
+import 'package:flutter_starter/app/app.logger.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:customer/exceptions/firestore_api_exception.dart';
-import 'package:customer/models/application_models.dart';
+import 'package:flutter_starter/exceptions/firestore_api_exception.dart';
+import 'package:flutter_starter/models/application_models.dart';
 
 class FirestoreApi {
   final log = getLogger('FirestoreApi');

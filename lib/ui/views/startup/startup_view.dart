@@ -1,4 +1,4 @@
-import 'package:customer/ui/views/startup/startup_viewmodel.dart';
+import 'package:flutter_starter/ui/views/startup/startup_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:stacked/stacked.dart';

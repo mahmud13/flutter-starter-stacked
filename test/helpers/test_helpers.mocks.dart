@@ -4,8 +4,8 @@
 
 import 'dart:async' as _i4;
 
-import 'package:customer/models/application_models.dart' as _i2;
-import 'package:customer/services/user_service.dart' as _i3;
+import 'package:flutter_starter/models/application_models.dart' as _i2;
+import 'package:flutter_starter/services/user_service.dart' as _i3;
 import 'package:flutter/src/widgets/framework.dart' as _i6;
 import 'package:flutter/src/widgets/navigator.dart' as _i7;
 import 'package:mockito/mockito.dart' as _i1;
