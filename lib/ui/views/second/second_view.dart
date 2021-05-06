@@ -1,6 +1,7 @@
-import 'package:customer/ui/second/second_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+
+import 'second_viewmodel.dart';
 
 // UI CODE ONLY
 

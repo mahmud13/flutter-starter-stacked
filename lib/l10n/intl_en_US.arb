@@ -1,4 +1,9 @@
 {
     "@@locale": "en_US",
-    "formPageAppBarTitle": "Death by Caffeine Calculator"
+    "email": "Email",
+    "password": "Password",
+    "emailIsRequired": "Email is required",
+    "passwordIsRequired": "Password is required",
+    "emailIsInvalid": "Email is invalid",
+    "login": "Login"
 }

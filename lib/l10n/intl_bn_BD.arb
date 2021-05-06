@@ -1,4 +1,9 @@
 {
     "@@locale": "bn_BD",
-    "formPageAppBarTitle": "ক্রাউড এপপ"
+    "email": "ইমেইল",
+    "password": "পাসওয়ার্ড",
+    "emailIsRequired": "ইমেইল লাগবেই",
+    "emailIsInvalid": "ইমেইল ঠিক নেই",
+    "passwordIsRequired": "পাসওয়ার্ড লাগবেই",
+    "login": "লগিন"
 }

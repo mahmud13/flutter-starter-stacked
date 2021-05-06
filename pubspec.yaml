@@ -49,6 +49,7 @@ dependencies:
   json_annotation: ^4.0.1
   pedantic: ^1.11.0
   observable_ish: ^3.0.0
+  validators: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +73,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/images/
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
@@ -101,4 +104,4 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 flutter_intl:
   enabled: true
-  main_locale: bn_BD
+  main_locale: en_US

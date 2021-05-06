@@ -10,11 +10,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-import '../ui/address_selection/address_selection_view.dart';
-import '../ui/create_account/create_account_view.dart';
-import '../ui/home/home_view.dart';
-import '../ui/login/login_view.dart';
-import '../ui/startup/startup_view.dart';
+import '../ui/views/address_selection/address_selection_view.dart';
+import '../ui/views/create_account/create_account_view.dart';
+import '../ui/views/home/home_view.dart';
+import '../ui/views/login/login_view.dart';
+import '../ui/views/startup/startup_view.dart';
 
 class Routes {
   static const String startUpView = '/';

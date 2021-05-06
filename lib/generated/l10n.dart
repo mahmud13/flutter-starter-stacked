@@ -50,11 +50,61 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `ক্রাউড এপপ`
-  String get formPageAppBarTitle {
+  /// `Email`
+  String get email {
     return Intl.message(
-      'ক্রাউড এপপ',
-      name: 'formPageAppBarTitle',
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email is required`
+  String get emailIsRequired {
+    return Intl.message(
+      'Email is required',
+      name: 'emailIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password is required`
+  String get passwordIsRequired {
+    return Intl.message(
+      'Password is required',
+      name: 'passwordIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email is invalid`
+  String get emailIsInvalid {
+    return Intl.message(
+      'Email is invalid',
+      name: 'emailIsInvalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
       desc: '',
       args: [],
     );
@@ -66,8 +116,8 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
 
   List<Locale> get supportedLocales {
     return const <Locale>[
-      Locale.fromSubtags(languageCode: 'bn', countryCode: 'BD'),
       Locale.fromSubtags(languageCode: 'en', countryCode: 'US'),
+      Locale.fromSubtags(languageCode: 'bn', countryCode: 'BD'),
     ];
   }
 

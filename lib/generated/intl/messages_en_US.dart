@@ -21,7 +21,14 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "formPageAppBarTitle":
-            MessageLookupByLibrary.simpleMessage("Death by Caffeine Calculator")
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emailIsInvalid":
+            MessageLookupByLibrary.simpleMessage("Email is invalid"),
+        "emailIsRequired":
+            MessageLookupByLibrary.simpleMessage("Email is required"),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "passwordIsRequired":
+            MessageLookupByLibrary.simpleMessage("Password is required")
       };
 }

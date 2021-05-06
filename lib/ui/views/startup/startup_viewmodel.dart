@@ -2,6 +2,7 @@ import 'package:customer/app/app.locator.dart';
 import 'package:customer/app/app.logger.dart';
 import 'package:customer/app/app.router.dart';
 import 'package:customer/services/user_service.dart';
+import 'package:pedantic/pedantic.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -25,7 +26,7 @@ class StartUpViewModel extends BaseViewModel {
       }
     } else {
       log.v('No user on disk, navigate to the LoginView');
-      await _navigationService.replaceWith(Routes.loginView);
+      unawaited(_navigationService.replaceWith(Routes.loginView));
     }
   }
 }

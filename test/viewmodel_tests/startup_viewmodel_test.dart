@@ -1,5 +1,5 @@
 import 'package:customer/app/app.router.dart';
-import 'package:customer/ui/startup/startup_viewmodel.dart';
+import 'package:customer/ui/views/startup/startup_viewmodel.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
