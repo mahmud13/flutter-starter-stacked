@@ -5,5 +5,8 @@
     "emailIsRequired": "ইমেইল লাগবেই",
     "emailIsInvalid": "ইমেইল ঠিক নেই",
     "passwordIsRequired": "পাসওয়ার্ড লাগবেই",
-    "login": "লগিন"
+    "login": "লগিন",
+    "doYouWantToExit": "আপনি কি বের হয়ে যেতে চান?",
+    "ok": "হ্যাঁ",
+    "cancel": "না"
 }

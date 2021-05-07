@@ -22,73 +22,76 @@ class LoginView extends StatelessWidget with $LoginView {
   Widget build(BuildContext context) {
     return ViewModelBuilder<LoginViewModel>.reactive(
       onModelReady: (model) => listenToFormUpdated(model),
-      builder: (context, model, child) => Scaffold(
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 50),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.asset('assets/images/mib_cover.jpg'),
-              verticalSpaceMedium,
-              if (model.validationMessage != null)
-                Text(
-                  model.validationMessage!,
-                  style: TextStyle(color: Theme.of(context).errorColor),
-                  textAlign: TextAlign.center,
-                ),
-              Form(
-                key: _formKey,
-                autovalidateMode: model.showValidation
-                    ? AutovalidateMode.always
-                    : AutovalidateMode.disabled,
-                child: Column(
-                  children: [
-                    TextFormField(
-                        decoration:
-                            InputDecoration(labelText: S.of(context).email),
-                        controller: emailController,
-                        keyboardType: TextInputType.emailAddress,
-                        validator: (value) => isNull(value)
-                            ? S.of(context).emailIsRequired
-                            : !isEmail(value!)
-                                ? S.of(context).emailIsInvalid
-                                : null),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: S.of(context).password,
-                        suffix: GestureDetector(
-                          onTap: () => model.togglePasswordVisibility(),
-                          child: Icon(model.isPasswordVisible
-                              ? Icons.visibility_off
-                              : Icons.visibility),
+      builder: (context, model, child) => WillPopScope(
+        onWillPop: () => model.handleBack(),
+        child: Scaffold(
+          body: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 50),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset('assets/images/mib_cover.jpg'),
+                verticalSpaceMedium,
+                if (model.validationMessage != null)
+                  Text(
+                    model.validationMessage!,
+                    style: TextStyle(color: Theme.of(context).errorColor),
+                    textAlign: TextAlign.center,
+                  ),
+                Form(
+                  key: _formKey,
+                  autovalidateMode: model.showValidation
+                      ? AutovalidateMode.always
+                      : AutovalidateMode.disabled,
+                  child: Column(
+                    children: [
+                      TextFormField(
+                          decoration:
+                              InputDecoration(labelText: S.current.email),
+                          controller: emailController,
+                          keyboardType: TextInputType.emailAddress,
+                          validator: (value) => isNull(value)
+                              ? S.of(context).emailIsRequired
+                              : !isEmail(value!)
+                                  ? S.of(context).emailIsInvalid
+                                  : null),
+                      TextFormField(
+                        decoration: InputDecoration(
+                          labelText: S.of(context).password,
+                          suffix: GestureDetector(
+                            onTap: () => model.togglePasswordVisibility(),
+                            child: Icon(model.isPasswordVisible
+                                ? Icons.visibility_off
+                                : Icons.visibility),
+                          ),
                         ),
+                        controller: passwordController,
+                        keyboardType: TextInputType.visiblePassword,
+                        obscureText: !model.isPasswordVisible,
+                        validator: (value) => isNull(value)
+                            ? S.of(context).passwordIsRequired
+                            : null,
                       ),
-                      controller: passwordController,
-                      keyboardType: TextInputType.visiblePassword,
-                      obscureText: !model.isPasswordVisible,
-                      validator: (value) => isNull(value)
-                          ? S.of(context).passwordIsRequired
-                          : null,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              verticalSpaceMedium,
-              BusyButton(
-                title: S.of(context).login,
-                busy: model.isBusy,
-                width: 200,
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    model.login();
-                  } else {
-                    model.setValidationMessage(
-                        'There are some problems with your input');
-                  }
-                },
-              ),
-            ],
+                verticalSpaceMedium,
+                BusyButton(
+                  title: S.of(context).login,
+                  busy: model.isBusy,
+                  width: 200,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      model.login();
+                    } else {
+                      model.setValidationMessage(
+                          'There are some problems with your input');
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

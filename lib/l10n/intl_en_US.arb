@@ -5,5 +5,8 @@
     "emailIsRequired": "Email is required",
     "passwordIsRequired": "Password is required",
     "emailIsInvalid": "Email is invalid",
-    "login": "Login"
+    "login": "Login",
+    "doYouWantToExit": "Do you want to exit",
+    "ok": "Ok",
+    "cancel": "Cancel"
 }

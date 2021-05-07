@@ -109,6 +109,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Do you want to exit`
+  String get doYouWantToExit {
+    return Intl.message(
+      'Do you want to exit',
+      name: 'doYouWantToExit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ok`
+  String get ok {
+    return Intl.message(
+      'Ok',
+      name: 'ok',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

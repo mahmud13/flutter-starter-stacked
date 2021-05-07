@@ -19,11 +19,7 @@ class StartUpViewModel extends BaseViewModel {
       final currentUser = _userService.currentUser;
       log.v('User sync complete. User profile: $currentUser');
 
-      if (!currentUser.hasAddress) {
-        await _navigationService.navigateTo(Routes.addressSelectionView);
-      } else {
-        // navigate to home view
-      }
+      unawaited(_navigationService.navigateTo(Routes.homeView));
     } else {
       log.v('No user on disk, navigate to the LoginView');
       unawaited(_navigationService.replaceWith(Routes.loginView));
