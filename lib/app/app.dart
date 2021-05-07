@@ -1,6 +1,5 @@
 import 'package:flutter_starter/api/firestore_api.dart';
 import 'package:flutter_starter/services/user_service.dart';
-import 'package:flutter_starter/ui/views/address_selection/address_selection_view.dart';
 import 'package:flutter_starter/ui/views/create_account/create_account_view.dart';
 import 'package:flutter_starter/ui/views/home/home_view.dart';
 import 'package:flutter_starter/ui/views/login/login_view.dart';
@@ -12,7 +11,6 @@ import 'package:stacked_services/stacked_services.dart';
 @StackedApp(
   routes: [
     MaterialRoute(page: StartUpView, initial: true),
-    CupertinoRoute(page: AddressSelectionView),
     CupertinoRoute(page: CreateAccountView),
     CupertinoRoute(page: LoginView),
     CupertinoRoute(page: HomeView),
