@@ -10,23 +10,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-import '../ui/views/address_selection/address_selection_view.dart';
-import '../ui/views/create_account/create_account_view.dart';
+import '../../flutter/material.dart';
 import '../ui/views/home/home_view.dart';
 import '../ui/views/login/login_view.dart';
+import '../ui/views/signup/signup_view.dart';
 import '../ui/views/startup/startup_view.dart';
 
 class Routes {
   static const String startUpView = '/';
-  static const String addressSelectionView = '/address-selection-view';
-  static const String createAccountView = '/create-account-view';
   static const String loginView = '/login-view';
+  static const String signupView = '/signup-view';
   static const String homeView = '/home-view';
   static const all = <String>{
     startUpView,
-    addressSelectionView,
-    createAccountView,
     loginView,
+    signupView,
     homeView,
   };
 }
@@ -36,9 +34,8 @@ class StackedRouter extends RouterBase {
   List<RouteDef> get routes => _routes;
   final _routes = <RouteDef>[
     RouteDef(Routes.startUpView, page: StartUpView),
-    RouteDef(Routes.addressSelectionView, page: AddressSelectionView),
-    RouteDef(Routes.createAccountView, page: CreateAccountView),
     RouteDef(Routes.loginView, page: LoginView),
+    RouteDef(Routes.signupView, page: SignupView),
     RouteDef(Routes.homeView, page: HomeView),
   ];
   @override
@@ -50,27 +47,18 @@ class StackedRouter extends RouterBase {
         settings: data,
       );
     },
-    AddressSelectionView: (data) {
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => const AddressSelectionView(),
-        settings: data,
-      );
-    },
-    CreateAccountView: (data) {
-      var args = data.getArgs<CreateAccountViewArguments>(
-        orElse: () => CreateAccountViewArguments(),
-      );
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => CreateAccountView(key: args.key),
-        settings: data,
-      );
-    },
     LoginView: (data) {
       var args = data.getArgs<LoginViewArguments>(
         orElse: () => LoginViewArguments(),
       );
       return CupertinoPageRoute<dynamic>(
         builder: (context) => LoginView(key: args.key),
+        settings: data,
+      );
+    },
+    SignupView: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => SignupView(),
         settings: data,
       );
     },
@@ -86,12 +74,6 @@ class StackedRouter extends RouterBase {
 /// ************************************************************************
 /// Arguments holder classes
 /// *************************************************************************
-
-/// CreateAccountView arguments holder class
-class CreateAccountViewArguments {
-  final Key? key;
-  CreateAccountViewArguments({this.key});
-}
 
 /// LoginView arguments holder class
 class LoginViewArguments {

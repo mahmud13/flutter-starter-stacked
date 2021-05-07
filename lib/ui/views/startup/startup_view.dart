@@ -1,7 +1,8 @@
-import 'package:flutter_starter/ui/views/startup/startup_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:stacked/stacked.dart';
+
+import 'startup_viewmodel.dart';
 
 class StartUpView extends StatelessWidget {
   const StartUpView({Key? key}) : super(key: key);

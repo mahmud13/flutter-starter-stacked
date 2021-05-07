@@ -19,20 +19,41 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en_US';
 
+  static String m0(min) => "Password should be at least ${min} characters";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
+            "Already have an account? Login"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "designation": MessageLookupByLibrary.simpleMessage("Designation"),
+        "designationIsRequired":
+            MessageLookupByLibrary.simpleMessage("Designation is required"),
         "doYouWantToExit":
             MessageLookupByLibrary.simpleMessage("Do you want to exit"),
+        "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage(
+            "Don\'t have an account? Register"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailIsInvalid":
             MessageLookupByLibrary.simpleMessage("Email is invalid"),
         "emailIsRequired":
             MessageLookupByLibrary.simpleMessage("Email is required"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "name": MessageLookupByLibrary.simpleMessage("Name"),
+        "nameIsRequired":
+            MessageLookupByLibrary.simpleMessage("Name is required"),
+        "next": MessageLookupByLibrary.simpleMessage("Next"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordIsRequired":
-            MessageLookupByLibrary.simpleMessage("Password is required")
+            MessageLookupByLibrary.simpleMessage("Password is required"),
+        "passwordShouldBeLong": m0,
+        "personalInfo": MessageLookupByLibrary.simpleMessage("Personal Info"),
+        "phone": MessageLookupByLibrary.simpleMessage("Phone"),
+        "phoneIsRequired":
+            MessageLookupByLibrary.simpleMessage("Phone is required"),
+        "signup": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "yourInformationWillBeLost": MessageLookupByLibrary.simpleMessage(
+            "Your information will be lost.")
       };
 }

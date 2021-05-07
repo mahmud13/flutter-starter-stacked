@@ -1,12 +1,13 @@
-import 'package:flutter_starter/app/app.locator.dart';
-import 'package:flutter_starter/app/app.logger.dart';
-import 'package:flutter_starter/exceptions/firestore_api_exception.dart';
-import 'package:flutter_starter/models/application_models.dart';
-import 'package:flutter_starter/services/user_service.dart';
 import 'package:pedantic/pedantic.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
 import 'package:stacked_services/stacked_services.dart';
+
+import '../../app/app.locator.dart';
+import '../../app/app.logger.dart';
+import '../../exceptions/firestore_api_exception.dart';
+import '../../models/application_models.dart';
+import '../../services/user_service.dart';
 
 abstract class AuthenticationViewModel extends FormViewModel {
   final log = getLogger('AuthenticationViewModel');

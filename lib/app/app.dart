@@ -1,18 +1,19 @@
-import 'package:flutter_starter/api/firestore_api.dart';
-import 'package:flutter_starter/services/user_service.dart';
-import 'package:flutter_starter/ui/views/create_account/create_account_view.dart';
-import 'package:flutter_starter/ui/views/home/home_view.dart';
-import 'package:flutter_starter/ui/views/login/login_view.dart';
-import 'package:flutter_starter/ui/views/startup/startup_view.dart';
+import 'package:flutter_starter/ui/views/signup/signup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+import '../api/firestore_api.dart';
+import '../services/user_service.dart';
+import '../ui/views/home/home_view.dart';
+import '../ui/views/login/login_view.dart';
+import '../ui/views/startup/startup_view.dart';
+
 @StackedApp(
   routes: [
     MaterialRoute(page: StartUpView, initial: true),
-    CupertinoRoute(page: CreateAccountView),
     CupertinoRoute(page: LoginView),
+    CupertinoRoute(page: SignupView),
     CupertinoRoute(page: HomeView),
   ],
   dependencies: [

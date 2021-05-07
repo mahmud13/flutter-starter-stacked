@@ -1,12 +1,25 @@
 {
     "@@locale": "bn_BD",
+    "name": "নাম",
     "email": "ইমেইল",
+    "phone": "ফোন",
     "password": "পাসওয়ার্ড",
+    "designation": "পদমর্যাদা",
+    "nameIsRequired": "নাম লাগবেই",
+    "phoneIsRequired": "ফোন লাগবেই",
+    "designationIsRequired": "পদ লাগবেই",
+    "passwordIsRequired": "পাসওয়ার্ড লাগবেই",
+    "passwordShouldBeLong": "পাসওয়ার্ড অন্তত {min} অক্ষরের হতে হবে",
     "emailIsRequired": "ইমেইল লাগবেই",
     "emailIsInvalid": "ইমেইল ঠিক নেই",
-    "passwordIsRequired": "পাসওয়ার্ড লাগবেই",
     "login": "লগিন",
+    "signup": "সাইন আপ",
     "doYouWantToExit": "আপনি কি বের হয়ে যেতে চান?",
     "ok": "হ্যাঁ",
-    "cancel": "না"
+    "cancel": "না",
+    "alreadyHaveAnAccount": "আগের একাউন্ট আছে? লগিন করুন",
+    "personalInfo": "ব্যাক্তিগত তথ্য",
+    "yourInformationWillBeLost": "আপনার দেয়া তথ্যগুলো হারিয়ে যাবে",
+    "dontHaveAnAccount": "একাউন্ট নেই? রেজিস্টার করুন",
+    "next": "পরবর্তি ধাপ"
 }

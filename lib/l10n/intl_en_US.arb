@@ -1,12 +1,25 @@
 {
     "@@locale": "en_US",
+    "name": "Name",
     "email": "Email",
+    "phone": "Phone",
     "password": "Password",
-    "emailIsRequired": "Email is required",
+    "designation": "Designation",
+    "nameIsRequired": "Name is required",
+    "phoneIsRequired": "Phone is required",
+    "designationIsRequired": "Designation is required",
     "passwordIsRequired": "Password is required",
+    "passwordShouldBeLong": "Password should be at least {min} characters",
+    "emailIsRequired": "Email is required",
     "emailIsInvalid": "Email is invalid",
     "login": "Login",
+    "signup": "Sign Up",
     "doYouWantToExit": "Do you want to exit",
     "ok": "Ok",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "alreadyHaveAnAccount": "Already have an account? Login",
+    "personalInfo": "Personal Info",
+    "yourInformationWillBeLost": "Your information will be lost.",
+    "dontHaveAnAccount": "Don't have an account? Register",
+    "next": "Next"
 }

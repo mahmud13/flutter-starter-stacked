@@ -1,11 +1,11 @@
-import 'package:flutter_starter/generated/l10n.dart';
-import 'package:flutter_starter/ui/shared/ui_helpers.dart';
-import 'package:flutter_starter/ui/widgets/busy_button.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:validators/validators.dart';
 
+import '../../../generated/l10n.dart';
+import '../../shared/ui_helpers.dart';
+import '../../widgets/busy_button.dart';
 import 'login_view.form.dart';
 import 'login_viewmodel.dart';
 
@@ -41,9 +41,7 @@ class LoginView extends StatelessWidget with $LoginView {
                   ),
                 Form(
                   key: _formKey,
-                  autovalidateMode: model.showValidation
-                      ? AutovalidateMode.always
-                      : AutovalidateMode.disabled,
+                  autovalidateMode: model.autovalidateMode,
                   child: Column(
                     children: [
                       TextFormField(
@@ -85,16 +83,15 @@ class LoginView extends StatelessWidget with $LoginView {
                     if (_formKey.currentState!.validate()) {
                       model.login();
                     } else {
-                      model.setValidationMessage(
-                          'There are some problems with your input');
+                      model.setAutovalidateModeAlways();
                     }
                   },
                 ),
                 TextButton(
                   onPressed: () {
-                    model.navigateToHome();
+                    model.navigateToSignup();
                   },
-                  child: Text('Don\'t have an account? Register'),
+                  child: Text(S.current.dontHaveAnAccount),
                 )
               ],
             ),

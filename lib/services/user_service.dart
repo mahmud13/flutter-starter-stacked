@@ -1,8 +1,9 @@
-import 'package:flutter_starter/api/firestore_api.dart';
-import 'package:flutter_starter/app/app.locator.dart';
-import 'package:flutter_starter/app/app.logger.dart';
-import 'package:flutter_starter/models/application_models.dart';
 import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
+
+import '../api/firestore_api.dart';
+import '../app/app.locator.dart';
+import '../app/app.logger.dart';
+import '../models/application_models.dart';
 
 class UserService {
   final log = getLogger('UserService');

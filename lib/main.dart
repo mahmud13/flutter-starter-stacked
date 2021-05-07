@@ -2,10 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:stacked_services/stacked_services.dart';
-import './generated/l10n.dart';
 
 import 'app/app.locator.dart';
 import 'app/app.router.dart';
+import 'generated/l10n.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();

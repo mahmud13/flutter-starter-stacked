@@ -50,11 +50,31 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Email`
   String get email {
     return Intl.message(
       'Email',
       name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone`
+  String get phone {
+    return Intl.message(
+      'Phone',
+      name: 'phone',
       desc: '',
       args: [],
     );
@@ -70,11 +90,41 @@ class S {
     );
   }
 
-  /// `Email is required`
-  String get emailIsRequired {
+  /// `Designation`
+  String get designation {
     return Intl.message(
-      'Email is required',
-      name: 'emailIsRequired',
+      'Designation',
+      name: 'designation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name is required`
+  String get nameIsRequired {
+    return Intl.message(
+      'Name is required',
+      name: 'nameIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone is required`
+  String get phoneIsRequired {
+    return Intl.message(
+      'Phone is required',
+      name: 'phoneIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Designation is required`
+  String get designationIsRequired {
+    return Intl.message(
+      'Designation is required',
+      name: 'designationIsRequired',
       desc: '',
       args: [],
     );
@@ -85,6 +135,26 @@ class S {
     return Intl.message(
       'Password is required',
       name: 'passwordIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password should be at least {min} characters`
+  String passwordShouldBeLong(Object min) {
+    return Intl.message(
+      'Password should be at least $min characters',
+      name: 'passwordShouldBeLong',
+      desc: '',
+      args: [min],
+    );
+  }
+
+  /// `Email is required`
+  String get emailIsRequired {
+    return Intl.message(
+      'Email is required',
+      name: 'emailIsRequired',
       desc: '',
       args: [],
     );
@@ -105,6 +175,16 @@ class S {
     return Intl.message(
       'Login',
       name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up`
+  String get signup {
+    return Intl.message(
+      'Sign Up',
+      name: 'signup',
       desc: '',
       args: [],
     );
@@ -135,6 +215,56 @@ class S {
     return Intl.message(
       'Cancel',
       name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account? Login`
+  String get alreadyHaveAnAccount {
+    return Intl.message(
+      'Already have an account? Login',
+      name: 'alreadyHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Personal Info`
+  String get personalInfo {
+    return Intl.message(
+      'Personal Info',
+      name: 'personalInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your information will be lost.`
+  String get yourInformationWillBeLost {
+    return Intl.message(
+      'Your information will be lost.',
+      name: 'yourInformationWillBeLost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account? Register`
+  String get dontHaveAnAccount {
+    return Intl.message(
+      'Don\'t have an account? Register',
+      name: 'dontHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get next {
+    return Intl.message(
+      'Next',
+      name: 'next',
       desc: '',
       args: [],
     );

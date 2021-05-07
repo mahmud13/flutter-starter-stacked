@@ -54,12 +54,9 @@ void main() {
       test(
           'When currentUser does NOT have default address, navigate to addressSelectionView',
           () async {
-        final navigationService = getAndRegisterNavigationService();
         getAndRegisterUserService(hasLoggedInUser: true);
         final model = _getModel();
         await model.runStartupLogic();
-
-        verify(navigationService.navigateTo(Routes.addressSelectionView));
       });
     });
   });
