@@ -90,6 +90,12 @@ class LoginView extends StatelessWidget with $LoginView {
                     }
                   },
                 ),
+                TextButton(
+                  onPressed: () {
+                    model.navigateToHome();
+                  },
+                  child: Text('Don\'t have an account? Register'),
+                )
               ],
             ),
           ),
