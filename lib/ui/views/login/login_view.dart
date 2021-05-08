@@ -80,12 +80,11 @@ class LoginView extends StatelessWidget with $LoginView {
                   busy: model.isBusy,
                   width: 200,
                   onPressed: () {
-                    model.navigateToSignup();
-                    // if (_formKey.currentState!.validate()) {
-                    //   model.login();
-                    // } else {
-                    //   model.setAutovalidateModeAlways();
-                    // }
+                    if (_formKey.currentState!.validate()) {
+                      model.login();
+                    } else {
+                      model.setAutovalidateModeAlways();
+                    }
                   },
                 ),
                 TextButton(
