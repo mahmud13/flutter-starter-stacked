@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
             "Already have an account? Login"),
+        "back": MessageLookupByLibrary.simpleMessage("Back"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "designation": MessageLookupByLibrary.simpleMessage("Designation"),
         "designationIsRequired":
@@ -38,6 +39,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Email is invalid"),
         "emailIsRequired":
             MessageLookupByLibrary.simpleMessage("Email is required"),
+        "factory": MessageLookupByLibrary.simpleMessage("Factory"),
+        "factoryIsRequired":
+            MessageLookupByLibrary.simpleMessage("Factory is Required"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "nameIsRequired":
@@ -52,7 +56,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
         "phoneIsRequired":
             MessageLookupByLibrary.simpleMessage("Phone is required"),
+        "region": MessageLookupByLibrary.simpleMessage("Region"),
+        "regionIsRequired":
+            MessageLookupByLibrary.simpleMessage("Region is Required"),
+        "selectRegionFirst": MessageLookupByLibrary.simpleMessage(
+            "Please, select a region first"),
         "signup": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "youSelected": MessageLookupByLibrary.simpleMessage("You Selected"),
         "yourInformationWillBeLost": MessageLookupByLibrary.simpleMessage(
             "Your information will be lost.")
       };

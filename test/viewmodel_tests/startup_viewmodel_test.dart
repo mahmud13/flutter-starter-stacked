@@ -1,5 +1,5 @@
-import 'package:flutter_starter/app/app.router.dart';
-import 'package:flutter_starter/ui/views/startup/startup_viewmodel.dart';
+import 'package:crowd_sourcing/app/app.router.dart';
+import 'package:crowd_sourcing/ui/views/startup/startup_viewmodel.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 

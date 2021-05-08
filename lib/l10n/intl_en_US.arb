@@ -19,7 +19,14 @@
     "cancel": "Cancel",
     "alreadyHaveAnAccount": "Already have an account? Login",
     "personalInfo": "Personal Info",
+    "factory": "Factory",
     "yourInformationWillBeLost": "Your information will be lost.",
     "dontHaveAnAccount": "Don't have an account? Register",
-    "next": "Next"
+    "next": "Next",
+    "region": "Region",
+    "regionIsRequired": "Region is Required",
+    "selectRegionFirst": "Please, select a region first",
+    "factoryIsRequired": "Factory is Required",
+    "youSelected": "You Selected",
+    "back": "Back"
 }

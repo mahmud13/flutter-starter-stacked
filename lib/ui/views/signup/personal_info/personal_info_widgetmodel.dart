@@ -12,14 +12,12 @@ class PersonalInfoWidgetModel extends CustomFormViewModel {
     notifyListeners();
   }
 
-  void submit(Function onSubmit) {
-    onSubmit(PersonalInfo(
-      name: nameValue!,
-      email: emailValue!,
-      designation: designationValue!,
-      phone: phoneValue!,
-    ));
-  }
+  PersonalInfo getPersonalInfo(Function onSubmit) => onSubmit(PersonalInfo(
+        name: nameValue!,
+        email: emailValue!,
+        designation: designationValue!,
+        phone: phoneValue!,
+      ));
 }
 
 class PersonalInfo {

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/ui/views/signup/personal_info/personal_info_widgetmodel.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:validators/validators.dart';
@@ -8,6 +7,7 @@ import 'package:validators/validators.dart';
 import '../../../../generated/l10n.dart';
 import '../../../shared/ui_helpers.dart';
 import 'personal_info_widget.form.dart';
+import 'personal_info_widgetmodel.dart';
 
 @FormView(fields: [
   FormTextField(name: 'name'),
@@ -24,7 +24,7 @@ class PersonalInfoWidget extends StatelessWidget with $PersonalInfoWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<PersonalInfoWidgetModel>.reactive(
-      createNewModelOnInsert: false,
+      onModelReady: (model) => listenToFormUpdated(model),
       builder: (context, model, child) => Form(
         key: _formKey,
         autovalidateMode: model.autovalidateMode,
@@ -87,7 +87,7 @@ class PersonalInfoWidget extends StatelessWidget with $PersonalInfoWidget {
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        model.submit(onSubmit);
+                        model.getPersonalInfo(onSubmit);
                       } else {
                         model.setAutovalidateModeAlways();
                       }

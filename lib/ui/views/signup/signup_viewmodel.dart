@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'dart:ui';
 
-import 'package:flutter_starter/models/application_models.dart';
-import 'package:flutter_starter/ui/views/signup/personal_info/personal_info_widgetmodel.dart';
+import 'package:crowd_sourcing/models/application_models.dart';
 import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -11,6 +10,7 @@ import '../../../app/app.router.dart';
 import '../../../generated/l10n.dart';
 import '../../../services/user_service.dart';
 import '../../../ui/base/custom_form_view_model.dart';
+import 'personal_info/personal_info_widgetmodel.dart';
 
 class SignupViewModel extends CustomFormViewModel {
   final _firebaseAuthenticationService =
@@ -18,7 +18,7 @@ class SignupViewModel extends CustomFormViewModel {
   final _navigationService = locator<NavigationService>();
   final _dialogService = locator<DialogService>();
   final _userService = locator<UserService>();
-
+  var _user = User(id: '');
   var _currentStep = 0;
   final totalSteps;
 
@@ -55,7 +55,16 @@ class SignupViewModel extends CustomFormViewModel {
   }
 
   void setPersonalInfo(PersonalInfo info) {
-    print(info);
+    _user = _user.copyWith(
+      name: info.name,
+      designation: info.designation,
+      email: info.email,
+      phone: info.phone,
+    );
+  }
+
+  void setFactoryId(String factoryId) {
+    _user = _user.copyWith(factoryId: factoryId);
   }
 
   Future<bool> handleBack() async {

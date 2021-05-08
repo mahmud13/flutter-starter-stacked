@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("আগের একাউন্ট আছে? লগিন করুন"),
+        "back": MessageLookupByLibrary.simpleMessage("পেছনে"),
         "cancel": MessageLookupByLibrary.simpleMessage("না"),
         "designation": MessageLookupByLibrary.simpleMessage("পদমর্যাদা"),
         "designationIsRequired":
@@ -36,6 +37,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("ইমেইল"),
         "emailIsInvalid": MessageLookupByLibrary.simpleMessage("ইমেইল ঠিক নেই"),
         "emailIsRequired": MessageLookupByLibrary.simpleMessage("ইমেইল লাগবেই"),
+        "factory": MessageLookupByLibrary.simpleMessage("ফ্যাক্টরি"),
+        "factoryIsRequired":
+            MessageLookupByLibrary.simpleMessage("ফ্যাক্টরি নির্বাচন আবশ্যক"),
         "login": MessageLookupByLibrary.simpleMessage("লগিন"),
         "name": MessageLookupByLibrary.simpleMessage("নাম"),
         "nameIsRequired": MessageLookupByLibrary.simpleMessage("নাম লাগবেই"),
@@ -48,7 +52,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "personalInfo": MessageLookupByLibrary.simpleMessage("ব্যাক্তিগত তথ্য"),
         "phone": MessageLookupByLibrary.simpleMessage("ফোন"),
         "phoneIsRequired": MessageLookupByLibrary.simpleMessage("ফোন লাগবেই"),
+        "region": MessageLookupByLibrary.simpleMessage("এলাকা"),
+        "regionIsRequired":
+            MessageLookupByLibrary.simpleMessage("এলাকা নির্বাচন আবশ্যক"),
+        "selectRegionFirst": MessageLookupByLibrary.simpleMessage(
+            "দয়া করে প্রথমে আপনার এলাকা নির্বাচন করুন"),
         "signup": MessageLookupByLibrary.simpleMessage("সাইন আপ"),
+        "youSelected":
+            MessageLookupByLibrary.simpleMessage("আপনি নির্বাচন করেছেন"),
         "yourInformationWillBeLost": MessageLookupByLibrary.simpleMessage(
             "আপনার দেয়া তথ্যগুলো হারিয়ে যাবে")
       };

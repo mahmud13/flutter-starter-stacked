@@ -1,4 +1,4 @@
-name: flutter_starter
+name: crowd_sourcing
 description: A new Flutter project with Stacked.
 
 # The following line prevents the package from being accidentally published to
@@ -50,6 +50,7 @@ dependencies:
   pedantic: ^1.11.0
   observable_ish: ^3.0.0
   validators: ^3.0.0
+  dropdown_search: ^0.6.1
 
 dev_dependencies:
   flutter_test:

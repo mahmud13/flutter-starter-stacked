@@ -240,6 +240,16 @@ class S {
     );
   }
 
+  /// `Factory`
+  String get factory {
+    return Intl.message(
+      'Factory',
+      name: 'factory',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Your information will be lost.`
   String get yourInformationWillBeLost {
     return Intl.message(
@@ -265,6 +275,66 @@ class S {
     return Intl.message(
       'Next',
       name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Region`
+  String get region {
+    return Intl.message(
+      'Region',
+      name: 'region',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Region is Required`
+  String get regionIsRequired {
+    return Intl.message(
+      'Region is Required',
+      name: 'regionIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please, select a region first`
+  String get selectRegionFirst {
+    return Intl.message(
+      'Please, select a region first',
+      name: 'selectRegionFirst',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Factory is Required`
+  String get factoryIsRequired {
+    return Intl.message(
+      'Factory is Required',
+      name: 'factoryIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You Selected`
+  String get youSelected {
+    return Intl.message(
+      'You Selected',
+      name: 'youSelected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back`
+  String get back {
+    return Intl.message(
+      'Back',
+      name: 'back',
       desc: '',
       args: [],
     );

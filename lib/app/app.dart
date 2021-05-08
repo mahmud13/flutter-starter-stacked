@@ -1,4 +1,4 @@
-import 'package:flutter_starter/ui/views/signup/signup_view.dart';
+import 'package:crowd_sourcing/services/factory_service.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -7,6 +7,7 @@ import '../api/firestore_api.dart';
 import '../services/user_service.dart';
 import '../ui/views/home/home_view.dart';
 import '../ui/views/login/login_view.dart';
+import '../ui/views/signup/signup_view.dart';
 import '../ui/views/startup/startup_view.dart';
 
 @StackedApp(
@@ -19,6 +20,7 @@ import '../ui/views/startup/startup_view.dart';
   dependencies: [
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: UserService),
+    LazySingleton(classType: FactoryService),
     LazySingleton(classType: FirestoreApi),
     LazySingleton(classType: DialogService),
     Singleton(classType: FirebaseAuthenticationService),

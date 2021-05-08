@@ -10,6 +10,9 @@ class FirestoreApi {
   final CollectionReference usersCollection =
       FirebaseFirestore.instance.collection('users');
 
+  final CollectionReference factoriesCollection =
+      FirebaseFirestore.instance.collection('factories');
+
   Future<void> createUser({required User user}) async {
     log.i('user:$user');
 
@@ -44,5 +47,14 @@ class FirestoreApi {
           message:
               'Your userId passed in is empty. Please pass in a valid user if from your Firebase user.');
     }
+  }
+
+  Future<List<Factory>> getFactoriesByRegion(String region) async {
+    var snapshot = await factoriesCollection
+        .where('address_district', isEqualTo: region)
+        .get();
+    return snapshot.size > 0
+        ? snapshot.docs.map((doc) => Factory.fromJson(doc.data())).toList()
+        : [];
   }
 }

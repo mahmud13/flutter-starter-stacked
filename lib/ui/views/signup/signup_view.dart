@@ -1,9 +1,10 @@
+import 'package:crowd_sourcing/ui/views/signup/factory_name/factory_name_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/generated/l10n.dart';
-import 'package:flutter_starter/ui/views/signup/personal_info/personal_info_widget.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../../generated/l10n.dart';
 import '../../shared/ui_helpers.dart';
+import 'personal_info/personal_info_widget.dart';
 import 'signup_viewmodel.dart';
 
 class SignupView extends StatelessWidget {
@@ -49,19 +50,15 @@ class SignupView extends StatelessWidget {
                       ),
                     ),
                     Step(
-                      title: Text('Factory'),
+                      title: Text(S.current.factory),
                       content: Container(
                         alignment: Alignment.centerLeft,
-                        child: Text('step 2'),
-                        // child: FactorySelectForm(
-                        //   onSubmit: (factoryId) {
-                        //     setState(() {
-                        //       _input.factoryId = factoryId;
-                        //       _currentStep++;
-                        //     });
-                        //   },
-                        //   onBack: handleBack,
-                        // ),
+                        child: FactoryNameView(
+                          onSubmit: (factoryId) {
+                            model.stepUp();
+                          },
+                          stepDown: model.stepDown,
+                        ),
                       ),
                     ),
                     // Step(

@@ -19,7 +19,14 @@
     "cancel": "না",
     "alreadyHaveAnAccount": "আগের একাউন্ট আছে? লগিন করুন",
     "personalInfo": "ব্যাক্তিগত তথ্য",
+    "factory": "ফ্যাক্টরি",
     "yourInformationWillBeLost": "আপনার দেয়া তথ্যগুলো হারিয়ে যাবে",
     "dontHaveAnAccount": "একাউন্ট নেই? রেজিস্টার করুন",
-    "next": "পরবর্তি ধাপ"
+    "next": "পরবর্তি ধাপ",
+    "region": "এলাকা",
+    "regionIsRequired": "এলাকা নির্বাচন আবশ্যক",
+    "selectRegionFirst": "দয়া করে প্রথমে আপনার এলাকা নির্বাচন করুন",
+    "factoryIsRequired": "ফ্যাক্টরি নির্বাচন আবশ্যক",
+    "youSelected": "আপনি নির্বাচন করেছেন",
+    "back": "পেছনে"
 }
