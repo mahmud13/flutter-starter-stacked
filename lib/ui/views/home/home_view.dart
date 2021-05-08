@@ -1,4 +1,5 @@
 import 'package:crowd_sourcing/generated/l10n.dart';
+import 'package:crowd_sourcing/ui/dumb_widgets/base_layout.dart';
 import 'package:crowd_sourcing/ui/shared/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -15,23 +16,8 @@ class HomeView extends StatelessWidget {
     return ViewModelBuilder<HomeViewModel>.reactive(
       builder: (context, model, child) => WillPopScope(
         onWillPop: model.handleBack,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text('Home'),
-            actions: <Widget>[
-              PopupMenuButton<String>(
-                onSelected: model.handleMenuItemClick,
-                itemBuilder: (BuildContext context) {
-                  return {'Profile', 'Logout'}.map((String choice) {
-                    return PopupMenuItem<String>(
-                      value: choice,
-                      child: Text(choice),
-                    );
-                  }).toList();
-                },
-              ),
-            ],
-          ),
+        child: BaseLayout(
+          appBarTitle: 'Home',
           body: Container(
             alignment: Alignment.center,
             child: Padding(
@@ -86,33 +72,6 @@ class HomeView extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-          ),
-          drawer: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: <Widget>[
-                DrawerHeader(
-                  decoration: BoxDecoration(color: theme.primaryColor),
-                  child: Text(
-                    model.currentUser.name ?? 'Anonymous',
-                    style: theme.textTheme.headline5!
-                        .copyWith(color: Colors.white),
-                  ),
-                ),
-                ListTile(
-                  title: Text('Item 1'),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  title: Text('Item 2'),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ],
             ),
           ),
         ),
