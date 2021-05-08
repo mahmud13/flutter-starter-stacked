@@ -42,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "factory": MessageLookupByLibrary.simpleMessage("Factory"),
         "factoryIsRequired":
             MessageLookupByLibrary.simpleMessage("Factory is Required"),
+        "hello": MessageLookupByLibrary.simpleMessage("Hello"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "nameIsRequired":
@@ -63,6 +64,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectRegionFirst": MessageLookupByLibrary.simpleMessage(
             "Please, select a region first"),
         "signup": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "suggestAnEdit":
+            MessageLookupByLibrary.simpleMessage("Suggest an Edit"),
+        "viewSubmissionReport":
+            MessageLookupByLibrary.simpleMessage("View Submission Report"),
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
         "youSelected": MessageLookupByLibrary.simpleMessage("You Selected"),
         "yourInformationWillBeLost": MessageLookupByLibrary.simpleMessage(
             "Your information will be lost.")

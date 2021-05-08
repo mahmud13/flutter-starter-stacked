@@ -29,5 +29,9 @@
     "factoryIsRequired": "Factory is Required",
     "youSelected": "You Selected",
     "back": "Back",
-    "profilePicture": "Profile Photo"
+    "profilePicture": "Profile Photo",
+    "suggestAnEdit": "Suggest an Edit",
+    "viewSubmissionReport": "View Submission Report",
+    "hello": "Hello",
+    "welcome": "Welcome"
 }

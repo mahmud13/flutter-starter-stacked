@@ -8,16 +8,16 @@ class FactoryNameViewModel extends CustomFormViewModel {
   String? _region;
   final _factoryService = locator<FactoryService>();
 
-  final Map<String, List<Factory>> _factoriesByRegion = {};
+  final Map<String, List<Faktory>> _factoriesByRegion = {};
 
-  Factory? selectedFactory;
+  Faktory? selectedFactory;
 
   String? get region => _region;
   void setRegion(String? region) {
     _region = region;
   }
 
-  Future<List<Factory>> getFactories() async {
+  Future<List<Faktory>> getFactories() async {
     if (_region == null) {
       return [];
     } else if (isFactoriesLoaded(_region!)) {

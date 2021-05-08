@@ -63,8 +63,8 @@ class SignupViewModel extends CustomFormViewModel {
     _user = info;
   }
 
-  void setFactoryId(String factoryId) {
-    _user = _user!.copyWith(factoryId: factoryId);
+  void setFaktoryId(String factoryId) {
+    _user = _user!.copyWith(faktoryId: factoryId);
   }
 
   Future<bool> handleBack() async {

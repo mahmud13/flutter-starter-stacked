@@ -53,17 +53,18 @@ class FirestoreApi {
     await usersCollection.doc(userId).set({'imageUrl': imageUrl});
   }
 
-  Future<List<Factory>> getFactoriesByRegion(String region) async {
+  Future<List<Faktory>> getFactoriesByRegion(String region) async {
     var snapshot = await factoriesCollection
         .where('address_district', isEqualTo: region)
+        .limit(5)
         .get();
     return snapshot.size > 0
-        ? snapshot.docs.map((doc) => Factory.fromJson(doc.data())).toList()
+        ? snapshot.docs.map((doc) => Faktory.fromJson(doc.data())).toList()
         : [];
   }
 
-  Future<Factory?> getFactory(String id) async {
+  Future<Faktory?> getFactory(String id) async {
     var doc = await factoriesCollection.doc(id).get();
-    return doc.exists ? Factory.fromJson(doc.data()!) : null;
+    return doc.exists ? Faktory.fromJson(doc.data()!) : null;
   }
 }

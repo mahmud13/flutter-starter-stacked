@@ -40,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "factory": MessageLookupByLibrary.simpleMessage("ফ্যাক্টরি"),
         "factoryIsRequired":
             MessageLookupByLibrary.simpleMessage("ফ্যাক্টরি নির্বাচন আবশ্যক"),
+        "hello": MessageLookupByLibrary.simpleMessage("হ্যালো"),
         "login": MessageLookupByLibrary.simpleMessage("লগিন"),
         "name": MessageLookupByLibrary.simpleMessage("নাম"),
         "nameIsRequired": MessageLookupByLibrary.simpleMessage("নাম লাগবেই"),
@@ -59,6 +60,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectRegionFirst": MessageLookupByLibrary.simpleMessage(
             "দয়া করে প্রথমে আপনার এলাকা নির্বাচন করুন"),
         "signup": MessageLookupByLibrary.simpleMessage("সাইন আপ"),
+        "suggestAnEdit":
+            MessageLookupByLibrary.simpleMessage("একটি সম্পাদনার পরামর্শ দিন"),
+        "viewSubmissionReport":
+            MessageLookupByLibrary.simpleMessage("আগের জমাগুলো দেখুন"),
+        "welcome": MessageLookupByLibrary.simpleMessage("স্বাগতম"),
         "youSelected":
             MessageLookupByLibrary.simpleMessage("আপনি নির্বাচন করেছেন"),
         "yourInformationWillBeLost": MessageLookupByLibrary.simpleMessage(

@@ -8,10 +8,10 @@ class FactoryService {
 
   final _firestoreApi = locator<FirestoreApi>();
 
-  Future<List<Factory>> getFactoriesByRegion(String region) async =>
+  Future<List<Faktory>> getFactoriesByRegion(String region) async =>
       _firestoreApi.getFactoriesByRegion(region);
 
-  Future<Factory?> getFactory(String id) {
+  Future<Faktory?> getFactory(String id) {
     return _firestoreApi.getFactory(id);
   }
 }

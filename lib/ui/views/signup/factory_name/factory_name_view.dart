@@ -38,7 +38,7 @@ class FactoryNameView extends StatelessWidget {
             ),
             verticalSpaceTiny,
             Container(
-              child: DropdownSearch<Factory>(
+              child: DropdownSearch<Faktory>(
                   mode: Mode.DIALOG,
                   showSearchBox: true,
                   label: S.current.factory,
@@ -47,12 +47,12 @@ class FactoryNameView extends StatelessWidget {
                   },
                   emptyBuilder: (BuildContext context, String? s) =>
                       Center(child: Text(S.current.selectRegionFirst)),
-                  onChanged: (Factory? item) {
+                  onChanged: (Faktory? item) {
                     model.getFactoryDetail(item!.id);
                   },
                   selectedItem: model.selectedFactory,
-                  itemAsString: (Factory item) => item.name,
-                  validator: (Factory? item) =>
+                  itemAsString: (Faktory item) => item.name,
+                  validator: (Faktory? item) =>
                       item == null ? S.current.factoryIsRequired : null),
             ),
             verticalSpaceMedium,

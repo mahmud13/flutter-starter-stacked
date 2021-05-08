@@ -27,7 +27,9 @@ class _$UserTearOff {
       String? password,
       String? phone,
       String? designation,
-      String? factoryId}) {
+      String? imageUrl,
+      @JsonKey(name: 'factoryId') String? faktoryId,
+      @JsonKey(includeIfNull: false) Faktory? faktory}) {
     return _User(
       id: id,
       email: email,
@@ -35,7 +37,9 @@ class _$UserTearOff {
       password: password,
       phone: phone,
       designation: designation,
-      factoryId: factoryId,
+      imageUrl: imageUrl,
+      faktoryId: faktoryId,
+      faktory: faktory,
     );
   }
 
@@ -55,7 +59,11 @@ mixin _$User {
   String? get password => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String? get designation => throw _privateConstructorUsedError;
-  String? get factoryId => throw _privateConstructorUsedError;
+  String? get imageUrl => throw _privateConstructorUsedError;
+  @JsonKey(name: 'factoryId')
+  String? get faktoryId => throw _privateConstructorUsedError;
+  @JsonKey(includeIfNull: false)
+  Faktory? get faktory => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -73,7 +81,11 @@ abstract class $UserCopyWith<$Res> {
       String? password,
       String? phone,
       String? designation,
-      String? factoryId});
+      String? imageUrl,
+      @JsonKey(name: 'factoryId') String? faktoryId,
+      @JsonKey(includeIfNull: false) Faktory? faktory});
+
+  $FaktoryCopyWith<$Res>? get faktory;
 }
 
 /// @nodoc
@@ -92,7 +104,9 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
     Object? password = freezed,
     Object? phone = freezed,
     Object? designation = freezed,
-    Object? factoryId = freezed,
+    Object? imageUrl = freezed,
+    Object? faktoryId = freezed,
+    Object? faktory = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -119,11 +133,30 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
           ? _value.designation
           : designation // ignore: cast_nullable_to_non_nullable
               as String?,
-      factoryId: factoryId == freezed
-          ? _value.factoryId
-          : factoryId // ignore: cast_nullable_to_non_nullable
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      faktoryId: faktoryId == freezed
+          ? _value.faktoryId
+          : faktoryId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      faktory: faktory == freezed
+          ? _value.faktory
+          : faktory // ignore: cast_nullable_to_non_nullable
+              as Faktory?,
     ));
+  }
+
+  @override
+  $FaktoryCopyWith<$Res>? get faktory {
+    if (_value.faktory == null) {
+      return null;
+    }
+
+    return $FaktoryCopyWith<$Res>(_value.faktory!, (value) {
+      return _then(_value.copyWith(faktory: value));
+    });
   }
 }
 
@@ -139,7 +172,12 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       String? password,
       String? phone,
       String? designation,
-      String? factoryId});
+      String? imageUrl,
+      @JsonKey(name: 'factoryId') String? faktoryId,
+      @JsonKey(includeIfNull: false) Faktory? faktory});
+
+  @override
+  $FaktoryCopyWith<$Res>? get faktory;
 }
 
 /// @nodoc
@@ -159,7 +197,9 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object? password = freezed,
     Object? phone = freezed,
     Object? designation = freezed,
-    Object? factoryId = freezed,
+    Object? imageUrl = freezed,
+    Object? faktoryId = freezed,
+    Object? faktory = freezed,
   }) {
     return _then(_User(
       id: id == freezed
@@ -186,10 +226,18 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
           ? _value.designation
           : designation // ignore: cast_nullable_to_non_nullable
               as String?,
-      factoryId: factoryId == freezed
-          ? _value.factoryId
-          : factoryId // ignore: cast_nullable_to_non_nullable
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      faktoryId: faktoryId == freezed
+          ? _value.faktoryId
+          : faktoryId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      faktory: faktory == freezed
+          ? _value.faktory
+          : faktory // ignore: cast_nullable_to_non_nullable
+              as Faktory?,
     ));
   }
 }
@@ -204,7 +252,9 @@ class _$_User extends _User with DiagnosticableTreeMixin {
       this.password,
       this.phone,
       this.designation,
-      this.factoryId})
+      this.imageUrl,
+      @JsonKey(name: 'factoryId') this.faktoryId,
+      @JsonKey(includeIfNull: false) this.faktory})
       : super._();
 
   factory _$_User.fromJson(Map<String, dynamic> json) =>
@@ -223,11 +273,17 @@ class _$_User extends _User with DiagnosticableTreeMixin {
   @override
   final String? designation;
   @override
-  final String? factoryId;
+  final String? imageUrl;
+  @override
+  @JsonKey(name: 'factoryId')
+  final String? faktoryId;
+  @override
+  @JsonKey(includeIfNull: false)
+  final Faktory? faktory;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'User(id: $id, email: $email, name: $name, password: $password, phone: $phone, designation: $designation, factoryId: $factoryId)';
+    return 'User(id: $id, email: $email, name: $name, password: $password, phone: $phone, designation: $designation, imageUrl: $imageUrl, faktoryId: $faktoryId, faktory: $faktory)';
   }
 
   @override
@@ -241,7 +297,9 @@ class _$_User extends _User with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('password', password))
       ..add(DiagnosticsProperty('phone', phone))
       ..add(DiagnosticsProperty('designation', designation))
-      ..add(DiagnosticsProperty('factoryId', factoryId));
+      ..add(DiagnosticsProperty('imageUrl', imageUrl))
+      ..add(DiagnosticsProperty('faktoryId', faktoryId))
+      ..add(DiagnosticsProperty('faktory', faktory));
   }
 
   @override
@@ -262,9 +320,14 @@ class _$_User extends _User with DiagnosticableTreeMixin {
             (identical(other.designation, designation) ||
                 const DeepCollectionEquality()
                     .equals(other.designation, designation)) &&
-            (identical(other.factoryId, factoryId) ||
+            (identical(other.imageUrl, imageUrl) ||
                 const DeepCollectionEquality()
-                    .equals(other.factoryId, factoryId)));
+                    .equals(other.imageUrl, imageUrl)) &&
+            (identical(other.faktoryId, faktoryId) ||
+                const DeepCollectionEquality()
+                    .equals(other.faktoryId, faktoryId)) &&
+            (identical(other.faktory, faktory) ||
+                const DeepCollectionEquality().equals(other.faktory, faktory)));
   }
 
   @override
@@ -276,7 +339,9 @@ class _$_User extends _User with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(password) ^
       const DeepCollectionEquality().hash(phone) ^
       const DeepCollectionEquality().hash(designation) ^
-      const DeepCollectionEquality().hash(factoryId);
+      const DeepCollectionEquality().hash(imageUrl) ^
+      const DeepCollectionEquality().hash(faktoryId) ^
+      const DeepCollectionEquality().hash(faktory);
 
   @JsonKey(ignore: true)
   @override
@@ -297,7 +362,9 @@ abstract class _User extends User {
       String? password,
       String? phone,
       String? designation,
-      String? factoryId}) = _$_User;
+      String? imageUrl,
+      @JsonKey(name: 'factoryId') String? faktoryId,
+      @JsonKey(includeIfNull: false) Faktory? faktory}) = _$_User;
   _User._() : super._();
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
@@ -315,26 +382,32 @@ abstract class _User extends User {
   @override
   String? get designation => throw _privateConstructorUsedError;
   @override
-  String? get factoryId => throw _privateConstructorUsedError;
+  String? get imageUrl => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'factoryId')
+  String? get faktoryId => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(includeIfNull: false)
+  Faktory? get faktory => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UserCopyWith<_User> get copyWith => throw _privateConstructorUsedError;
 }
 
-Factory _$FactoryFromJson(Map<String, dynamic> json) {
-  return _Factory.fromJson(json);
+Faktory _$FaktoryFromJson(Map<String, dynamic> json) {
+  return _Faktory.fromJson(json);
 }
 
 /// @nodoc
-class _$FactoryTearOff {
-  const _$FactoryTearOff();
+class _$FaktoryTearOff {
+  const _$FaktoryTearOff();
 
-  _Factory call(
+  _Faktory call(
       {@JsonKey(name: '_id') required String id,
       @JsonKey(name: 'factory_name') required String name,
       @JsonKey(name: 'address_display') String? address,
       Geolocation? geolocation}) {
-    return _Factory(
+    return _Faktory(
       id: id,
       name: name,
       address: address,
@@ -342,16 +415,16 @@ class _$FactoryTearOff {
     );
   }
 
-  Factory fromJson(Map<String, Object> json) {
-    return Factory.fromJson(json);
+  Faktory fromJson(Map<String, Object> json) {
+    return Faktory.fromJson(json);
   }
 }
 
 /// @nodoc
-const $Factory = _$FactoryTearOff();
+const $Faktory = _$FaktoryTearOff();
 
 /// @nodoc
-mixin _$Factory {
+mixin _$Faktory {
   @JsonKey(name: '_id')
   String get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'factory_name')
@@ -362,13 +435,13 @@ mixin _$Factory {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FactoryCopyWith<Factory> get copyWith => throw _privateConstructorUsedError;
+  $FaktoryCopyWith<Faktory> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FactoryCopyWith<$Res> {
-  factory $FactoryCopyWith(Factory value, $Res Function(Factory) then) =
-      _$FactoryCopyWithImpl<$Res>;
+abstract class $FaktoryCopyWith<$Res> {
+  factory $FaktoryCopyWith(Faktory value, $Res Function(Faktory) then) =
+      _$FaktoryCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: '_id') String id,
       @JsonKey(name: 'factory_name') String name,
@@ -379,12 +452,12 @@ abstract class $FactoryCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FactoryCopyWithImpl<$Res> implements $FactoryCopyWith<$Res> {
-  _$FactoryCopyWithImpl(this._value, this._then);
+class _$FaktoryCopyWithImpl<$Res> implements $FaktoryCopyWith<$Res> {
+  _$FaktoryCopyWithImpl(this._value, this._then);
 
-  final Factory _value;
+  final Faktory _value;
   // ignore: unused_field
-  final $Res Function(Factory) _then;
+  final $Res Function(Faktory) _then;
 
   @override
   $Res call({
@@ -426,9 +499,9 @@ class _$FactoryCopyWithImpl<$Res> implements $FactoryCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$FactoryCopyWith<$Res> implements $FactoryCopyWith<$Res> {
-  factory _$FactoryCopyWith(_Factory value, $Res Function(_Factory) then) =
-      __$FactoryCopyWithImpl<$Res>;
+abstract class _$FaktoryCopyWith<$Res> implements $FaktoryCopyWith<$Res> {
+  factory _$FaktoryCopyWith(_Faktory value, $Res Function(_Faktory) then) =
+      __$FaktoryCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: '_id') String id,
@@ -441,13 +514,13 @@ abstract class _$FactoryCopyWith<$Res> implements $FactoryCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$FactoryCopyWithImpl<$Res> extends _$FactoryCopyWithImpl<$Res>
-    implements _$FactoryCopyWith<$Res> {
-  __$FactoryCopyWithImpl(_Factory _value, $Res Function(_Factory) _then)
-      : super(_value, (v) => _then(v as _Factory));
+class __$FaktoryCopyWithImpl<$Res> extends _$FaktoryCopyWithImpl<$Res>
+    implements _$FaktoryCopyWith<$Res> {
+  __$FaktoryCopyWithImpl(_Faktory _value, $Res Function(_Faktory) _then)
+      : super(_value, (v) => _then(v as _Faktory));
 
   @override
-  _Factory get _value => super._value as _Factory;
+  _Faktory get _value => super._value as _Faktory;
 
   @override
   $Res call({
@@ -456,7 +529,7 @@ class __$FactoryCopyWithImpl<$Res> extends _$FactoryCopyWithImpl<$Res>
     Object? address = freezed,
     Object? geolocation = freezed,
   }) {
-    return _then(_Factory(
+    return _then(_Faktory(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -479,16 +552,16 @@ class __$FactoryCopyWithImpl<$Res> extends _$FactoryCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Factory extends _Factory with DiagnosticableTreeMixin {
-  _$_Factory(
+class _$_Faktory extends _Faktory with DiagnosticableTreeMixin {
+  _$_Faktory(
       {@JsonKey(name: '_id') required this.id,
       @JsonKey(name: 'factory_name') required this.name,
       @JsonKey(name: 'address_display') this.address,
       this.geolocation})
       : super._();
 
-  factory _$_Factory.fromJson(Map<String, dynamic> json) =>
-      _$_$_FactoryFromJson(json);
+  factory _$_Faktory.fromJson(Map<String, dynamic> json) =>
+      _$_$_FaktoryFromJson(json);
 
   @override
   @JsonKey(name: '_id')
@@ -504,14 +577,14 @@ class _$_Factory extends _Factory with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Factory(id: $id, name: $name, address: $address, geolocation: $geolocation)';
+    return 'Faktory(id: $id, name: $name, address: $address, geolocation: $geolocation)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'Factory'))
+      ..add(DiagnosticsProperty('type', 'Faktory'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('address', address))
@@ -521,7 +594,7 @@ class _$_Factory extends _Factory with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Factory &&
+        (other is _Faktory &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
@@ -544,24 +617,24 @@ class _$_Factory extends _Factory with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  _$FactoryCopyWith<_Factory> get copyWith =>
-      __$FactoryCopyWithImpl<_Factory>(this, _$identity);
+  _$FaktoryCopyWith<_Faktory> get copyWith =>
+      __$FaktoryCopyWithImpl<_Faktory>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_FactoryToJson(this);
+    return _$_$_FaktoryToJson(this);
   }
 }
 
-abstract class _Factory extends Factory {
-  factory _Factory(
+abstract class _Faktory extends Faktory {
+  factory _Faktory(
       {@JsonKey(name: '_id') required String id,
       @JsonKey(name: 'factory_name') required String name,
       @JsonKey(name: 'address_display') String? address,
-      Geolocation? geolocation}) = _$_Factory;
-  _Factory._() : super._();
+      Geolocation? geolocation}) = _$_Faktory;
+  _Faktory._() : super._();
 
-  factory _Factory.fromJson(Map<String, dynamic> json) = _$_Factory.fromJson;
+  factory _Faktory.fromJson(Map<String, dynamic> json) = _$_Faktory.fromJson;
 
   @override
   @JsonKey(name: '_id')
@@ -576,7 +649,7 @@ abstract class _Factory extends Factory {
   Geolocation? get geolocation => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$FactoryCopyWith<_Factory> get copyWith =>
+  _$FaktoryCopyWith<_Faktory> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

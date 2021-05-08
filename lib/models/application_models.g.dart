@@ -14,22 +14,38 @@ _$_User _$_$_UserFromJson(Map<String, dynamic> json) {
     password: json['password'] as String?,
     phone: json['phone'] as String?,
     designation: json['designation'] as String?,
-    factoryId: json['factoryId'] as String?,
+    imageUrl: json['imageUrl'] as String?,
+    faktoryId: json['factoryId'] as String?,
+    faktory: json['faktory'] == null
+        ? null
+        : Faktory.fromJson(json['faktory'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$_$_UserToJson(_$_User instance) => <String, dynamic>{
-      'id': instance.id,
-      'email': instance.email,
-      'name': instance.name,
-      'password': instance.password,
-      'phone': instance.phone,
-      'designation': instance.designation,
-      'factoryId': instance.factoryId,
-    };
+Map<String, dynamic> _$_$_UserToJson(_$_User instance) {
+  final val = <String, dynamic>{
+    'id': instance.id,
+    'email': instance.email,
+    'name': instance.name,
+    'password': instance.password,
+    'phone': instance.phone,
+    'designation': instance.designation,
+    'imageUrl': instance.imageUrl,
+    'factoryId': instance.faktoryId,
+  };
 
-_$_Factory _$_$_FactoryFromJson(Map<String, dynamic> json) {
-  return _$_Factory(
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('faktory', instance.faktory);
+  return val;
+}
+
+_$_Faktory _$_$_FaktoryFromJson(Map<String, dynamic> json) {
+  return _$_Faktory(
     id: json['_id'] as String,
     name: json['factory_name'] as String,
     address: json['address_display'] as String?,
@@ -39,7 +55,7 @@ _$_Factory _$_$_FactoryFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$_$_FactoryToJson(_$_Factory instance) =>
+Map<String, dynamic> _$_$_FaktoryToJson(_$_Faktory instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'factory_name': instance.name,

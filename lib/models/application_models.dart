@@ -15,25 +15,27 @@ class User with _$User {
     String? password,
     String? phone,
     String? designation,
-    String? factoryId,
+    String? imageUrl,
+    @JsonKey(name: 'factoryId') String? faktoryId,
+    @JsonKey(includeIfNull: false) Faktory? faktory,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }
 
 @freezed
-class Factory with _$Factory {
-  Factory._();
+class Faktory with _$Faktory {
+  Faktory._();
 
-  factory Factory({
+  factory Faktory({
     @JsonKey(name: '_id') required String id,
     @JsonKey(name: 'factory_name') required String name,
     @JsonKey(name: 'address_display') String? address,
     Geolocation? geolocation,
-  }) = _Factory;
+  }) = _Faktory;
 
-  factory Factory.fromJson(Map<String, dynamic> json) =>
-      _$FactoryFromJson(json);
+  factory Faktory.fromJson(Map<String, dynamic> json) =>
+      _$FaktoryFromJson(json);
 }
 
 @freezed

@@ -29,5 +29,9 @@
     "factoryIsRequired": "ফ্যাক্টরি নির্বাচন আবশ্যক",
     "youSelected": "আপনি নির্বাচন করেছেন",
     "back": "পেছনে",
-    "profilePicture": "প্রোফাইল ফোটো"
+    "profilePicture": "প্রোফাইল ফোটো",
+    "suggestAnEdit": "একটি সম্পাদনার পরামর্শ দিন",
+    "viewSubmissionReport": "আগের জমাগুলো দেখুন",
+    "hello": "হ্যালো",
+    "welcome": "স্বাগতম"
 }

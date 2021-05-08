@@ -349,6 +349,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Suggest an Edit`
+  String get suggestAnEdit {
+    return Intl.message(
+      'Suggest an Edit',
+      name: 'suggestAnEdit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View Submission Report`
+  String get viewSubmissionReport {
+    return Intl.message(
+      'View Submission Report',
+      name: 'viewSubmissionReport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hello`
+  String get hello {
+    return Intl.message(
+      'Hello',
+      name: 'hello',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome`
+  String get welcome {
+    return Intl.message(
+      'Welcome',
+      name: 'welcome',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

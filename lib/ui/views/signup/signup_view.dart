@@ -65,7 +65,7 @@ class SignupView extends StatelessWidget {
                         child: FactoryNameView(
                           key: key,
                           onSubmit: (factoryId) {
-                            model.setFactoryId(factoryId);
+                            model.setFaktoryId(factoryId);
                             model.stepUp();
                           },
                           onBack: model.stepDown,
