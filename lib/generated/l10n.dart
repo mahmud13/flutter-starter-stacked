@@ -339,6 +339,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Profile Photo`
+  String get profilePicture {
+    return Intl.message(
+      'Profile Photo',
+      name: 'profilePicture',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

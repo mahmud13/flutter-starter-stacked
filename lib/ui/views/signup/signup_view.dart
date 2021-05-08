@@ -1,4 +1,8 @@
+import 'dart:io';
+
+import 'package:crowd_sourcing/models/application_models.dart';
 import 'package:crowd_sourcing/ui/views/signup/factory_name/factory_name_view.dart';
+import 'package:crowd_sourcing/ui/views/signup/profile_photo/phofile_photo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -8,6 +12,7 @@ import 'personal_info/personal_info_widget.dart';
 import 'signup_viewmodel.dart';
 
 class SignupView extends StatelessWidget {
+  SignupView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<SignupViewModel>.reactive(
@@ -45,7 +50,11 @@ class SignupView extends StatelessWidget {
                       content: Container(
                         alignment: Alignment.centerLeft,
                         child: PersonalInfoWidget(
-                          onSubmit: model.setPersonalInfo,
+                          key: key,
+                          onSubmit: (User info) {
+                            model.setPersonalInfo(info);
+                            model.stepUp();
+                          },
                         ),
                       ),
                     ),
@@ -54,26 +63,27 @@ class SignupView extends StatelessWidget {
                       content: Container(
                         alignment: Alignment.centerLeft,
                         child: FactoryNameView(
+                          key: key,
                           onSubmit: (factoryId) {
+                            model.setFactoryId(factoryId);
                             model.stepUp();
                           },
-                          stepDown: model.stepDown,
+                          onBack: model.stepDown,
                         ),
                       ),
                     ),
-                    // Step(
-                    //   title: Text('Profile Picture'),
-                    //   content: Container(
-                    //     alignment: Alignment.centerLeft,
-                    //     child: ProfilePhotoForm(
-                    //       onSubmit: (SignUpInput input) {
-                    //         print(input);
-                    //       },
-                    //       input: _input,
-                    //       onBack: handleBack,
-                    //     ),
-                    //   ),
-                    // ),
+                    Step(
+                      title: Text(S.current.profilePicture),
+                      content: Container(
+                        alignment: Alignment.centerLeft,
+                        child: ProfilePhotoWidget(
+                          onSubmit: (File image) {
+                            model.handlePhotoSubmit(image);
+                          },
+                          onBack: model.stepDown,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],

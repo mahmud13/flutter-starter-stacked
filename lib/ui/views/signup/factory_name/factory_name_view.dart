@@ -8,15 +8,17 @@ import '../../../shared/ui_helpers.dart';
 import 'factory_name_view_model.dart';
 
 class FactoryNameView extends StatelessWidget {
-  final VoidCallback stepDown;
+  final VoidCallback onBack;
   final Function onSubmit;
+  final _formKey = GlobalKey<FormState>();
 
-  FactoryNameView({required this.stepDown, required this.onSubmit});
+  FactoryNameView({Key? key, required this.onBack, required this.onSubmit})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<FactoryNameViewModel>.reactive(
       builder: (context, model, child) => Form(
-        key: model.formKey,
+        key: _formKey,
         autovalidateMode: model.autovalidateMode,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,7 +30,7 @@ class FactoryNameView extends StatelessWidget {
                 label: S.current.region,
                 items: ['Dhaka', 'Narayanganj', 'Gazipur'],
                 onChanged: (String? item) => model.setRegion(item),
-                selectedItem: null,
+                selectedItem: model.region,
                 validator: (String? item) {
                   return item == null ? S.current.regionIsRequired : null;
                 },
@@ -46,9 +48,9 @@ class FactoryNameView extends StatelessWidget {
                   emptyBuilder: (BuildContext context, String? s) =>
                       Center(child: Text(S.current.selectRegionFirst)),
                   onChanged: (Factory? item) {
-                    // getFactoryDetail(model, item.id);
+                    model.getFactoryDetail(item!.id);
                   },
-                  selectedItem: null,
+                  selectedItem: model.selectedFactory,
                   itemAsString: (Factory item) => item.name,
                   validator: (Factory? item) =>
                       item == null ? S.current.factoryIsRequired : null),
@@ -71,20 +73,20 @@ class FactoryNameView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.red[700]),
-                  onPressed: stepDown,
+                  style: ElevatedButton.styleFrom(
+                      primary: Theme.of(context).errorColor),
+                  onPressed: onBack,
                   child: Text(S.current.back),
                 ),
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.green[700]),
                   onPressed: () {
-                    if (model.formKey.currentState!.validate()) {
+                    if (_formKey.currentState!.validate()) {
                       onSubmit(model.selectedFactory!.id);
                     } else {
                       model.setAutovalidateModeAlways();
                     }
                   },
-                  child: const Text('Next'),
+                  child: Text(S.current.next),
                 )
               ],
             ),

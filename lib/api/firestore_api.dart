@@ -49,6 +49,10 @@ class FirestoreApi {
     }
   }
 
+  Future setProPic(String? userId, String imageUrl) async {
+    await usersCollection.doc(userId).set({'imageUrl': imageUrl});
+  }
+
   Future<List<Factory>> getFactoriesByRegion(String region) async {
     var snapshot = await factoriesCollection
         .where('address_district', isEqualTo: region)
@@ -56,5 +60,10 @@ class FirestoreApi {
     return snapshot.size > 0
         ? snapshot.docs.map((doc) => Factory.fromJson(doc.data())).toList()
         : [];
+  }
+
+  Future<Factory?> getFactory(String id) async {
+    var doc = await factoriesCollection.doc(id).get();
+    return doc.exists ? Factory.fromJson(doc.data()!) : null;
   }
 }

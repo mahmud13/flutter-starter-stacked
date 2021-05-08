@@ -9,9 +9,10 @@ class User with _$User {
   User._();
 
   factory User({
-    required String id,
+    String? id,
     String? email,
     String? name,
+    String? password,
     String? phone,
     String? designation,
     String? factoryId,
@@ -25,7 +26,7 @@ class Factory with _$Factory {
   Factory._();
 
   factory Factory({
-    required String id,
+    @JsonKey(name: '_id') required String id,
     @JsonKey(name: 'factory_name') required String name,
     @JsonKey(name: 'address_display') String? address,
     Geolocation? geolocation,
@@ -39,9 +40,12 @@ class Factory with _$Factory {
 class Geolocation with _$Geolocation {
   Geolocation._();
 
+  static double parseDouble(value) =>
+      value is String ? double.parse(value) : value;
+
   factory Geolocation({
-    required double longitude,
-    required double latitude,
+    @JsonKey(fromJson: Geolocation.parseDouble) required double longitude,
+    @JsonKey(fromJson: Geolocation.parseDouble) required double latitude,
   }) = _Geolocation;
 
   factory Geolocation.fromJson(Map<String, dynamic> json) =>

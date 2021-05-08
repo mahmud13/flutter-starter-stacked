@@ -8,9 +8,10 @@ part of 'application_models.dart';
 
 _$_User _$_$_UserFromJson(Map<String, dynamic> json) {
   return _$_User(
-    id: json['id'] as String,
+    id: json['id'] as String?,
     email: json['email'] as String?,
     name: json['name'] as String?,
+    password: json['password'] as String?,
     phone: json['phone'] as String?,
     designation: json['designation'] as String?,
     factoryId: json['factoryId'] as String?,
@@ -21,6 +22,7 @@ Map<String, dynamic> _$_$_UserToJson(_$_User instance) => <String, dynamic>{
       'id': instance.id,
       'email': instance.email,
       'name': instance.name,
+      'password': instance.password,
       'phone': instance.phone,
       'designation': instance.designation,
       'factoryId': instance.factoryId,
@@ -28,7 +30,7 @@ Map<String, dynamic> _$_$_UserToJson(_$_User instance) => <String, dynamic>{
 
 _$_Factory _$_$_FactoryFromJson(Map<String, dynamic> json) {
   return _$_Factory(
-    id: json['id'] as String,
+    id: json['_id'] as String,
     name: json['factory_name'] as String,
     address: json['address_display'] as String?,
     geolocation: json['geolocation'] == null
@@ -39,7 +41,7 @@ _$_Factory _$_$_FactoryFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_FactoryToJson(_$_Factory instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      '_id': instance.id,
       'factory_name': instance.name,
       'address_display': instance.address,
       'geolocation': instance.geolocation,
@@ -47,8 +49,8 @@ Map<String, dynamic> _$_$_FactoryToJson(_$_Factory instance) =>
 
 _$_Geolocation _$_$_GeolocationFromJson(Map<String, dynamic> json) {
   return _$_Geolocation(
-    longitude: (json['longitude'] as num).toDouble(),
-    latitude: (json['latitude'] as num).toDouble(),
+    longitude: Geolocation.parseDouble(json['longitude']),
+    latitude: Geolocation.parseDouble(json['latitude']),
   );
 }
 

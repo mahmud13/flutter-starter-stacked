@@ -51,6 +51,8 @@ dependencies:
   observable_ish: ^3.0.0
   validators: ^3.0.0
   dropdown_search: ^0.6.1
+  image_picker: ^0.7.4
+  firebase_storage: ^8.0.5
 
 dev_dependencies:
   flutter_test:

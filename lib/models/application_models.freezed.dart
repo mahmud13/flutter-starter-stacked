@@ -21,9 +21,10 @@ class _$UserTearOff {
   const _$UserTearOff();
 
   _User call(
-      {required String id,
+      {String? id,
       String? email,
       String? name,
+      String? password,
       String? phone,
       String? designation,
       String? factoryId}) {
@@ -31,6 +32,7 @@ class _$UserTearOff {
       id: id,
       email: email,
       name: name,
+      password: password,
       phone: phone,
       designation: designation,
       factoryId: factoryId,
@@ -47,9 +49,10 @@ const $User = _$UserTearOff();
 
 /// @nodoc
 mixin _$User {
-  String get id => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
+  String? get password => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String? get designation => throw _privateConstructorUsedError;
   String? get factoryId => throw _privateConstructorUsedError;
@@ -64,9 +67,10 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
   $Res call(
-      {String id,
+      {String? id,
       String? email,
       String? name,
+      String? password,
       String? phone,
       String? designation,
       String? factoryId});
@@ -85,6 +89,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
     Object? id = freezed,
     Object? email = freezed,
     Object? name = freezed,
+    Object? password = freezed,
     Object? phone = freezed,
     Object? designation = freezed,
     Object? factoryId = freezed,
@@ -93,7 +98,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -101,6 +106,10 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
               as String?,
       phone: phone == freezed
           ? _value.phone
@@ -124,9 +133,10 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$UserCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
+      {String? id,
       String? email,
       String? name,
+      String? password,
       String? phone,
       String? designation,
       String? factoryId});
@@ -146,6 +156,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object? id = freezed,
     Object? email = freezed,
     Object? name = freezed,
+    Object? password = freezed,
     Object? phone = freezed,
     Object? designation = freezed,
     Object? factoryId = freezed,
@@ -154,7 +165,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -162,6 +173,10 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
               as String?,
       phone: phone == freezed
           ? _value.phone
@@ -183,9 +198,10 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_User extends _User with DiagnosticableTreeMixin {
   _$_User(
-      {required this.id,
+      {this.id,
       this.email,
       this.name,
+      this.password,
       this.phone,
       this.designation,
       this.factoryId})
@@ -195,11 +211,13 @@ class _$_User extends _User with DiagnosticableTreeMixin {
       _$_$_UserFromJson(json);
 
   @override
-  final String id;
+  final String? id;
   @override
   final String? email;
   @override
   final String? name;
+  @override
+  final String? password;
   @override
   final String? phone;
   @override
@@ -209,7 +227,7 @@ class _$_User extends _User with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'User(id: $id, email: $email, name: $name, phone: $phone, designation: $designation, factoryId: $factoryId)';
+    return 'User(id: $id, email: $email, name: $name, password: $password, phone: $phone, designation: $designation, factoryId: $factoryId)';
   }
 
   @override
@@ -220,6 +238,7 @@ class _$_User extends _User with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('email', email))
       ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('password', password))
       ..add(DiagnosticsProperty('phone', phone))
       ..add(DiagnosticsProperty('designation', designation))
       ..add(DiagnosticsProperty('factoryId', factoryId));
@@ -235,6 +254,9 @@ class _$_User extends _User with DiagnosticableTreeMixin {
                 const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.password, password) ||
+                const DeepCollectionEquality()
+                    .equals(other.password, password)) &&
             (identical(other.phone, phone) ||
                 const DeepCollectionEquality().equals(other.phone, phone)) &&
             (identical(other.designation, designation) ||
@@ -251,6 +273,7 @@ class _$_User extends _User with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(password) ^
       const DeepCollectionEquality().hash(phone) ^
       const DeepCollectionEquality().hash(designation) ^
       const DeepCollectionEquality().hash(factoryId);
@@ -268,9 +291,10 @@ class _$_User extends _User with DiagnosticableTreeMixin {
 
 abstract class _User extends User {
   factory _User(
-      {required String id,
+      {String? id,
       String? email,
       String? name,
+      String? password,
       String? phone,
       String? designation,
       String? factoryId}) = _$_User;
@@ -279,11 +303,13 @@ abstract class _User extends User {
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   @override
   String? get email => throw _privateConstructorUsedError;
   @override
   String? get name => throw _privateConstructorUsedError;
+  @override
+  String? get password => throw _privateConstructorUsedError;
   @override
   String? get phone => throw _privateConstructorUsedError;
   @override
@@ -304,7 +330,7 @@ class _$FactoryTearOff {
   const _$FactoryTearOff();
 
   _Factory call(
-      {required String id,
+      {@JsonKey(name: '_id') required String id,
       @JsonKey(name: 'factory_name') required String name,
       @JsonKey(name: 'address_display') String? address,
       Geolocation? geolocation}) {
@@ -326,6 +352,7 @@ const $Factory = _$FactoryTearOff();
 
 /// @nodoc
 mixin _$Factory {
+  @JsonKey(name: '_id')
   String get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'factory_name')
   String get name => throw _privateConstructorUsedError;
@@ -343,7 +370,7 @@ abstract class $FactoryCopyWith<$Res> {
   factory $FactoryCopyWith(Factory value, $Res Function(Factory) then) =
       _$FactoryCopyWithImpl<$Res>;
   $Res call(
-      {String id,
+      {@JsonKey(name: '_id') String id,
       @JsonKey(name: 'factory_name') String name,
       @JsonKey(name: 'address_display') String? address,
       Geolocation? geolocation});
@@ -404,7 +431,7 @@ abstract class _$FactoryCopyWith<$Res> implements $FactoryCopyWith<$Res> {
       __$FactoryCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
+      {@JsonKey(name: '_id') String id,
       @JsonKey(name: 'factory_name') String name,
       @JsonKey(name: 'address_display') String? address,
       Geolocation? geolocation});
@@ -454,7 +481,7 @@ class __$FactoryCopyWithImpl<$Res> extends _$FactoryCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Factory extends _Factory with DiagnosticableTreeMixin {
   _$_Factory(
-      {required this.id,
+      {@JsonKey(name: '_id') required this.id,
       @JsonKey(name: 'factory_name') required this.name,
       @JsonKey(name: 'address_display') this.address,
       this.geolocation})
@@ -464,6 +491,7 @@ class _$_Factory extends _Factory with DiagnosticableTreeMixin {
       _$_$_FactoryFromJson(json);
 
   @override
+  @JsonKey(name: '_id')
   final String id;
   @override
   @JsonKey(name: 'factory_name')
@@ -527,7 +555,7 @@ class _$_Factory extends _Factory with DiagnosticableTreeMixin {
 
 abstract class _Factory extends Factory {
   factory _Factory(
-      {required String id,
+      {@JsonKey(name: '_id') required String id,
       @JsonKey(name: 'factory_name') required String name,
       @JsonKey(name: 'address_display') String? address,
       Geolocation? geolocation}) = _$_Factory;
@@ -536,6 +564,7 @@ abstract class _Factory extends Factory {
   factory _Factory.fromJson(Map<String, dynamic> json) = _$_Factory.fromJson;
 
   @override
+  @JsonKey(name: '_id')
   String get id => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'factory_name')
@@ -559,7 +588,9 @@ Geolocation _$GeolocationFromJson(Map<String, dynamic> json) {
 class _$GeolocationTearOff {
   const _$GeolocationTearOff();
 
-  _Geolocation call({required double longitude, required double latitude}) {
+  _Geolocation call(
+      {@JsonKey(fromJson: Geolocation.parseDouble) required double longitude,
+      @JsonKey(fromJson: Geolocation.parseDouble) required double latitude}) {
     return _Geolocation(
       longitude: longitude,
       latitude: latitude,
@@ -576,7 +607,9 @@ const $Geolocation = _$GeolocationTearOff();
 
 /// @nodoc
 mixin _$Geolocation {
+  @JsonKey(fromJson: Geolocation.parseDouble)
   double get longitude => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: Geolocation.parseDouble)
   double get latitude => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -590,7 +623,9 @@ abstract class $GeolocationCopyWith<$Res> {
   factory $GeolocationCopyWith(
           Geolocation value, $Res Function(Geolocation) then) =
       _$GeolocationCopyWithImpl<$Res>;
-  $Res call({double longitude, double latitude});
+  $Res call(
+      {@JsonKey(fromJson: Geolocation.parseDouble) double longitude,
+      @JsonKey(fromJson: Geolocation.parseDouble) double latitude});
 }
 
 /// @nodoc
@@ -626,7 +661,9 @@ abstract class _$GeolocationCopyWith<$Res>
           _Geolocation value, $Res Function(_Geolocation) then) =
       __$GeolocationCopyWithImpl<$Res>;
   @override
-  $Res call({double longitude, double latitude});
+  $Res call(
+      {@JsonKey(fromJson: Geolocation.parseDouble) double longitude,
+      @JsonKey(fromJson: Geolocation.parseDouble) double latitude});
 }
 
 /// @nodoc
@@ -660,14 +697,19 @@ class __$GeolocationCopyWithImpl<$Res> extends _$GeolocationCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Geolocation extends _Geolocation with DiagnosticableTreeMixin {
-  _$_Geolocation({required this.longitude, required this.latitude}) : super._();
+  _$_Geolocation(
+      {@JsonKey(fromJson: Geolocation.parseDouble) required this.longitude,
+      @JsonKey(fromJson: Geolocation.parseDouble) required this.latitude})
+      : super._();
 
   factory _$_Geolocation.fromJson(Map<String, dynamic> json) =>
       _$_$_GeolocationFromJson(json);
 
   @override
+  @JsonKey(fromJson: Geolocation.parseDouble)
   final double longitude;
   @override
+  @JsonKey(fromJson: Geolocation.parseDouble)
   final double latitude;
 
   @override
@@ -714,16 +756,21 @@ class _$_Geolocation extends _Geolocation with DiagnosticableTreeMixin {
 }
 
 abstract class _Geolocation extends Geolocation {
-  factory _Geolocation({required double longitude, required double latitude}) =
-      _$_Geolocation;
+  factory _Geolocation(
+      {@JsonKey(fromJson: Geolocation.parseDouble)
+          required double longitude,
+      @JsonKey(fromJson: Geolocation.parseDouble)
+          required double latitude}) = _$_Geolocation;
   _Geolocation._() : super._();
 
   factory _Geolocation.fromJson(Map<String, dynamic> json) =
       _$_Geolocation.fromJson;
 
   @override
+  @JsonKey(fromJson: Geolocation.parseDouble)
   double get longitude => throw _privateConstructorUsedError;
   @override
+  @JsonKey(fromJson: Geolocation.parseDouble)
   double get latitude => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

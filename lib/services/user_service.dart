@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:crowd_sourcing/api/firestorage_api.dart';
 import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
 
 import '../api/firestore_api.dart';
@@ -9,12 +12,13 @@ class UserService {
   final log = getLogger('UserService');
 
   final _firestoreApi = locator<FirestoreApi>();
+  final _firestorageApi = locator<FirestorageApi>();
   final _firebaseAuthenticationService =
       locator<FirebaseAuthenticationService>();
 
   User? _currentUser;
 
-  User get currentUser => _currentUser!;
+  User? get currentUser => _currentUser;
 
   bool get hasLoggedInUser => _firebaseAuthenticationService.hasUser;
 
@@ -43,5 +47,15 @@ class UserService {
       _currentUser = user;
       log.v('_currentUser has been saved');
     }
+  }
+
+  Future<String> uploadProPic(
+      {required File image,
+      required String? userId,
+      required String fileName}) async {
+    var task = await _firestorageApi.uploadFile(image, '/profile', fileName);
+    var imageUrl = await task.snapshot.ref.getDownloadURL();
+    await _firestoreApi.setProPic(userId, imageUrl);
+    return imageUrl;
   }
 }

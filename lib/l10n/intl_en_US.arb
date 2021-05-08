@@ -28,5 +28,6 @@
     "selectRegionFirst": "Please, select a region first",
     "factoryIsRequired": "Factory is Required",
     "youSelected": "You Selected",
-    "back": "Back"
+    "back": "Back",
+    "profilePicture": "Profile Photo"
 }

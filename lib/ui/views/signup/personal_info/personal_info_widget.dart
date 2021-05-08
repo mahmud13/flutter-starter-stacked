@@ -1,30 +1,33 @@
+import 'package:crowd_sourcing/models/application_models.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked/stacked_annotations.dart';
 import 'package:validators/validators.dart';
 
 import '../../../../generated/l10n.dart';
 import '../../../shared/ui_helpers.dart';
-import 'personal_info_widget.form.dart';
 import 'personal_info_widgetmodel.dart';
 
-@FormView(fields: [
-  FormTextField(name: 'name'),
-  FormTextField(name: 'email'),
-  FormTextField(name: 'phone'),
-  FormTextField(name: 'password', isPassword: true),
-  FormTextField(name: 'designation'),
-])
-class PersonalInfoWidget extends StatelessWidget with $PersonalInfoWidget {
-  final _formKey = GlobalKey<FormState>();
+class PersonalInfoWidget extends StatefulWidget {
   final Function onSubmit;
-  PersonalInfoWidget({required this.onSubmit});
+  PersonalInfoWidget({Key? key, required this.onSubmit}) : super(key: key);
+
+  @override
+  _PersonalInfoWidgetState createState() => _PersonalInfoWidgetState();
+}
+
+class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
+  final _formKey = GlobalKey<FormState>();
+
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final nameController = TextEditingController();
+  final designationController = TextEditingController();
+  final phoneController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<PersonalInfoWidgetModel>.reactive(
-      onModelReady: (model) => listenToFormUpdated(model),
       builder: (context, model, child) => Form(
         key: _formKey,
         autovalidateMode: model.autovalidateMode,
@@ -87,7 +90,13 @@ class PersonalInfoWidget extends StatelessWidget with $PersonalInfoWidget {
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        model.getPersonalInfo(onSubmit);
+                        widget.onSubmit(User(
+                          name: nameController.text,
+                          email: emailController.text,
+                          phone: phoneController.text,
+                          password: passwordController.text,
+                          designation: designationController.text,
+                        ));
                       } else {
                         model.setAutovalidateModeAlways();
                       }

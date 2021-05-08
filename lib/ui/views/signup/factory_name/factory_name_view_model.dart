@@ -33,4 +33,9 @@ class FactoryNameViewModel extends CustomFormViewModel {
 
   @override
   void setFormStatus() {}
+
+  Future getFactoryDetail(String id) async {
+    selectedFactory = await _factoryService.getFactory(id);
+    notifyListeners();
+  }
 }

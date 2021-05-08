@@ -1,3 +1,4 @@
+import 'package:crowd_sourcing/api/firestorage_api.dart';
 import 'package:crowd_sourcing/services/factory_service.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
@@ -22,7 +23,9 @@ import '../ui/views/startup/startup_view.dart';
     LazySingleton(classType: UserService),
     LazySingleton(classType: FactoryService),
     LazySingleton(classType: FirestoreApi),
+    LazySingleton(classType: FirestorageApi),
     LazySingleton(classType: DialogService),
+    LazySingleton(classType: SnackbarService),
     Singleton(classType: FirebaseAuthenticationService),
   ],
   logger: StackedLogger(),

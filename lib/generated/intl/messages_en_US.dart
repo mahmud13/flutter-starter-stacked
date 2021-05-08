@@ -56,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
         "phoneIsRequired":
             MessageLookupByLibrary.simpleMessage("Phone is required"),
+        "profilePicture": MessageLookupByLibrary.simpleMessage("Profile Photo"),
         "region": MessageLookupByLibrary.simpleMessage("Region"),
         "regionIsRequired":
             MessageLookupByLibrary.simpleMessage("Region is Required"),

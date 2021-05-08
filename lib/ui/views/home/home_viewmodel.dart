@@ -18,7 +18,7 @@ class HomeViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
 
   User get currentUser {
-    return _userService.currentUser;
+    return _userService.currentUser!;
   }
 
   void handleMenuItemClick(String value) {

@@ -1,7 +1,11 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:crowd_sourcing/models/application_models.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
+import 'package:flutter/services.dart';
+import 'package:pedantic/pedantic.dart';
 import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -10,7 +14,6 @@ import '../../../app/app.router.dart';
 import '../../../generated/l10n.dart';
 import '../../../services/user_service.dart';
 import '../../../ui/base/custom_form_view_model.dart';
-import 'personal_info/personal_info_widgetmodel.dart';
 
 class SignupViewModel extends CustomFormViewModel {
   final _firebaseAuthenticationService =
@@ -18,7 +21,9 @@ class SignupViewModel extends CustomFormViewModel {
   final _navigationService = locator<NavigationService>();
   final _dialogService = locator<DialogService>();
   final _userService = locator<UserService>();
-  var _user = User(id: '');
+  final _snackbarService = locator<SnackbarService>();
+
+  User? _user;
   var _currentStep = 0;
   final totalSteps;
 
@@ -54,17 +59,12 @@ class SignupViewModel extends CustomFormViewModel {
     notifyListeners();
   }
 
-  void setPersonalInfo(PersonalInfo info) {
-    _user = _user.copyWith(
-      name: info.name,
-      designation: info.designation,
-      email: info.email,
-      phone: info.phone,
-    );
+  void setPersonalInfo(User info) {
+    _user = info;
   }
 
   void setFactoryId(String factoryId) {
-    _user = _user.copyWith(factoryId: factoryId);
+    _user = _user!.copyWith(factoryId: factoryId);
   }
 
   Future<bool> handleBack() async {
@@ -83,4 +83,39 @@ class SignupViewModel extends CustomFormViewModel {
   void navigateToHome() => _navigationService.navigateTo(Routes.homeView);
 
   void navigateToLogin() => _navigationService.navigateTo(Routes.loginView);
+
+  Future register() async {
+    FirebaseAuthenticationResult? result;
+    try {
+      result = await _firebaseAuthenticationService.createAccountWithEmail(
+          email: _user!.email!, password: _user!.password!);
+      if (result.user != null) {
+        _user = _user!.copyWith(id: result.user!.uid);
+        await _userService.syncOrCreateUserAccount(user: _user!);
+      }
+    } on firebase_auth.FirebaseAuthException catch (e) {
+      _snackbarService.showSnackbar(message: e.message!);
+    } on PlatformException catch (e) {
+      _snackbarService.showSnackbar(message: e.message!);
+    }
+    // TODO: exception not working
+    if (result!.hasError) {
+      _snackbarService.showSnackbar(message: result.errorMessage!);
+    }
+  }
+
+  Future<void> handlePhotoSubmit(File image) async {
+    await register();
+    unawaited(uploadProPic(image));
+    navigateToHome();
+
+    _snackbarService.showSnackbar(message: "You're successfully registered!");
+  }
+
+  Future<void> uploadProPic(File image) async {
+    if (_user?.id != null) {
+      await _userService.uploadProPic(
+          userId: _user?.id, image: image, fileName: _user!.id! + '.jpg');
+    }
+  }
 }

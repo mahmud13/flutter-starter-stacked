@@ -52,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "personalInfo": MessageLookupByLibrary.simpleMessage("ব্যাক্তিগত তথ্য"),
         "phone": MessageLookupByLibrary.simpleMessage("ফোন"),
         "phoneIsRequired": MessageLookupByLibrary.simpleMessage("ফোন লাগবেই"),
+        "profilePicture": MessageLookupByLibrary.simpleMessage("প্রোফাইল ফোটো"),
         "region": MessageLookupByLibrary.simpleMessage("এলাকা"),
         "regionIsRequired":
             MessageLookupByLibrary.simpleMessage("এলাকা নির্বাচন আবশ্যক"),
