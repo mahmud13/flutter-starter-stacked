@@ -42,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "factoryIsRequired":
             MessageLookupByLibrary.simpleMessage("ফ্যাক্টরি নির্বাচন আবশ্যক"),
         "hello": MessageLookupByLibrary.simpleMessage("হ্যালো"),
+        "home": MessageLookupByLibrary.simpleMessage("নীড়পাতা"),
         "login": MessageLookupByLibrary.simpleMessage("লগিন"),
         "name": MessageLookupByLibrary.simpleMessage("নাম"),
         "nameIsRequired": MessageLookupByLibrary.simpleMessage("নাম লাগবেই"),

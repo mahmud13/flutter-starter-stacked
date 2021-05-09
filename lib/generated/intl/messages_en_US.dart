@@ -44,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "factoryIsRequired":
             MessageLookupByLibrary.simpleMessage("Factory is Required"),
         "hello": MessageLookupByLibrary.simpleMessage("Hello"),
+        "home": MessageLookupByLibrary.simpleMessage("Home"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "nameIsRequired":

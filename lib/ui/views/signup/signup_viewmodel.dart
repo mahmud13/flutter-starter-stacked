@@ -49,11 +49,6 @@ class SignupViewModel extends CustomFormViewModel {
     }
   }
 
-  void changeLocale() {
-    S.load(Locale('bn', 'BD'));
-    notifyListeners();
-  }
-
   void togglePasswordVisibility() {
     isPasswordVisible = !isPasswordVisible;
     notifyListeners();

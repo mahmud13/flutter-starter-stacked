@@ -1,5 +1,7 @@
+import 'package:crowd_sourcing/generated/l10n.dart';
 import 'package:crowd_sourcing/models/application_models.dart';
 import 'package:crowd_sourcing/services/user_service.dart';
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
 import 'package:stacked_services/stacked_services.dart';

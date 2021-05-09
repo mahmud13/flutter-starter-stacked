@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
       builder: (context, model, child) => WillPopScope(
         onWillPop: model.handleBack,
         child: BaseLayout(
-          appBarTitle: 'Home',
+          appBarTitle: l.home,
           body: Container(
             alignment: Alignment.center,
             child: Padding(
