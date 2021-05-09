@@ -1,4 +1,3 @@
-import 'package:crowd_sourcing/generated/l10n.dart';
 import 'package:crowd_sourcing/ui/dumb_widgets/base_layoutmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -12,7 +11,6 @@ class BaseLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final l = S.of(context);
     return ViewModelBuilder<BaseLayoutModel>.reactive(
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
