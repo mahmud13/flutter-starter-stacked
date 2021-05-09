@@ -59,8 +59,8 @@ class SignupViewModel extends CustomFormViewModel {
     notifyListeners();
   }
 
-  void setPersonalInfo(User info) {
-    _user = info;
+  void setPersonalInfo(Map<String, dynamic> info) {
+    _user = User.fromJson(info);
   }
 
   void setFaktoryId(String factoryId) {
@@ -69,7 +69,7 @@ class SignupViewModel extends CustomFormViewModel {
 
   Future<bool> handleBack() async {
     var result = await _dialogService.showConfirmationDialog(
-      title: S.current.doYouWantToExit,
+      title: S.current.areYouSure,
       description: S.current.yourInformationWillBeLost,
       confirmationTitle: S.current.ok,
       cancelTitle: S.current.cancel,

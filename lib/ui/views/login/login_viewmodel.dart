@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:ui';
 
 import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -10,7 +9,6 @@ import '../../../app/app.router.dart';
 import '../../../generated/l10n.dart';
 import '../../../services/user_service.dart';
 import '../../../ui/base/custom_form_view_model.dart';
-import 'login_view.form.dart';
 
 class LoginViewModel extends CustomFormViewModel {
   final _firebaseAuthenticationService =
@@ -24,23 +22,12 @@ class LoginViewModel extends CustomFormViewModel {
   @override
   void setFormStatus() {}
 
-  Future<FirebaseAuthenticationResult> runAuthentication() =>
-      _firebaseAuthenticationService.loginWithEmail(
-        email: emailValue!,
-        password: passwordValue!,
-      );
-
-  void changeLocale() {
-    S.load(Locale('bn', 'BD'));
-    notifyListeners();
-  }
-
-  Future login() async {
+  Future login(String email, String password) async {
     setBusy(true);
 
     var result = await _firebaseAuthenticationService.loginWithEmail(
-      email: emailValue!,
-      password: passwordValue!,
+      email: email,
+      password: password,
     );
     await _userService.syncUserAccount();
     setBusy(false);

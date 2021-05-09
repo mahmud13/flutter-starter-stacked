@@ -1,27 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked/stacked_annotations.dart';
 import 'package:validators/validators.dart';
 
 import '../../../generated/l10n.dart';
 import '../../shared/ui_helpers.dart';
 import '../../widgets/busy_button.dart';
-import 'login_view.form.dart';
 import 'login_viewmodel.dart';
 
-@FormView(fields: [
-  FormTextField(name: 'email'),
-  FormTextField(name: 'password', isPassword: true),
-])
-class LoginView extends StatelessWidget with $LoginView {
-  final _formKey = GlobalKey<FormState>();
-
+class LoginView extends HookWidget {
   LoginView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final _formKey = useMemoized(() => GlobalKey<FormBuilderState>());
     return ViewModelBuilder<LoginViewModel>.reactive(
-      onModelReady: (model) => listenToFormUpdated(model),
       builder: (context, model, child) => WillPopScope(
         onWillPop: () => model.handleBack(),
         child: Scaffold(
@@ -39,22 +33,23 @@ class LoginView extends StatelessWidget with $LoginView {
                     style: TextStyle(color: Theme.of(context).errorColor),
                     textAlign: TextAlign.center,
                   ),
-                Form(
+                FormBuilder(
                   key: _formKey,
                   autovalidateMode: model.autovalidateMode,
                   child: Column(
                     children: [
-                      TextFormField(
+                      FormBuilderTextField(
+                          name: 'email',
                           decoration:
                               InputDecoration(labelText: S.current.email),
-                          controller: emailController,
                           keyboardType: TextInputType.emailAddress,
                           validator: (value) => isNull(value)
                               ? S.of(context).emailIsRequired
                               : !isEmail(value!)
                                   ? S.of(context).emailIsInvalid
                                   : null),
-                      TextFormField(
+                      FormBuilderTextField(
+                        name: 'password',
                         decoration: InputDecoration(
                           labelText: S.of(context).password,
                           suffix: GestureDetector(
@@ -64,7 +59,6 @@ class LoginView extends StatelessWidget with $LoginView {
                                 : Icons.visibility),
                           ),
                         ),
-                        controller: passwordController,
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: !model.isPasswordVisible,
                         validator: (value) => isNull(value)
@@ -80,8 +74,12 @@ class LoginView extends StatelessWidget with $LoginView {
                   busy: model.isBusy,
                   width: 200,
                   onPressed: () {
+                    _formKey.currentState!.save();
                     if (_formKey.currentState!.validate()) {
-                      model.login();
+                      model.login(
+                        _formKey.currentState!.value['email'],
+                        _formKey.currentState!.value['password'],
+                      );
                     } else {
                       model.setAutovalidateModeAlways();
                     }

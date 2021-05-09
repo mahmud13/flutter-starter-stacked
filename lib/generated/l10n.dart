@@ -190,11 +190,21 @@ class S {
     );
   }
 
-  /// `Do you want to exit`
+  /// `Do you want to exit?`
   String get doYouWantToExit {
     return Intl.message(
-      'Do you want to exit',
+      'Do you want to exit?',
       name: 'doYouWantToExit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure?`
+  String get areYouSure {
+    return Intl.message(
+      'Are you sure?',
+      name: 'areYouSure',
       desc: '',
       args: [],
     );

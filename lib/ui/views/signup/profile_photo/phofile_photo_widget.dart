@@ -2,15 +2,11 @@ import 'package:crowd_sourcing/ui/views/signup/profile_photo/profile_photo_widge
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-class ProfilePhotoWidget extends StatefulWidget {
+class ProfilePhotoWidget extends StatelessWidget {
   final Function onSubmit;
   final Function onBack;
   ProfilePhotoWidget({required this.onSubmit, required this.onBack});
-  @override
-  _ProfilePhotoWidgetState createState() => _ProfilePhotoWidgetState();
-}
 
-class _ProfilePhotoWidgetState extends State<ProfilePhotoWidget> {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<ProfilePhotoWidgetModel>.reactive(
@@ -50,14 +46,14 @@ class _ProfilePhotoWidgetState extends State<ProfilePhotoWidget> {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(primary: Colors.green[700]),
-                  onPressed: () => widget.onSubmit(model.file),
+                  onPressed: () => onSubmit(model.file),
                   child: const Text('Sign up'),
                 ),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(primary: Colors.red[700]),
                 onPressed: () {
-                  widget.onBack();
+                  onBack();
                 },
                 child: const Text('Back'),
               )

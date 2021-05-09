@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("আগের একাউন্ট আছে? লগিন করুন"),
+        "areYouSure": MessageLookupByLibrary.simpleMessage("আপনি কি নিশ্চিত?"),
         "back": MessageLookupByLibrary.simpleMessage("পেছনে"),
         "cancel": MessageLookupByLibrary.simpleMessage("না"),
         "designation": MessageLookupByLibrary.simpleMessage("পদমর্যাদা"),

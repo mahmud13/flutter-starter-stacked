@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:crowd_sourcing/models/application_models.dart';
 import 'package:crowd_sourcing/ui/views/signup/factory_name/factory_name_view.dart';
 import 'package:crowd_sourcing/ui/views/signup/profile_photo/phofile_photo_widget.dart';
 import 'package:flutter/material.dart';
@@ -50,8 +49,7 @@ class SignupView extends StatelessWidget {
                       content: Container(
                         alignment: Alignment.centerLeft,
                         child: PersonalInfoWidget(
-                          key: key,
-                          onSubmit: (User info) {
+                          onSubmit: (Map<String, dynamic> info) {
                             model.setPersonalInfo(info);
                             model.stepUp();
                           },

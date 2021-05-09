@@ -15,6 +15,7 @@
     "login": "লগিন",
     "signup": "সাইন আপ",
     "doYouWantToExit": "আপনি কি বের হয়ে যেতে চান?",
+    "areYouSure": "আপনি কি নিশ্চিত?",
     "ok": "হ্যাঁ",
     "cancel": "না",
     "alreadyHaveAnAccount": "আগের একাউন্ট আছে? লগিন করুন",
