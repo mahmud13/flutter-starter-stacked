@@ -1,6 +1,7 @@
-import 'package:crowd_sourcing/ui/views/signup/profile_photo/profile_photo_widgetmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+
+import 'profile_photo_widgetmodel.dart';
 
 class ProfilePhotoWidget extends StatelessWidget {
   final Function onSubmit;

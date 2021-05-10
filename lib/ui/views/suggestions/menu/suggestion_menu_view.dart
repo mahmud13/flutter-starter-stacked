@@ -1,5 +1,5 @@
-import 'package:crowd_sourcing/ui/dumb_widgets/base_layout.dart';
-import 'package:crowd_sourcing/ui/shared/ui_helpers.dart';
+import '../../../dumb_widgets/base_layout.dart';
+import '../../../shared/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'suggestion_menu_viewmodel.dart';
@@ -9,6 +9,8 @@ class SuggestionMenuView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var s = S.of(context);
+    final args =
+        ModalRoute.of(context)!.settings.arguments as SuggestionMenuArgs;
     return ViewModelBuilder<SuggestionMenuViewModel>.reactive(
       builder: (context, model, child) {
         return BaseLayout(
@@ -33,7 +35,8 @@ class SuggestionMenuView extends StatelessWidget {
                                     OutlinedButton.icon(
                                       label: Text(item.label),
                                       onPressed: () =>
-                                          model.navigateToSuggestionCreate(),
+                                          model.navigateToSuggestionCreate(
+                                              args.faktoryId, item.field),
                                       icon: Icon(IconData(item.icon,
                                           fontFamily: 'MaterialIcons')),
                                     ),

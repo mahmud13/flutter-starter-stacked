@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
 
 import '../../../../app/app.locator.dart';
 import '../../../../models/application_models.dart';
@@ -9,7 +6,6 @@ import '../../../../services/user_service.dart';
 
 class SuggestionCreateViewModel extends BaseViewModel {
   final _userService = locator<UserService>();
-  final _navigationService = locator<NavigationService>();
   var _currentStep = 0;
   var totalSteps;
 
@@ -36,4 +32,10 @@ class SuggestionCreateViewModel extends BaseViewModel {
     _currentStep = step;
     notifyListeners();
   }
+}
+
+class SuggestionCreateArgs {
+  String faktoryId;
+  String field;
+  SuggestionCreateArgs({required this.faktoryId, required this.field});
 }

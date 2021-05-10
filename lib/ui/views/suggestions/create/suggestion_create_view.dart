@@ -1,9 +1,12 @@
-import 'package:crowd_sourcing/generated/l10n.dart';
-import 'package:crowd_sourcing/ui/dumb_widgets/base_layout.dart';
-import 'package:crowd_sourcing/ui/shared/ui_helpers.dart';
+import 'package:crowd_sourcing/ui/views/suggestions/create/operational/operational_widget.dart';
+
+import '../../../../generated/l10n.dart';
+import '../../../dumb_widgets/base_layout.dart';
+import '../../../shared/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
+import 'brands/brands_widget.dart';
 import 'suggestion_create_viewmodel.dart';
 
 class SuggestionCreateView extends StatelessWidget {
@@ -13,6 +16,9 @@ class SuggestionCreateView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final l = S.of(context);
+    final args =
+        ModalRoute.of(context)!.settings.arguments as SuggestionCreateArgs;
+
     return ViewModelBuilder<SuggestionCreateViewModel>.reactive(
       builder: (context, model, child) => BaseLayout(
         appBarTitle: l.newSuggestion,
@@ -28,42 +34,10 @@ class SuggestionCreateView extends StatelessWidget {
                   style: theme.textTheme.headline6,
                 ),
                 verticalSpaceSmall,
-                Expanded(
-                  child: Stepper(
-                    currentStep: model.currentStep,
-                    physics: ScrollPhysics(),
-                    type: StepperType.horizontal,
-                    onStepContinue: model.stepUp,
-                    onStepCancel: model.stepDown,
-                    onStepTapped: (step) => model.setStep(step),
-                    steps: [
-                      Step(
-                        title: Text('Open/Close'),
-                        content: Text('hello'),
-                        isActive: model.currentStep >= 0,
-                        state: model.currentStep == 0
-                            ? StepState.editing
-                            : StepState.complete,
-                      ),
-                      Step(
-                        title: Text('Picture'),
-                        content: Text('hello'),
-                        isActive: model.currentStep >= 1,
-                        state: model.currentStep == 1
-                            ? StepState.editing
-                            : StepState.complete,
-                      ),
-                      Step(
-                        title: Text('GPS'),
-                        content: Text('hello'),
-                        isActive: model.currentStep >= 2,
-                        state: model.currentStep == 2
-                            ? StepState.editing
-                            : StepState.complete,
-                      )
-                    ],
-                  ),
-                )
+                if (args.field == 'operational')
+                  OperationalWidget(args.faktoryId)
+                else if (args.field == 'brands')
+                  BrandsWidget(args.faktoryId)
               ],
             ),
           ),

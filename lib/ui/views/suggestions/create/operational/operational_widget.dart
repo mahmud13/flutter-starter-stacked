@@ -1,0 +1,52 @@
+import 'operational_widgetmodel.dart';
+import 'package:flutter/material.dart';
+import 'package:stacked/stacked.dart';
+
+class OperationalWidget extends StatelessWidget {
+  final String faktoryId;
+
+  OperationalWidget(this.faktoryId);
+
+  @override
+  Widget build(BuildContext context) {
+    return ViewModelBuilder<OperationalWidgetModel>.reactive(
+      builder: (context, model, child) => Expanded(
+        child: Stepper(
+          currentStep: model.currentStep,
+          physics: ScrollPhysics(),
+          type: StepperType.horizontal,
+          onStepContinue: model.stepUp,
+          onStepCancel: model.stepDown,
+          onStepTapped: (step) => model.setStep(step),
+          steps: [
+            Step(
+              title: Text('Open/Close'),
+              content: Text('hello'),
+              isActive: model.currentStep >= 0,
+              state: model.currentStep == 0
+                  ? StepState.editing
+                  : StepState.complete,
+            ),
+            Step(
+              title: Text('Picture'),
+              content: Text('hello'),
+              isActive: model.currentStep >= 1,
+              state: model.currentStep == 1
+                  ? StepState.editing
+                  : StepState.complete,
+            ),
+            Step(
+              title: Text('GPS'),
+              content: Text('hello'),
+              isActive: model.currentStep >= 2,
+              state: model.currentStep == 2
+                  ? StepState.editing
+                  : StepState.complete,
+            )
+          ],
+        ),
+      ),
+      viewModelBuilder: () => OperationalWidgetModel(totalSteps: 3),
+    );
+  }
+}

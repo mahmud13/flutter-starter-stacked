@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:crowd_sourcing/models/application_models.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/services.dart';
 import 'package:pedantic/pedantic.dart';
@@ -11,6 +10,7 @@ import 'package:stacked_services/stacked_services.dart';
 import '../../../app/app.locator.dart';
 import '../../../app/app.router.dart';
 import '../../../generated/l10n.dart';
+import '../../../models/application_models.dart';
 import '../../../services/user_service.dart';
 import '../../../ui/base/custom_form_view_model.dart';
 

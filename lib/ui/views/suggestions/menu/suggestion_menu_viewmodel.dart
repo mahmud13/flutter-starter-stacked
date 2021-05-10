@@ -1,5 +1,6 @@
-import 'package:crowd_sourcing/models/application_models.dart';
-import 'package:crowd_sourcing/services/suggestion_service.dart';
+import '../../../../models/application_models.dart';
+import '../../../../services/suggestion_service.dart';
+import '../create/suggestion_create_viewmodel.dart';
 import 'package:logger/logger.dart';
 import 'package:pedantic/pedantic.dart';
 import 'package:stacked/stacked.dart';
@@ -20,8 +21,9 @@ class SuggestionMenuViewModel extends BaseViewModel {
     log.v('Loading Point Table');
   }
 
-  void navigateToSuggestionCreate() {
-    unawaited(_navigationService.navigateTo(Routes.suggestionCreateView));
+  void navigateToSuggestionCreate(String faktoryId, String field) {
+    unawaited(_navigationService.navigateTo(Routes.suggestionCreateView,
+        arguments: SuggestionCreateArgs(faktoryId: faktoryId, field: field)));
   }
 
   Future<void> getPointTable() async {
@@ -34,4 +36,9 @@ class SuggestionMenuViewModel extends BaseViewModel {
       notifyListeners();
     }
   }
+}
+
+class SuggestionMenuArgs {
+  String faktoryId;
+  SuggestionMenuArgs({required this.faktoryId});
 }

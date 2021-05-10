@@ -1,4 +1,3 @@
-import 'package:crowd_sourcing/ui/views/signup/personal_info/personal_info_widgetmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -8,6 +7,7 @@ import 'package:validators/validators.dart';
 
 import '../../../../generated/l10n.dart';
 import '../../../shared/ui_helpers.dart';
+import 'personal_info_widgetmodel.dart';
 
 class PersonalInfoWidget extends HookWidget {
   final Function onSubmit;

@@ -1,6 +1,6 @@
-import 'package:crowd_sourcing/generated/l10n.dart';
-import 'package:crowd_sourcing/ui/dumb_widgets/base_layout.dart';
-import 'package:crowd_sourcing/ui/shared/ui_helpers.dart';
+import '../../../generated/l10n.dart';
+import '../../dumb_widgets/base_layout.dart';
+import '../../shared/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stacked/stacked.dart';

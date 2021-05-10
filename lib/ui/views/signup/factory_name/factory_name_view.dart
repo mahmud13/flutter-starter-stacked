@@ -1,9 +1,9 @@
-import 'package:crowd_sourcing/generated/l10n.dart';
-import 'package:crowd_sourcing/models/application_models.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../../../generated/l10n.dart';
+import '../../../../models/application_models.dart';
 import '../../../shared/ui_helpers.dart';
 import 'factory_name_view_model.dart';
 

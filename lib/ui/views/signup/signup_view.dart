@@ -1,13 +1,13 @@
 import 'dart:io';
 
-import 'package:crowd_sourcing/ui/views/signup/factory_name/factory_name_view.dart';
-import 'package:crowd_sourcing/ui/views/signup/profile_photo/phofile_photo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../generated/l10n.dart';
 import '../../shared/ui_helpers.dart';
+import 'factory_name/factory_name_view.dart';
 import 'personal_info/personal_info_widget.dart';
+import 'profile_photo/phofile_photo_widget.dart';
 import 'signup_viewmodel.dart';
 
 class SignupView extends StatelessWidget {

@@ -1,6 +1,7 @@
-import 'package:crowd_sourcing/ui/dumb_widgets/base_layoutmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+
+import 'base_layoutmodel.dart';
 
 class BaseLayout extends StatelessWidget {
   final Widget body;
