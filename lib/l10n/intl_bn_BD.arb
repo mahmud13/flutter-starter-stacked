@@ -35,5 +35,7 @@
     "viewSubmissionReport": "আগের জমাগুলো দেখুন",
     "hello": "হ্যালো",
     "welcome": "স্বাগতম",
-    "home": "নীড়পাতা"
+    "home": "নীড়পাতা",
+    "newSuggestion": "নতুন সম্পাদনা",
+    "fieldSelection": "বিষয় নির্বাচন"
 }

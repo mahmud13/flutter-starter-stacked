@@ -14,6 +14,7 @@ class LoginView extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    var s = S.of(context);
     final _formKey = useMemoized(() => GlobalKey<FormBuilderState>());
     return ViewModelBuilder<LoginViewModel>.reactive(
       builder: (context, model, child) => WillPopScope(
@@ -40,18 +41,17 @@ class LoginView extends HookWidget {
                     children: [
                       FormBuilderTextField(
                           name: 'email',
-                          decoration:
-                              InputDecoration(labelText: S.current.email),
+                          decoration: InputDecoration(labelText: s.email),
                           keyboardType: TextInputType.emailAddress,
                           validator: (value) => isNull(value)
-                              ? S.of(context).emailIsRequired
+                              ? s.emailIsRequired
                               : !isEmail(value!)
-                                  ? S.of(context).emailIsInvalid
+                                  ? s.emailIsInvalid
                                   : null),
                       FormBuilderTextField(
                         name: 'password',
                         decoration: InputDecoration(
-                          labelText: S.of(context).password,
+                          labelText: s.password,
                           suffix: GestureDetector(
                             onTap: () => model.togglePasswordVisibility(),
                             child: Icon(model.isPasswordVisible
@@ -61,16 +61,15 @@ class LoginView extends HookWidget {
                         ),
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: !model.isPasswordVisible,
-                        validator: (value) => isNull(value)
-                            ? S.of(context).passwordIsRequired
-                            : null,
+                        validator: (value) =>
+                            isNull(value) ? s.passwordIsRequired : null,
                       ),
                     ],
                   ),
                 ),
                 verticalSpaceMedium,
                 BusyButton(
-                  title: S.of(context).login,
+                  title: s.login,
                   busy: model.isBusy,
                   width: 200,
                   onPressed: () {
@@ -89,7 +88,7 @@ class LoginView extends HookWidget {
                   onPressed: () {
                     model.navigateToSignup();
                   },
-                  child: Text(S.current.dontHaveAnAccount),
+                  child: Text(s.dontHaveAnAccount),
                 )
               ],
             ),

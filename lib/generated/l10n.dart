@@ -409,6 +409,26 @@ class S {
       args: [],
     );
   }
+
+  /// `New Suggestion`
+  String get newSuggestion {
+    return Intl.message(
+      'New Suggestion',
+      name: 'newSuggestion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Field Selection`
+  String get fieldSelection {
+    return Intl.message(
+      'Field Selection',
+      name: 'fieldSelection',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

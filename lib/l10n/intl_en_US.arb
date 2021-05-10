@@ -35,5 +35,7 @@
     "viewSubmissionReport": "View Submission Report",
     "hello": "Hello",
     "welcome": "Welcome",
-    "home": "Home"
+    "home": "Home",
+    "newSuggestion": "New Suggestion",
+    "fieldSelection": "Field Selection"
 }

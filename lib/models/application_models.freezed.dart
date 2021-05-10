@@ -850,3 +850,441 @@ abstract class _Geolocation extends Geolocation {
   _$GeolocationCopyWith<_Geolocation> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+PointField _$PointFieldFromJson(Map<String, dynamic> json) {
+  return _PointField.fromJson(json);
+}
+
+/// @nodoc
+class _$PointFieldTearOff {
+  const _$PointFieldTearOff();
+
+  _PointField call(
+      {required String field,
+      required String label,
+      int icon = 61668,
+      required List<PointFieldChild> children}) {
+    return _PointField(
+      field: field,
+      label: label,
+      icon: icon,
+      children: children,
+    );
+  }
+
+  PointField fromJson(Map<String, Object> json) {
+    return PointField.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $PointField = _$PointFieldTearOff();
+
+/// @nodoc
+mixin _$PointField {
+  String get field => throw _privateConstructorUsedError;
+  String get label => throw _privateConstructorUsedError;
+  int get icon => throw _privateConstructorUsedError;
+  List<PointFieldChild> get children => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PointFieldCopyWith<PointField> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PointFieldCopyWith<$Res> {
+  factory $PointFieldCopyWith(
+          PointField value, $Res Function(PointField) then) =
+      _$PointFieldCopyWithImpl<$Res>;
+  $Res call(
+      {String field, String label, int icon, List<PointFieldChild> children});
+}
+
+/// @nodoc
+class _$PointFieldCopyWithImpl<$Res> implements $PointFieldCopyWith<$Res> {
+  _$PointFieldCopyWithImpl(this._value, this._then);
+
+  final PointField _value;
+  // ignore: unused_field
+  final $Res Function(PointField) _then;
+
+  @override
+  $Res call({
+    Object? field = freezed,
+    Object? label = freezed,
+    Object? icon = freezed,
+    Object? children = freezed,
+  }) {
+    return _then(_value.copyWith(
+      field: field == freezed
+          ? _value.field
+          : field // ignore: cast_nullable_to_non_nullable
+              as String,
+      label: label == freezed
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+      icon: icon == freezed
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as int,
+      children: children == freezed
+          ? _value.children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<PointFieldChild>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$PointFieldCopyWith<$Res> implements $PointFieldCopyWith<$Res> {
+  factory _$PointFieldCopyWith(
+          _PointField value, $Res Function(_PointField) then) =
+      __$PointFieldCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String field, String label, int icon, List<PointFieldChild> children});
+}
+
+/// @nodoc
+class __$PointFieldCopyWithImpl<$Res> extends _$PointFieldCopyWithImpl<$Res>
+    implements _$PointFieldCopyWith<$Res> {
+  __$PointFieldCopyWithImpl(
+      _PointField _value, $Res Function(_PointField) _then)
+      : super(_value, (v) => _then(v as _PointField));
+
+  @override
+  _PointField get _value => super._value as _PointField;
+
+  @override
+  $Res call({
+    Object? field = freezed,
+    Object? label = freezed,
+    Object? icon = freezed,
+    Object? children = freezed,
+  }) {
+    return _then(_PointField(
+      field: field == freezed
+          ? _value.field
+          : field // ignore: cast_nullable_to_non_nullable
+              as String,
+      label: label == freezed
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+      icon: icon == freezed
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as int,
+      children: children == freezed
+          ? _value.children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<PointFieldChild>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_PointField extends _PointField with DiagnosticableTreeMixin {
+  _$_PointField(
+      {required this.field,
+      required this.label,
+      this.icon = 61668,
+      required this.children})
+      : super._();
+
+  factory _$_PointField.fromJson(Map<String, dynamic> json) =>
+      _$_$_PointFieldFromJson(json);
+
+  @override
+  final String field;
+  @override
+  final String label;
+  @JsonKey(defaultValue: 61668)
+  @override
+  final int icon;
+  @override
+  final List<PointFieldChild> children;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'PointField(field: $field, label: $label, icon: $icon, children: $children)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PointField'))
+      ..add(DiagnosticsProperty('field', field))
+      ..add(DiagnosticsProperty('label', label))
+      ..add(DiagnosticsProperty('icon', icon))
+      ..add(DiagnosticsProperty('children', children));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _PointField &&
+            (identical(other.field, field) ||
+                const DeepCollectionEquality().equals(other.field, field)) &&
+            (identical(other.label, label) ||
+                const DeepCollectionEquality().equals(other.label, label)) &&
+            (identical(other.icon, icon) ||
+                const DeepCollectionEquality().equals(other.icon, icon)) &&
+            (identical(other.children, children) ||
+                const DeepCollectionEquality()
+                    .equals(other.children, children)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(field) ^
+      const DeepCollectionEquality().hash(label) ^
+      const DeepCollectionEquality().hash(icon) ^
+      const DeepCollectionEquality().hash(children);
+
+  @JsonKey(ignore: true)
+  @override
+  _$PointFieldCopyWith<_PointField> get copyWith =>
+      __$PointFieldCopyWithImpl<_PointField>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_PointFieldToJson(this);
+  }
+}
+
+abstract class _PointField extends PointField {
+  factory _PointField(
+      {required String field,
+      required String label,
+      int icon,
+      required List<PointFieldChild> children}) = _$_PointField;
+  _PointField._() : super._();
+
+  factory _PointField.fromJson(Map<String, dynamic> json) =
+      _$_PointField.fromJson;
+
+  @override
+  String get field => throw _privateConstructorUsedError;
+  @override
+  String get label => throw _privateConstructorUsedError;
+  @override
+  int get icon => throw _privateConstructorUsedError;
+  @override
+  List<PointFieldChild> get children => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$PointFieldCopyWith<_PointField> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+PointFieldChild _$PointFieldChildFromJson(Map<String, dynamic> json) {
+  return _PointFieldChild.fromJson(json);
+}
+
+/// @nodoc
+class _$PointFieldChildTearOff {
+  const _$PointFieldChildTearOff();
+
+  _PointFieldChild call(
+      {required String field, required String label, required double point}) {
+    return _PointFieldChild(
+      field: field,
+      label: label,
+      point: point,
+    );
+  }
+
+  PointFieldChild fromJson(Map<String, Object> json) {
+    return PointFieldChild.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $PointFieldChild = _$PointFieldChildTearOff();
+
+/// @nodoc
+mixin _$PointFieldChild {
+  String get field => throw _privateConstructorUsedError;
+  String get label => throw _privateConstructorUsedError;
+  double get point => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PointFieldChildCopyWith<PointFieldChild> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PointFieldChildCopyWith<$Res> {
+  factory $PointFieldChildCopyWith(
+          PointFieldChild value, $Res Function(PointFieldChild) then) =
+      _$PointFieldChildCopyWithImpl<$Res>;
+  $Res call({String field, String label, double point});
+}
+
+/// @nodoc
+class _$PointFieldChildCopyWithImpl<$Res>
+    implements $PointFieldChildCopyWith<$Res> {
+  _$PointFieldChildCopyWithImpl(this._value, this._then);
+
+  final PointFieldChild _value;
+  // ignore: unused_field
+  final $Res Function(PointFieldChild) _then;
+
+  @override
+  $Res call({
+    Object? field = freezed,
+    Object? label = freezed,
+    Object? point = freezed,
+  }) {
+    return _then(_value.copyWith(
+      field: field == freezed
+          ? _value.field
+          : field // ignore: cast_nullable_to_non_nullable
+              as String,
+      label: label == freezed
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+      point: point == freezed
+          ? _value.point
+          : point // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$PointFieldChildCopyWith<$Res>
+    implements $PointFieldChildCopyWith<$Res> {
+  factory _$PointFieldChildCopyWith(
+          _PointFieldChild value, $Res Function(_PointFieldChild) then) =
+      __$PointFieldChildCopyWithImpl<$Res>;
+  @override
+  $Res call({String field, String label, double point});
+}
+
+/// @nodoc
+class __$PointFieldChildCopyWithImpl<$Res>
+    extends _$PointFieldChildCopyWithImpl<$Res>
+    implements _$PointFieldChildCopyWith<$Res> {
+  __$PointFieldChildCopyWithImpl(
+      _PointFieldChild _value, $Res Function(_PointFieldChild) _then)
+      : super(_value, (v) => _then(v as _PointFieldChild));
+
+  @override
+  _PointFieldChild get _value => super._value as _PointFieldChild;
+
+  @override
+  $Res call({
+    Object? field = freezed,
+    Object? label = freezed,
+    Object? point = freezed,
+  }) {
+    return _then(_PointFieldChild(
+      field: field == freezed
+          ? _value.field
+          : field // ignore: cast_nullable_to_non_nullable
+              as String,
+      label: label == freezed
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+      point: point == freezed
+          ? _value.point
+          : point // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_PointFieldChild extends _PointFieldChild with DiagnosticableTreeMixin {
+  _$_PointFieldChild(
+      {required this.field, required this.label, required this.point})
+      : super._();
+
+  factory _$_PointFieldChild.fromJson(Map<String, dynamic> json) =>
+      _$_$_PointFieldChildFromJson(json);
+
+  @override
+  final String field;
+  @override
+  final String label;
+  @override
+  final double point;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'PointFieldChild(field: $field, label: $label, point: $point)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PointFieldChild'))
+      ..add(DiagnosticsProperty('field', field))
+      ..add(DiagnosticsProperty('label', label))
+      ..add(DiagnosticsProperty('point', point));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _PointFieldChild &&
+            (identical(other.field, field) ||
+                const DeepCollectionEquality().equals(other.field, field)) &&
+            (identical(other.label, label) ||
+                const DeepCollectionEquality().equals(other.label, label)) &&
+            (identical(other.point, point) ||
+                const DeepCollectionEquality().equals(other.point, point)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(field) ^
+      const DeepCollectionEquality().hash(label) ^
+      const DeepCollectionEquality().hash(point);
+
+  @JsonKey(ignore: true)
+  @override
+  _$PointFieldChildCopyWith<_PointFieldChild> get copyWith =>
+      __$PointFieldChildCopyWithImpl<_PointFieldChild>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_PointFieldChildToJson(this);
+  }
+}
+
+abstract class _PointFieldChild extends PointFieldChild {
+  factory _PointFieldChild(
+      {required String field,
+      required String label,
+      required double point}) = _$_PointFieldChild;
+  _PointFieldChild._() : super._();
+
+  factory _PointFieldChild.fromJson(Map<String, dynamic> json) =
+      _$_PointFieldChild.fromJson;
+
+  @override
+  String get field => throw _privateConstructorUsedError;
+  @override
+  String get label => throw _privateConstructorUsedError;
+  @override
+  double get point => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$PointFieldChildCopyWith<_PointFieldChild> get copyWith =>
+      throw _privateConstructorUsedError;
+}

@@ -13,6 +13,9 @@ class FirestoreApi {
   final CollectionReference factoriesCollection =
       FirebaseFirestore.instance.collection('factories');
 
+  final CollectionReference pointTableCollection =
+      FirebaseFirestore.instance.collection('pointTable');
+
   Future<void> createUser({required User user}) async {
     log.i('user:$user');
 
@@ -66,5 +69,12 @@ class FirestoreApi {
   Future<Faktory?> getFactory(String id) async {
     var doc = await factoriesCollection.doc(id).get();
     return doc.exists ? Faktory.fromJson(doc.data()!) : null;
+  }
+
+  Future<List<PointField>> getPointTable() async {
+    var snapshot = await pointTableCollection.get();
+    return snapshot.size > 0
+        ? snapshot.docs.map((doc) => PointField.fromJson(doc.data())).toList()
+        : [];
   }
 }

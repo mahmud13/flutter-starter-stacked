@@ -16,6 +16,7 @@ class LoginViewModel extends CustomFormViewModel {
   final _navigationService = locator<NavigationService>();
   final _dialogService = locator<DialogService>();
   final _userService = locator<UserService>();
+  var s = S.current;
 
   var isPasswordVisible = false;
 
@@ -47,9 +48,9 @@ class LoginViewModel extends CustomFormViewModel {
 
   Future<bool> handleBack() async {
     var result = await _dialogService.showConfirmationDialog(
-      title: S.current.doYouWantToExit,
-      confirmationTitle: S.current.ok,
-      cancelTitle: S.current.cancel,
+      title: s.doYouWantToExit,
+      confirmationTitle: s.ok,
+      cancelTitle: s.cancel,
     );
     if (result!.confirmed) {
       exit(0);

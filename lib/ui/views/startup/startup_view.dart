@@ -16,10 +16,7 @@ class StartUpView extends StatelessWidget {
       }),
       builder: (context, model, child) => Scaffold(
         body: Center(
-          child: CircularProgressIndicator(
-            strokeWidth: 3,
-            valueColor: AlwaysStoppedAnimation(Color(0xff19c7c1)),
-          ),
+          child: CircularProgressIndicator(),
         ),
       ),
       viewModelBuilder: () => StartUpViewModel(),

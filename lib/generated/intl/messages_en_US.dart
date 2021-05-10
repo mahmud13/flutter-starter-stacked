@@ -43,12 +43,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "factory": MessageLookupByLibrary.simpleMessage("Factory"),
         "factoryIsRequired":
             MessageLookupByLibrary.simpleMessage("Factory is Required"),
+        "fieldSelection":
+            MessageLookupByLibrary.simpleMessage("Field Selection"),
         "hello": MessageLookupByLibrary.simpleMessage("Hello"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "nameIsRequired":
             MessageLookupByLibrary.simpleMessage("Name is required"),
+        "newSuggestion": MessageLookupByLibrary.simpleMessage("New Suggestion"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),

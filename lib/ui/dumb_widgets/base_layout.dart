@@ -5,7 +5,12 @@ import 'package:stacked/stacked.dart';
 class BaseLayout extends StatelessWidget {
   final Widget body;
   final String appBarTitle;
-  BaseLayout({Key? key, required this.body, required this.appBarTitle})
+  final bool showDrawer;
+  BaseLayout(
+      {Key? key,
+      required this.body,
+      required this.appBarTitle,
+      this.showDrawer = false})
       : super(key: key);
 
   @override
@@ -30,33 +35,53 @@ class BaseLayout extends StatelessWidget {
           ],
         ),
         body: body,
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                decoration: BoxDecoration(color: theme.primaryColor),
-                child: Text(
-                  model.currentUser?.name ?? 'Anonymous',
-                  style:
-                      theme.textTheme.headline5!.copyWith(color: Colors.white),
+        drawer: showDrawer
+            ? Drawer(
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: <Widget>[
+                    DrawerHeader(
+                      decoration: BoxDecoration(color: theme.primaryColor),
+                      child: Column(
+                        children: [
+                          Text(
+                            model.currentUser?.name ?? 'Anonymous',
+                            style: theme.textTheme.headline5!
+                                .copyWith(color: Colors.white),
+                          ),
+                          Row(
+                            children: [
+                              ElevatedButton(
+                                onPressed: () =>
+                                    {model.setLocale(Locale('bn', 'BD'))},
+                                child: Text('Bangla'),
+                              ),
+                              ElevatedButton(
+                                onPressed: () =>
+                                    {model.setLocale(Locale('en', 'US'))},
+                                child: Text('English'),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    ListTile(
+                      title: Text('Item 1'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      title: Text('Item 2'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
                 ),
-              ),
-              ListTile(
-                title: Text('Item 1'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: Text('Item 2'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          ),
-        ),
+              )
+            : null,
       ),
       viewModelBuilder: () => BaseLayoutModel(),
     );

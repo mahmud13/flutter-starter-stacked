@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/rendering.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'application_models.freezed.dart';
@@ -52,4 +53,34 @@ class Geolocation with _$Geolocation {
 
   factory Geolocation.fromJson(Map<String, dynamic> json) =>
       _$GeolocationFromJson(json);
+}
+
+@freezed
+class PointField with _$PointField {
+  PointField._();
+  double get totalPoints =>
+      children.fold<double>(0, (value, element) => element.point + value);
+  factory PointField({
+    required String field,
+    required String label,
+    @Default(61668) int icon,
+    required List<PointFieldChild> children,
+  }) = _PointField;
+
+  factory PointField.fromJson(Map<String, dynamic> json) =>
+      _$PointFieldFromJson(json);
+}
+
+@freezed
+class PointFieldChild with _$PointFieldChild {
+  PointFieldChild._();
+
+  factory PointFieldChild({
+    required String field,
+    required String label,
+    required double point,
+  }) = _PointFieldChild;
+
+  factory PointFieldChild.fromJson(Map<String, dynamic> json) =>
+      _$PointFieldChildFromJson(json);
 }

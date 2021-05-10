@@ -16,6 +16,10 @@ class BaseLayoutModel extends BaseViewModel {
 
   User? get currentUser => _userService.currentUser;
 
+  void setLocale(Locale locale) {
+    S.load(locale);
+  }
+
   void handleMenuItemClick(String value) {
     switch (value) {
       case 'Profile':

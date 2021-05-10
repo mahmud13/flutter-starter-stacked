@@ -75,3 +75,37 @@ Map<String, dynamic> _$_$_GeolocationToJson(_$_Geolocation instance) =>
       'longitude': instance.longitude,
       'latitude': instance.latitude,
     };
+
+_$_PointField _$_$_PointFieldFromJson(Map<String, dynamic> json) {
+  return _$_PointField(
+    field: json['field'] as String,
+    label: json['label'] as String,
+    icon: json['icon'] as int? ?? 61668,
+    children: (json['children'] as List<dynamic>)
+        .map((e) => PointFieldChild.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
+}
+
+Map<String, dynamic> _$_$_PointFieldToJson(_$_PointField instance) =>
+    <String, dynamic>{
+      'field': instance.field,
+      'label': instance.label,
+      'icon': instance.icon,
+      'children': instance.children,
+    };
+
+_$_PointFieldChild _$_$_PointFieldChildFromJson(Map<String, dynamic> json) {
+  return _$_PointFieldChild(
+    field: json['field'] as String,
+    label: json['label'] as String,
+    point: (json['point'] as num).toDouble(),
+  );
+}
+
+Map<String, dynamic> _$_$_PointFieldChildToJson(_$_PointFieldChild instance) =>
+    <String, dynamic>{
+      'field': instance.field,
+      'label': instance.label,
+      'point': instance.point,
+    };

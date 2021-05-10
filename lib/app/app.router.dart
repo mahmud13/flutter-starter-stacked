@@ -14,17 +14,23 @@ import '../ui/views/home/home_view.dart';
 import '../ui/views/login/login_view.dart';
 import '../ui/views/signup/signup_view.dart';
 import '../ui/views/startup/startup_view.dart';
+import '../ui/views/suggestions/create/suggestion_create_view.dart';
+import '../ui/views/suggestions/menu/suggestion_menu_view.dart';
 
 class Routes {
   static const String startUpView = '/';
   static const String loginView = '/login-view';
   static const String signupView = '/signup-view';
   static const String homeView = '/home-view';
+  static const String suggestionMenuView = '/suggestion-menu-view';
+  static const String suggestionCreateView = '/suggestion-create-view';
   static const all = <String>{
     startUpView,
     loginView,
     signupView,
     homeView,
+    suggestionMenuView,
+    suggestionCreateView,
   };
 }
 
@@ -36,6 +42,8 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.loginView, page: LoginView),
     RouteDef(Routes.signupView, page: SignupView),
     RouteDef(Routes.homeView, page: HomeView),
+    RouteDef(Routes.suggestionMenuView, page: SuggestionMenuView),
+    RouteDef(Routes.suggestionCreateView, page: SuggestionCreateView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -67,6 +75,18 @@ class StackedRouter extends RouterBase {
     HomeView: (data) {
       return CupertinoPageRoute<dynamic>(
         builder: (context) => const HomeView(),
+        settings: data,
+      );
+    },
+    SuggestionMenuView: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => SuggestionMenuView(),
+        settings: data,
+      );
+    },
+    SuggestionCreateView: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => const SuggestionCreateView(),
         settings: data,
       );
     },

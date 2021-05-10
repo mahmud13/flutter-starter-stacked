@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:ui';
 
 import 'package:crowd_sourcing/models/application_models.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
