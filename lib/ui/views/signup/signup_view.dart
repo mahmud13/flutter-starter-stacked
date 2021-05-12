@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:crowd_sourcing/models/application_models.dart';
+import '../../../models/application_models.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 

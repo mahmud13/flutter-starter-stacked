@@ -3,6 +3,7 @@ import 'package:stacked/stacked.dart';
 class OperationalWidgetModel extends BaseViewModel {
   var _currentStep = 0;
   var totalSteps;
+  bool? _isOpen;
 
   OperationalWidgetModel({required this.totalSteps});
 
@@ -21,6 +22,12 @@ class OperationalWidgetModel extends BaseViewModel {
 
   void setStep(int step) {
     _currentStep = step;
+    notifyListeners();
+  }
+
+  bool? get isOpen => _isOpen;
+  set isOpen(value) {
+    _isOpen = value;
     notifyListeners();
   }
 }

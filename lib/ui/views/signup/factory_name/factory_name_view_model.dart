@@ -1,8 +1,7 @@
-import '../../../../services/factory_service.dart';
-
-import '../../../../models/application_models.dart';
-import '../../../base/custom_form_view_model.dart';
 import '../../../../app/app.locator.dart';
+import '../../../../models/application_models.dart';
+import '../../../../services/factory_service.dart';
+import '../../../base/custom_form_view_model.dart';
 
 class FactoryNameViewModel extends CustomFormViewModel {
   String? _region;

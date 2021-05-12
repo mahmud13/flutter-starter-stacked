@@ -21,7 +21,6 @@ class FirestoreApi {
 
     try {
       final userDocument = usersCollection.doc(user.id);
-      var json = user.toJson();
       await userDocument.set(user.toJson());
       log.v('UserCreated at ${userDocument.path}');
     } catch (error) {

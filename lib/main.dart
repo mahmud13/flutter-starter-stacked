@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         supportedLocales: S.delegate.supportedLocales,
         theme: ThemeData(
           brightness: Brightness.light,
-          primarySwatch: Colors.green,
+          primarySwatch: Colors.orange,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         navigatorKey: StackedService.navigatorKey,
