@@ -15,34 +15,29 @@ _$_User _$_$_UserFromJson(Map<String, dynamic> json) {
     phone: json['phone'] as String?,
     designation: json['designation'] as String?,
     imageUrl: json['imageUrl'] as String?,
-    faktoryId: json['factoryId'] as String?,
-    faktory: json['faktory'] == null
-        ? null
-        : Faktory.fromJson(json['faktory'] as Map<String, dynamic>),
+    totalPointsRequested: json['totalPointsRequested'] as int? ?? 0,
+    totalPointsEarned: json['totalPointsEarned'] as int? ?? 0,
+    totalMoneyReceived: (json['totalMoneyReceived'] as num?)?.toDouble() ?? 0,
+    faktories: (json['faktories'] as List<dynamic>?)
+            ?.map((e) => UserFaktory.fromJson(e as Map<String, dynamic>))
+            .toList() ??
+        [],
   );
 }
 
-Map<String, dynamic> _$_$_UserToJson(_$_User instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-    'email': instance.email,
-    'name': instance.name,
-    'password': instance.password,
-    'phone': instance.phone,
-    'designation': instance.designation,
-    'imageUrl': instance.imageUrl,
-    'factoryId': instance.faktoryId,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('faktory', instance.faktory);
-  return val;
-}
+Map<String, dynamic> _$_$_UserToJson(_$_User instance) => <String, dynamic>{
+      'id': instance.id,
+      'email': instance.email,
+      'name': instance.name,
+      'password': instance.password,
+      'phone': instance.phone,
+      'designation': instance.designation,
+      'imageUrl': instance.imageUrl,
+      'totalPointsRequested': instance.totalPointsRequested,
+      'totalPointsEarned': instance.totalPointsEarned,
+      'totalMoneyReceived': instance.totalMoneyReceived,
+      'faktories': instance.faktories.map((e) => e.toJson()).toList(),
+    };
 
 _$_Faktory _$_$_FaktoryFromJson(Map<String, dynamic> json) {
   return _$_Faktory(
@@ -76,6 +71,25 @@ Map<String, dynamic> _$_$_GeolocationToJson(_$_Geolocation instance) =>
       'latitude': instance.latitude,
     };
 
+_$_UserFaktory _$_$_UserFaktoryFromJson(Map<String, dynamic> json) {
+  return _$_UserFaktory(
+    id: json['id'] as String,
+    name: json['name'] as String,
+    designation: json['designation'] as String?,
+    totalPointsEarned: json['totalPointsEarned'] ?? 0,
+    totalPointsReceived: json['totalPointsReceived'] as int? ?? 0,
+  );
+}
+
+Map<String, dynamic> _$_$_UserFaktoryToJson(_$_UserFaktory instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'designation': instance.designation,
+      'totalPointsEarned': instance.totalPointsEarned,
+      'totalPointsReceived': instance.totalPointsReceived,
+    };
+
 _$_PointField _$_$_PointFieldFromJson(Map<String, dynamic> json) {
   return _$_PointField(
     field: json['field'] as String,
@@ -99,7 +113,7 @@ _$_PointFieldChild _$_$_PointFieldChildFromJson(Map<String, dynamic> json) {
   return _$_PointFieldChild(
     field: json['field'] as String,
     label: json['label'] as String,
-    point: (json['point'] as num).toDouble(),
+    point: json['point'] as int,
   );
 }
 

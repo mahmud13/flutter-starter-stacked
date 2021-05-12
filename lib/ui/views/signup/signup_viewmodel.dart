@@ -57,8 +57,8 @@ class SignupViewModel extends CustomFormViewModel {
     _user = User.fromJson(info);
   }
 
-  void setFaktoryId(String factoryId) {
-    _user = _user!.copyWith(faktoryId: factoryId);
+  void setFaktories(List<UserFaktory> faktories) {
+    _user = _user!.copyWith(faktories: faktories);
   }
 
   Future<bool> handleBack() async {

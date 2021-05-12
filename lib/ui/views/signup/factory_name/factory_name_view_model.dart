@@ -8,11 +8,13 @@ class FactoryNameViewModel extends CustomFormViewModel {
   String? _region;
   final _factoryService = locator<FactoryService>();
 
-  final Map<String, List<Faktory>> _factoriesByRegion = {};
+  final Map<String, List<Faktory>> _faktoriesByRegion = {};
 
-  Faktory? selectedFactory;
+  Faktory? selectedFaktory;
+  List<UserFaktory> userFaktories = [];
 
   String? get region => _region;
+
   void setRegion(String? region) {
     _region = region;
   }
@@ -20,22 +22,22 @@ class FactoryNameViewModel extends CustomFormViewModel {
   Future<List<Faktory>> getFactories() async {
     if (_region == null) {
       return [];
-    } else if (isFactoriesLoaded(_region!)) {
-      return _factoriesByRegion[region] ?? [];
+    } else if (isFaktoriesLoaded(_region!)) {
+      return _faktoriesByRegion[region] ?? [];
     }
-    _factoriesByRegion[_region!] =
+    _faktoriesByRegion[_region!] =
         await _factoryService.getFactoriesByRegion(region!);
-    return _factoriesByRegion[_region] ?? [];
+    return _faktoriesByRegion[_region] ?? [];
   }
 
-  bool isFactoriesLoaded(String region) =>
-      _factoriesByRegion.containsKey(region);
+  bool isFaktoriesLoaded(String region) =>
+      _faktoriesByRegion.containsKey(region);
 
   @override
   void setFormStatus() {}
 
   Future getFactoryDetail(String id) async {
-    selectedFactory = await _factoryService.getFactory(id);
+    selectedFaktory = await _factoryService.getFactory(id);
     notifyListeners();
   }
 }

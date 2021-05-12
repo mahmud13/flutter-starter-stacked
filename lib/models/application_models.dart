@@ -9,6 +9,7 @@ part 'application_models.g.dart';
 class User with _$User {
   User._();
 
+  @JsonSerializable(explicitToJson: true)
   factory User({
     String? id,
     String? email,
@@ -17,8 +18,10 @@ class User with _$User {
     String? phone,
     String? designation,
     String? imageUrl,
-    @JsonKey(name: 'factoryId') String? faktoryId,
-    @JsonKey(includeIfNull: false) Faktory? faktory,
+    @Default(0) int totalPointsRequested,
+    @Default(0) int totalPointsEarned,
+    @Default(0) double totalMoneyReceived,
+    @Default([]) List<UserFaktory> faktories,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
@@ -56,10 +59,26 @@ class Geolocation with _$Geolocation {
 }
 
 @freezed
+class UserFaktory with _$UserFaktory {
+  UserFaktory._();
+
+  factory UserFaktory({
+    required String id,
+    required String name,
+    String? designation,
+    @Default(0) totalPointsEarned,
+    @Default(0) int totalPointsReceived,
+  }) = _UserFaktory;
+
+  factory UserFaktory.fromJson(Map<String, dynamic> json) =>
+      _$UserFaktoryFromJson(json);
+}
+
+@freezed
 class PointField with _$PointField {
   PointField._();
-  double get totalPoints =>
-      children.fold<double>(0, (value, element) => element.point + value);
+  int get totalPoints =>
+      children.fold<int>(0, (value, element) => element.point + value);
   factory PointField({
     required String field,
     required String label,
@@ -78,7 +97,7 @@ class PointFieldChild with _$PointFieldChild {
   factory PointFieldChild({
     required String field,
     required String label,
-    required double point,
+    required int point,
   }) = _PointFieldChild;
 
   factory PointFieldChild.fromJson(Map<String, dynamic> json) =>

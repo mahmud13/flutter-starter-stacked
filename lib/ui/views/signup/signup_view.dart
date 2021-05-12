@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:crowd_sourcing/models/application_models.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -62,8 +63,8 @@ class SignupView extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         child: FactoryNameView(
                           key: key,
-                          onSubmit: (factoryId) {
-                            model.setFaktoryId(factoryId);
+                          onSubmit: (List<UserFaktory> faktories) {
+                            model.setFaktories(faktories);
                             model.stepUp();
                           },
                           onBack: model.stepDown,

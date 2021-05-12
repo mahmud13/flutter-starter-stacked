@@ -6,6 +6,7 @@ import 'package:stacked_services/stacked_services.dart';
 
 import '../../../app/app.locator.dart';
 import '../../../app/app.router.dart';
+import '../../../app/app.logger.dart';
 import '../../../generated/l10n.dart';
 import '../../../models/application_models.dart';
 import '../../../services/user_service.dart';
@@ -15,6 +16,8 @@ class HomeViewModel extends BaseViewModel {
   final _userService = locator<UserService>();
   final _dialogService = locator<DialogService>();
   final _navigationService = locator<NavigationService>();
+
+  final log = getLogger('StartUpViewModel');
   final s = S.current;
 
   User get currentUser {
@@ -34,8 +37,13 @@ class HomeViewModel extends BaseViewModel {
   }
 
   void navigateToSuggestionMenu() {
-    unawaited(_navigationService.navigateTo(Routes.suggestionMenuView,
-        arguments: SuggestionMenuArgs(faktoryId: currentUser.faktoryId!)));
+    try {
+      unawaited(_navigationService.navigateTo(Routes.suggestionMenuView,
+          arguments:
+              SuggestionMenuArgs(faktoryId: currentUser.faktories.first.id)));
+    } on StateError catch (e) {
+      log.e('No Factories found', e.message);
+    }
   }
 
   void navigateToViewSubmissions() {}

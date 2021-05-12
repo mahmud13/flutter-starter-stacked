@@ -32,15 +32,6 @@ class UserService {
 
     if (userAccount != null) {
       log.v('User account exists. Save as _currentUser');
-      if (userAccount.faktoryId != null) {
-        final faktory = await _firestoreApi.getFactory(userAccount.faktoryId!);
-        if (faktory != null) {
-          userAccount = userAccount.copyWith(faktory: faktory);
-          log.v('A Factory Found ', faktory.name);
-        } else {
-          log.v('No factory attached to this users');
-        }
-      }
       _currentUser = userAccount;
     }
   }
@@ -54,15 +45,6 @@ class UserService {
       log.v('We have no user account. Create a new user ...');
       await _firestoreApi.createUser(user: user);
 
-      if (user.faktoryId != null) {
-        final faktory = await _firestoreApi.getFactory(user.faktoryId!);
-        if (faktory != null) {
-          user = user.copyWith(faktory: faktory);
-          log.v('A Factory Found ', faktory.name);
-        } else {
-          log.v('No factory attached to this users');
-        }
-      }
       _currentUser = user;
       log.v('_currentUser has been saved');
     }

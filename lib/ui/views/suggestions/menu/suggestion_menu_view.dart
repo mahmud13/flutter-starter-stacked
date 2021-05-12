@@ -17,31 +17,39 @@ class SuggestionMenuView extends StatelessWidget {
           appBarTitle: s.fieldSelection,
           body: model.pointTable != null
               ? model.pointTable!.isNotEmpty
-                  ? Container(
-                      alignment: Alignment.center,
+                  ? Padding(
+                      padding: EdgeInsets.all(12),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           verticalSpaceSmall,
                           Text('Please, select a field to continue'),
                           verticalSpaceSmall,
-                          Container(
-                              width: 250,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  for (var item in model.pointTable!)
-                                    OutlinedButton.icon(
-                                      label: Text(item.label),
-                                      onPressed: () =>
-                                          model.navigateToSuggestionCreate(
-                                              args.faktoryId, item.field),
-                                      icon: Icon(IconData(item.icon,
-                                          fontFamily: 'MaterialIcons')),
-                                    ),
-                                ],
-                              )),
+                          for (var item in model.pointTable!)
+                            Row(
+                              children: [
+                                Expanded(
+                                  flex: 7,
+                                  child: OutlinedButton.icon(
+                                    label: Text(item.label),
+                                    onPressed: () =>
+                                        model.navigateToSuggestionCreate(
+                                            args.faktoryId, item.field),
+                                    icon: Icon(IconData(item.icon,
+                                        fontFamily: 'MaterialIcons')),
+                                  ),
+                                ),
+                                horizontalSpaceTiny,
+                                Expanded(
+                                  flex: 3,
+                                  child: Container(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(item.totalPoints.toString() +
+                                        ' points'),
+                                  ),
+                                ),
+                              ],
+                            ),
                         ],
                       ),
                     )

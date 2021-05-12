@@ -66,12 +66,6 @@ class PersonalInfoWidget extends HookWidget {
                 validator: (value) =>
                     isNull(value) ? S.current.phoneIsRequired : null,
               ),
-              FormBuilderTextField(
-                name: 'designation',
-                decoration: InputDecoration(labelText: S.current.designation),
-                validator: (value) =>
-                    isNull(value) ? S.current.designationIsRequired : null,
-              ),
               verticalSpaceMedium,
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,

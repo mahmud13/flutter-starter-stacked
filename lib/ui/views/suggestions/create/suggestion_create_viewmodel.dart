@@ -7,6 +7,7 @@ import '../../../../services/user_service.dart';
 class SuggestionCreateViewModel extends BaseViewModel {
   final _userService = locator<UserService>();
   var _currentStep = 0;
+  var faktory;
   var totalSteps;
 
   SuggestionCreateViewModel({required this.totalSteps});

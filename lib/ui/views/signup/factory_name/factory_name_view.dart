@@ -1,23 +1,26 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stacked/stacked.dart';
+import 'package:validators/validators.dart';
 
 import '../../../../generated/l10n.dart';
 import '../../../../models/application_models.dart';
 import '../../../shared/ui_helpers.dart';
 import 'factory_name_view_model.dart';
 
-class FactoryNameView extends StatelessWidget {
+class FactoryNameView extends HookWidget {
   final VoidCallback onBack;
   final Function onSubmit;
-  final _formKey = GlobalKey<FormState>();
 
   FactoryNameView({Key? key, required this.onBack, required this.onSubmit})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final _formKey = useMemoized(() => GlobalKey<FormBuilderState>());
     return ViewModelBuilder<FactoryNameViewModel>.reactive(
-      builder: (context, model, child) => Form(
+      builder: (context, model, child) => FormBuilder(
         key: _formKey,
         autovalidateMode: model.autovalidateMode,
         child: Column(
@@ -50,13 +53,13 @@ class FactoryNameView extends StatelessWidget {
                   onChanged: (Faktory? item) {
                     model.getFactoryDetail(item!.id);
                   },
-                  selectedItem: model.selectedFactory,
+                  selectedItem: model.selectedFaktory,
                   itemAsString: (Faktory item) => item.name,
                   validator: (Faktory? item) =>
                       item == null ? S.current.factoryIsRequired : null),
             ),
             verticalSpaceMedium,
-            if (model.selectedFactory != null)
+            if (model.selectedFaktory != null)
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -64,8 +67,15 @@ class FactoryNameView extends StatelessWidget {
                     S.current.youSelected + ':',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  Text(model.selectedFactory!.name),
-                  Text(model.selectedFactory!.address!),
+                  Text(model.selectedFaktory!.name),
+                  Text(model.selectedFaktory!.address!),
+                  FormBuilderTextField(
+                    name: 'designation',
+                    decoration:
+                        InputDecoration(labelText: S.current.designation),
+                    validator: (value) =>
+                        isNull(value) ? S.current.designationIsRequired : null,
+                  ),
                 ],
               ),
             verticalSpaceMedium,
@@ -80,8 +90,17 @@ class FactoryNameView extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      onSubmit(model.selectedFactory!.id);
+                    _formKey.currentState!.save();
+                    if (_formKey.currentState!.validate() &&
+                        model.selectedFaktory != null) {
+                      onSubmit([
+                        UserFaktory(
+                          id: model.selectedFaktory!.id,
+                          name: model.selectedFaktory!.name,
+                          designation:
+                              _formKey.currentState!.value['designation'],
+                        )
+                      ]);
                     } else {
                       model.setAutovalidateModeAlways();
                     }

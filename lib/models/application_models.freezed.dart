@@ -28,8 +28,10 @@ class _$UserTearOff {
       String? phone,
       String? designation,
       String? imageUrl,
-      @JsonKey(name: 'factoryId') String? faktoryId,
-      @JsonKey(includeIfNull: false) Faktory? faktory}) {
+      int totalPointsRequested = 0,
+      int totalPointsEarned = 0,
+      double totalMoneyReceived = 0,
+      List<UserFaktory> faktories = const []}) {
     return _User(
       id: id,
       email: email,
@@ -38,8 +40,10 @@ class _$UserTearOff {
       phone: phone,
       designation: designation,
       imageUrl: imageUrl,
-      faktoryId: faktoryId,
-      faktory: faktory,
+      totalPointsRequested: totalPointsRequested,
+      totalPointsEarned: totalPointsEarned,
+      totalMoneyReceived: totalMoneyReceived,
+      faktories: faktories,
     );
   }
 
@@ -60,10 +64,10 @@ mixin _$User {
   String? get phone => throw _privateConstructorUsedError;
   String? get designation => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
-  @JsonKey(name: 'factoryId')
-  String? get faktoryId => throw _privateConstructorUsedError;
-  @JsonKey(includeIfNull: false)
-  Faktory? get faktory => throw _privateConstructorUsedError;
+  int get totalPointsRequested => throw _privateConstructorUsedError;
+  int get totalPointsEarned => throw _privateConstructorUsedError;
+  double get totalMoneyReceived => throw _privateConstructorUsedError;
+  List<UserFaktory> get faktories => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -82,10 +86,10 @@ abstract class $UserCopyWith<$Res> {
       String? phone,
       String? designation,
       String? imageUrl,
-      @JsonKey(name: 'factoryId') String? faktoryId,
-      @JsonKey(includeIfNull: false) Faktory? faktory});
-
-  $FaktoryCopyWith<$Res>? get faktory;
+      int totalPointsRequested,
+      int totalPointsEarned,
+      double totalMoneyReceived,
+      List<UserFaktory> faktories});
 }
 
 /// @nodoc
@@ -105,8 +109,10 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
     Object? phone = freezed,
     Object? designation = freezed,
     Object? imageUrl = freezed,
-    Object? faktoryId = freezed,
-    Object? faktory = freezed,
+    Object? totalPointsRequested = freezed,
+    Object? totalPointsEarned = freezed,
+    Object? totalMoneyReceived = freezed,
+    Object? faktories = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -137,26 +143,23 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      faktoryId: faktoryId == freezed
-          ? _value.faktoryId
-          : faktoryId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      faktory: faktory == freezed
-          ? _value.faktory
-          : faktory // ignore: cast_nullable_to_non_nullable
-              as Faktory?,
+      totalPointsRequested: totalPointsRequested == freezed
+          ? _value.totalPointsRequested
+          : totalPointsRequested // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalPointsEarned: totalPointsEarned == freezed
+          ? _value.totalPointsEarned
+          : totalPointsEarned // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalMoneyReceived: totalMoneyReceived == freezed
+          ? _value.totalMoneyReceived
+          : totalMoneyReceived // ignore: cast_nullable_to_non_nullable
+              as double,
+      faktories: faktories == freezed
+          ? _value.faktories
+          : faktories // ignore: cast_nullable_to_non_nullable
+              as List<UserFaktory>,
     ));
-  }
-
-  @override
-  $FaktoryCopyWith<$Res>? get faktory {
-    if (_value.faktory == null) {
-      return null;
-    }
-
-    return $FaktoryCopyWith<$Res>(_value.faktory!, (value) {
-      return _then(_value.copyWith(faktory: value));
-    });
   }
 }
 
@@ -173,11 +176,10 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       String? phone,
       String? designation,
       String? imageUrl,
-      @JsonKey(name: 'factoryId') String? faktoryId,
-      @JsonKey(includeIfNull: false) Faktory? faktory});
-
-  @override
-  $FaktoryCopyWith<$Res>? get faktory;
+      int totalPointsRequested,
+      int totalPointsEarned,
+      double totalMoneyReceived,
+      List<UserFaktory> faktories});
 }
 
 /// @nodoc
@@ -198,8 +200,10 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object? phone = freezed,
     Object? designation = freezed,
     Object? imageUrl = freezed,
-    Object? faktoryId = freezed,
-    Object? faktory = freezed,
+    Object? totalPointsRequested = freezed,
+    Object? totalPointsEarned = freezed,
+    Object? totalMoneyReceived = freezed,
+    Object? faktories = freezed,
   }) {
     return _then(_User(
       id: id == freezed
@@ -230,20 +234,29 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      faktoryId: faktoryId == freezed
-          ? _value.faktoryId
-          : faktoryId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      faktory: faktory == freezed
-          ? _value.faktory
-          : faktory // ignore: cast_nullable_to_non_nullable
-              as Faktory?,
+      totalPointsRequested: totalPointsRequested == freezed
+          ? _value.totalPointsRequested
+          : totalPointsRequested // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalPointsEarned: totalPointsEarned == freezed
+          ? _value.totalPointsEarned
+          : totalPointsEarned // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalMoneyReceived: totalMoneyReceived == freezed
+          ? _value.totalMoneyReceived
+          : totalMoneyReceived // ignore: cast_nullable_to_non_nullable
+              as double,
+      faktories: faktories == freezed
+          ? _value.faktories
+          : faktories // ignore: cast_nullable_to_non_nullable
+              as List<UserFaktory>,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(explicitToJson: true)
 class _$_User extends _User with DiagnosticableTreeMixin {
   _$_User(
       {this.id,
@@ -253,8 +266,10 @@ class _$_User extends _User with DiagnosticableTreeMixin {
       this.phone,
       this.designation,
       this.imageUrl,
-      @JsonKey(name: 'factoryId') this.faktoryId,
-      @JsonKey(includeIfNull: false) this.faktory})
+      this.totalPointsRequested = 0,
+      this.totalPointsEarned = 0,
+      this.totalMoneyReceived = 0,
+      this.faktories = const []})
       : super._();
 
   factory _$_User.fromJson(Map<String, dynamic> json) =>
@@ -274,16 +289,22 @@ class _$_User extends _User with DiagnosticableTreeMixin {
   final String? designation;
   @override
   final String? imageUrl;
+  @JsonKey(defaultValue: 0)
   @override
-  @JsonKey(name: 'factoryId')
-  final String? faktoryId;
+  final int totalPointsRequested;
+  @JsonKey(defaultValue: 0)
   @override
-  @JsonKey(includeIfNull: false)
-  final Faktory? faktory;
+  final int totalPointsEarned;
+  @JsonKey(defaultValue: 0)
+  @override
+  final double totalMoneyReceived;
+  @JsonKey(defaultValue: const [])
+  @override
+  final List<UserFaktory> faktories;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'User(id: $id, email: $email, name: $name, password: $password, phone: $phone, designation: $designation, imageUrl: $imageUrl, faktoryId: $faktoryId, faktory: $faktory)';
+    return 'User(id: $id, email: $email, name: $name, password: $password, phone: $phone, designation: $designation, imageUrl: $imageUrl, totalPointsRequested: $totalPointsRequested, totalPointsEarned: $totalPointsEarned, totalMoneyReceived: $totalMoneyReceived, faktories: $faktories)';
   }
 
   @override
@@ -298,8 +319,10 @@ class _$_User extends _User with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('phone', phone))
       ..add(DiagnosticsProperty('designation', designation))
       ..add(DiagnosticsProperty('imageUrl', imageUrl))
-      ..add(DiagnosticsProperty('faktoryId', faktoryId))
-      ..add(DiagnosticsProperty('faktory', faktory));
+      ..add(DiagnosticsProperty('totalPointsRequested', totalPointsRequested))
+      ..add(DiagnosticsProperty('totalPointsEarned', totalPointsEarned))
+      ..add(DiagnosticsProperty('totalMoneyReceived', totalMoneyReceived))
+      ..add(DiagnosticsProperty('faktories', faktories));
   }
 
   @override
@@ -323,11 +346,18 @@ class _$_User extends _User with DiagnosticableTreeMixin {
             (identical(other.imageUrl, imageUrl) ||
                 const DeepCollectionEquality()
                     .equals(other.imageUrl, imageUrl)) &&
-            (identical(other.faktoryId, faktoryId) ||
+            (identical(other.totalPointsRequested, totalPointsRequested) ||
+                const DeepCollectionEquality().equals(
+                    other.totalPointsRequested, totalPointsRequested)) &&
+            (identical(other.totalPointsEarned, totalPointsEarned) ||
                 const DeepCollectionEquality()
-                    .equals(other.faktoryId, faktoryId)) &&
-            (identical(other.faktory, faktory) ||
-                const DeepCollectionEquality().equals(other.faktory, faktory)));
+                    .equals(other.totalPointsEarned, totalPointsEarned)) &&
+            (identical(other.totalMoneyReceived, totalMoneyReceived) ||
+                const DeepCollectionEquality()
+                    .equals(other.totalMoneyReceived, totalMoneyReceived)) &&
+            (identical(other.faktories, faktories) ||
+                const DeepCollectionEquality()
+                    .equals(other.faktories, faktories)));
   }
 
   @override
@@ -340,8 +370,10 @@ class _$_User extends _User with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(phone) ^
       const DeepCollectionEquality().hash(designation) ^
       const DeepCollectionEquality().hash(imageUrl) ^
-      const DeepCollectionEquality().hash(faktoryId) ^
-      const DeepCollectionEquality().hash(faktory);
+      const DeepCollectionEquality().hash(totalPointsRequested) ^
+      const DeepCollectionEquality().hash(totalPointsEarned) ^
+      const DeepCollectionEquality().hash(totalMoneyReceived) ^
+      const DeepCollectionEquality().hash(faktories);
 
   @JsonKey(ignore: true)
   @override
@@ -363,8 +395,10 @@ abstract class _User extends User {
       String? phone,
       String? designation,
       String? imageUrl,
-      @JsonKey(name: 'factoryId') String? faktoryId,
-      @JsonKey(includeIfNull: false) Faktory? faktory}) = _$_User;
+      int totalPointsRequested,
+      int totalPointsEarned,
+      double totalMoneyReceived,
+      List<UserFaktory> faktories}) = _$_User;
   _User._() : super._();
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
@@ -384,11 +418,13 @@ abstract class _User extends User {
   @override
   String? get imageUrl => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'factoryId')
-  String? get faktoryId => throw _privateConstructorUsedError;
+  int get totalPointsRequested => throw _privateConstructorUsedError;
   @override
-  @JsonKey(includeIfNull: false)
-  Faktory? get faktory => throw _privateConstructorUsedError;
+  int get totalPointsEarned => throw _privateConstructorUsedError;
+  @override
+  double get totalMoneyReceived => throw _privateConstructorUsedError;
+  @override
+  List<UserFaktory> get faktories => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UserCopyWith<_User> get copyWith => throw _privateConstructorUsedError;
@@ -851,6 +887,273 @@ abstract class _Geolocation extends Geolocation {
       throw _privateConstructorUsedError;
 }
 
+UserFaktory _$UserFaktoryFromJson(Map<String, dynamic> json) {
+  return _UserFaktory.fromJson(json);
+}
+
+/// @nodoc
+class _$UserFaktoryTearOff {
+  const _$UserFaktoryTearOff();
+
+  _UserFaktory call(
+      {required String id,
+      required String name,
+      String? designation,
+      dynamic totalPointsEarned = 0,
+      int totalPointsReceived = 0}) {
+    return _UserFaktory(
+      id: id,
+      name: name,
+      designation: designation,
+      totalPointsEarned: totalPointsEarned,
+      totalPointsReceived: totalPointsReceived,
+    );
+  }
+
+  UserFaktory fromJson(Map<String, Object> json) {
+    return UserFaktory.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $UserFaktory = _$UserFaktoryTearOff();
+
+/// @nodoc
+mixin _$UserFaktory {
+  String get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String? get designation => throw _privateConstructorUsedError;
+  dynamic get totalPointsEarned => throw _privateConstructorUsedError;
+  int get totalPointsReceived => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UserFaktoryCopyWith<UserFaktory> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserFaktoryCopyWith<$Res> {
+  factory $UserFaktoryCopyWith(
+          UserFaktory value, $Res Function(UserFaktory) then) =
+      _$UserFaktoryCopyWithImpl<$Res>;
+  $Res call(
+      {String id,
+      String name,
+      String? designation,
+      dynamic totalPointsEarned,
+      int totalPointsReceived});
+}
+
+/// @nodoc
+class _$UserFaktoryCopyWithImpl<$Res> implements $UserFaktoryCopyWith<$Res> {
+  _$UserFaktoryCopyWithImpl(this._value, this._then);
+
+  final UserFaktory _value;
+  // ignore: unused_field
+  final $Res Function(UserFaktory) _then;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? designation = freezed,
+    Object? totalPointsEarned = freezed,
+    Object? totalPointsReceived = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      designation: designation == freezed
+          ? _value.designation
+          : designation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      totalPointsEarned: totalPointsEarned == freezed
+          ? _value.totalPointsEarned
+          : totalPointsEarned // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      totalPointsReceived: totalPointsReceived == freezed
+          ? _value.totalPointsReceived
+          : totalPointsReceived // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$UserFaktoryCopyWith<$Res>
+    implements $UserFaktoryCopyWith<$Res> {
+  factory _$UserFaktoryCopyWith(
+          _UserFaktory value, $Res Function(_UserFaktory) then) =
+      __$UserFaktoryCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String id,
+      String name,
+      String? designation,
+      dynamic totalPointsEarned,
+      int totalPointsReceived});
+}
+
+/// @nodoc
+class __$UserFaktoryCopyWithImpl<$Res> extends _$UserFaktoryCopyWithImpl<$Res>
+    implements _$UserFaktoryCopyWith<$Res> {
+  __$UserFaktoryCopyWithImpl(
+      _UserFaktory _value, $Res Function(_UserFaktory) _then)
+      : super(_value, (v) => _then(v as _UserFaktory));
+
+  @override
+  _UserFaktory get _value => super._value as _UserFaktory;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? designation = freezed,
+    Object? totalPointsEarned = freezed,
+    Object? totalPointsReceived = freezed,
+  }) {
+    return _then(_UserFaktory(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      designation: designation == freezed
+          ? _value.designation
+          : designation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      totalPointsEarned: totalPointsEarned == freezed
+          ? _value.totalPointsEarned
+          : totalPointsEarned,
+      totalPointsReceived: totalPointsReceived == freezed
+          ? _value.totalPointsReceived
+          : totalPointsReceived // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_UserFaktory extends _UserFaktory with DiagnosticableTreeMixin {
+  _$_UserFaktory(
+      {required this.id,
+      required this.name,
+      this.designation,
+      this.totalPointsEarned = 0,
+      this.totalPointsReceived = 0})
+      : super._();
+
+  factory _$_UserFaktory.fromJson(Map<String, dynamic> json) =>
+      _$_$_UserFaktoryFromJson(json);
+
+  @override
+  final String id;
+  @override
+  final String name;
+  @override
+  final String? designation;
+  @JsonKey(defaultValue: 0)
+  @override
+  final dynamic totalPointsEarned;
+  @JsonKey(defaultValue: 0)
+  @override
+  final int totalPointsReceived;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UserFaktory(id: $id, name: $name, designation: $designation, totalPointsEarned: $totalPointsEarned, totalPointsReceived: $totalPointsReceived)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UserFaktory'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('designation', designation))
+      ..add(DiagnosticsProperty('totalPointsEarned', totalPointsEarned))
+      ..add(DiagnosticsProperty('totalPointsReceived', totalPointsReceived));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UserFaktory &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.designation, designation) ||
+                const DeepCollectionEquality()
+                    .equals(other.designation, designation)) &&
+            (identical(other.totalPointsEarned, totalPointsEarned) ||
+                const DeepCollectionEquality()
+                    .equals(other.totalPointsEarned, totalPointsEarned)) &&
+            (identical(other.totalPointsReceived, totalPointsReceived) ||
+                const DeepCollectionEquality()
+                    .equals(other.totalPointsReceived, totalPointsReceived)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(designation) ^
+      const DeepCollectionEquality().hash(totalPointsEarned) ^
+      const DeepCollectionEquality().hash(totalPointsReceived);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UserFaktoryCopyWith<_UserFaktory> get copyWith =>
+      __$UserFaktoryCopyWithImpl<_UserFaktory>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_UserFaktoryToJson(this);
+  }
+}
+
+abstract class _UserFaktory extends UserFaktory {
+  factory _UserFaktory(
+      {required String id,
+      required String name,
+      String? designation,
+      dynamic totalPointsEarned,
+      int totalPointsReceived}) = _$_UserFaktory;
+  _UserFaktory._() : super._();
+
+  factory _UserFaktory.fromJson(Map<String, dynamic> json) =
+      _$_UserFaktory.fromJson;
+
+  @override
+  String get id => throw _privateConstructorUsedError;
+  @override
+  String get name => throw _privateConstructorUsedError;
+  @override
+  String? get designation => throw _privateConstructorUsedError;
+  @override
+  dynamic get totalPointsEarned => throw _privateConstructorUsedError;
+  @override
+  int get totalPointsReceived => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$UserFaktoryCopyWith<_UserFaktory> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 PointField _$PointFieldFromJson(Map<String, dynamic> json) {
   return _PointField.fromJson(json);
 }
@@ -1093,7 +1396,7 @@ class _$PointFieldChildTearOff {
   const _$PointFieldChildTearOff();
 
   _PointFieldChild call(
-      {required String field, required String label, required double point}) {
+      {required String field, required String label, required int point}) {
     return _PointFieldChild(
       field: field,
       label: label,
@@ -1113,7 +1416,7 @@ const $PointFieldChild = _$PointFieldChildTearOff();
 mixin _$PointFieldChild {
   String get field => throw _privateConstructorUsedError;
   String get label => throw _privateConstructorUsedError;
-  double get point => throw _privateConstructorUsedError;
+  int get point => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1126,7 +1429,7 @@ abstract class $PointFieldChildCopyWith<$Res> {
   factory $PointFieldChildCopyWith(
           PointFieldChild value, $Res Function(PointFieldChild) then) =
       _$PointFieldChildCopyWithImpl<$Res>;
-  $Res call({String field, String label, double point});
+  $Res call({String field, String label, int point});
 }
 
 /// @nodoc
@@ -1156,7 +1459,7 @@ class _$PointFieldChildCopyWithImpl<$Res>
       point: point == freezed
           ? _value.point
           : point // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
     ));
   }
 }
@@ -1168,7 +1471,7 @@ abstract class _$PointFieldChildCopyWith<$Res>
           _PointFieldChild value, $Res Function(_PointFieldChild) then) =
       __$PointFieldChildCopyWithImpl<$Res>;
   @override
-  $Res call({String field, String label, double point});
+  $Res call({String field, String label, int point});
 }
 
 /// @nodoc
@@ -1200,7 +1503,7 @@ class __$PointFieldChildCopyWithImpl<$Res>
       point: point == freezed
           ? _value.point
           : point // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
     ));
   }
 }
@@ -1220,7 +1523,7 @@ class _$_PointFieldChild extends _PointFieldChild with DiagnosticableTreeMixin {
   @override
   final String label;
   @override
-  final double point;
+  final int point;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1271,7 +1574,7 @@ abstract class _PointFieldChild extends PointFieldChild {
   factory _PointFieldChild(
       {required String field,
       required String label,
-      required double point}) = _$_PointFieldChild;
+      required int point}) = _$_PointFieldChild;
   _PointFieldChild._() : super._();
 
   factory _PointFieldChild.fromJson(Map<String, dynamic> json) =
@@ -1282,7 +1585,7 @@ abstract class _PointFieldChild extends PointFieldChild {
   @override
   String get label => throw _privateConstructorUsedError;
   @override
-  double get point => throw _privateConstructorUsedError;
+  int get point => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$PointFieldChildCopyWith<_PointFieldChild> get copyWith =>

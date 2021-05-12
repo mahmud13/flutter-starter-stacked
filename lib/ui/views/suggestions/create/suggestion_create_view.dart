@@ -30,7 +30,7 @@ class SuggestionCreateView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  model.currentUser.faktory!.name,
+                  model.faktory!.name,
                   style: theme.textTheme.headline6,
                 ),
                 verticalSpaceSmall,

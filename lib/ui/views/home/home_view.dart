@@ -34,18 +34,23 @@ class HomeView extends HookWidget {
                       fontSize: 24,
                     ),
                   ),
-                  Text(
-                    model.currentUser.designation ?? '',
-                    style: TextStyle(
-                      fontSize: 16,
+                  for (var faktory in model.currentUser.faktories)
+                    Column(
+                      children: [
+                        Text(
+                          faktory.designation ?? '',
+                          style: TextStyle(
+                            fontSize: 16,
+                          ),
+                        ),
+                        Text(
+                          faktory.name,
+                          style: TextStyle(
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  Text(
-                    model.currentUser.faktory!.name,
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
                   verticalSpaceLarge,
                   Text(
                     'Earned Points: ' + 250.toString(),

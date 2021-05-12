@@ -21,6 +21,7 @@ class FirestoreApi {
 
     try {
       final userDocument = usersCollection.doc(user.id);
+      var json = user.toJson();
       await userDocument.set(user.toJson());
       log.v('UserCreated at ${userDocument.path}');
     } catch (error) {
@@ -53,7 +54,7 @@ class FirestoreApi {
   }
 
   Future setProPic(String? userId, String imageUrl) async {
-    await usersCollection.doc(userId).set({'imageUrl': imageUrl});
+    await usersCollection.doc(userId).update({'imageUrl': imageUrl});
   }
 
   Future<List<Faktory>> getFactoriesByRegion(String region) async {
