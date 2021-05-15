@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:crowd_sourcing/ui/base/stepper_viewmodel.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/services.dart';
 import 'package:pedantic/pedantic.dart';
@@ -14,7 +15,7 @@ import '../../../models/application_models.dart';
 import '../../../services/user_service.dart';
 import '../../../ui/base/custom_form_view_model.dart';
 
-class SignupViewModel extends CustomFormViewModel {
+class SignupViewModel extends CustomFormViewModel with StepperViewModel {
   final _firebaseAuthenticationService =
       locator<FirebaseAuthenticationService>();
   final _navigationService = locator<NavigationService>();
@@ -23,30 +24,15 @@ class SignupViewModel extends CustomFormViewModel {
   final _snackbarService = locator<SnackbarService>();
 
   User? _user;
-  var _currentStep = 0;
-  final totalSteps;
 
-  SignupViewModel({this.totalSteps});
+  SignupViewModel({required int totalSteps}) {
+    this.totalSteps = totalSteps;
+  }
 
   var isPasswordVisible = false;
 
   @override
   void setFormStatus() {}
-
-  int get currentStep => _currentStep;
-  void stepUp() {
-    if (_currentStep < totalSteps) {
-      _currentStep++;
-      notifyListeners();
-    }
-  }
-
-  void stepDown() {
-    if (_currentStep > 0) {
-      _currentStep--;
-      notifyListeners();
-    }
-  }
 
   void togglePasswordVisibility() {
     isPasswordVisible = !isPasswordVisible;
