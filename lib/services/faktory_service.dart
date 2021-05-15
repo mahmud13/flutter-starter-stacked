@@ -3,7 +3,7 @@ import '../app/app.locator.dart';
 import '../app/app.logger.dart';
 import '../models/application_models.dart';
 
-class FactoryService {
+class FaktoryService {
   final log = getLogger('UserService');
 
   final _firestoreApi = locator<FirestoreApi>();

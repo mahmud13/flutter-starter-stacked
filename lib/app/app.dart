@@ -4,7 +4,7 @@ import 'package:stacked_services/stacked_services.dart';
 
 import '../api/firestorage_api.dart';
 import '../api/firestore_api.dart';
-import '../services/factory_service.dart';
+import '../services/faktory_service.dart';
 import '../services/suggestion_service.dart';
 import '../services/user_service.dart';
 import '../ui/views/home/home_view.dart';
@@ -26,7 +26,7 @@ import '../ui/views/suggestions/menu/suggestion_menu_view.dart';
   dependencies: [
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: UserService),
-    LazySingleton(classType: FactoryService),
+    LazySingleton(classType: FaktoryService),
     LazySingleton(classType: SuggestionService),
     LazySingleton(classType: FirestoreApi),
     LazySingleton(classType: FirestorageApi),

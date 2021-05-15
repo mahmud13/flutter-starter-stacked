@@ -76,8 +76,8 @@ _$_UserFaktory _$_$_UserFaktoryFromJson(Map<String, dynamic> json) {
     id: json['id'] as String,
     name: json['name'] as String,
     designation: json['designation'] as String?,
-    totalPointsEarned: json['totalPointsEarned'] ?? 0,
-    totalPointsReceived: json['totalPointsReceived'] as int? ?? 0,
+    totalPointsEarned: json['totalPointsEarned'] as int? ?? 0,
+    totalPointsRequested: json['totalPointsRequested'] as int? ?? 0,
   );
 }
 
@@ -87,7 +87,7 @@ Map<String, dynamic> _$_$_UserFaktoryToJson(_$_UserFaktory instance) =>
       'name': instance.name,
       'designation': instance.designation,
       'totalPointsEarned': instance.totalPointsEarned,
-      'totalPointsReceived': instance.totalPointsReceived,
+      'totalPointsRequested': instance.totalPointsRequested,
     };
 
 _$_PointField _$_$_PointFieldFromJson(Map<String, dynamic> json) {
@@ -122,4 +122,55 @@ Map<String, dynamic> _$_$_PointFieldChildToJson(_$_PointFieldChild instance) =>
       'field': instance.field,
       'label': instance.label,
       'point': instance.point,
+    };
+
+_$_Suggestion _$_$_SuggestionFromJson(Map<String, dynamic> json) {
+  return _$_Suggestion(
+    faktoryId: json['faktoryId'] as String,
+    userId: json['userId'] as String,
+    submittedAt: DateTime.parse(json['submittedAt'] as String),
+    payload:
+        SuggestionPayload.fromJson(json['payload'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_SuggestionToJson(_$_Suggestion instance) =>
+    <String, dynamic>{
+      'faktoryId': instance.faktoryId,
+      'userId': instance.userId,
+      'submittedAt': instance.submittedAt.toIso8601String(),
+      'payload': instance.payload.toJson(),
+    };
+
+_$_SuggestionPayload _$_$_SuggestionPayloadFromJson(Map<String, dynamic> json) {
+  return _$_SuggestionPayload(
+    field: json['field'] as String,
+    children: (json['children'] as List<dynamic>)
+        .map((e) => SuggestionPayloadChild.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
+}
+
+Map<String, dynamic> _$_$_SuggestionPayloadToJson(
+        _$_SuggestionPayload instance) =>
+    <String, dynamic>{
+      'field': instance.field,
+      'children': instance.children.map((e) => e.toJson()).toList(),
+    };
+
+_$_SuggestionPayloadChild _$_$_SuggestionPayloadChildFromJson(
+    Map<String, dynamic> json) {
+  return _$_SuggestionPayloadChild(
+    field: json['field'] as String,
+    pointsRequested: json['pointsRequested'] as int? ?? 0,
+    pointsEarned: json['pointsEarned'] as int? ?? 0,
+  );
+}
+
+Map<String, dynamic> _$_$_SuggestionPayloadChildToJson(
+        _$_SuggestionPayloadChild instance) =>
+    <String, dynamic>{
+      'field': instance.field,
+      'pointsRequested': instance.pointsRequested,
+      'pointsEarned': instance.pointsEarned,
     };

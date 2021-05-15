@@ -66,8 +66,8 @@ class UserFaktory with _$UserFaktory {
     required String id,
     required String name,
     String? designation,
-    @Default(0) totalPointsEarned,
-    @Default(0) int totalPointsReceived,
+    @Default(0) int totalPointsEarned,
+    @Default(0) int totalPointsRequested,
   }) = _UserFaktory;
 
   factory UserFaktory.fromJson(Map<String, dynamic> json) =>
@@ -102,4 +102,54 @@ class PointFieldChild with _$PointFieldChild {
 
   factory PointFieldChild.fromJson(Map<String, dynamic> json) =>
       _$PointFieldChildFromJson(json);
+}
+
+@freezed
+class Suggestion with _$Suggestion {
+  Suggestion._();
+
+  @JsonSerializable(explicitToJson: true)
+  factory Suggestion({
+    required String faktoryId,
+    required String userId,
+    required DateTime submittedAt,
+    required SuggestionPayload payload,
+  }) = _Suggestion;
+
+  factory Suggestion.fromJson(Map<String, dynamic> json) =>
+      _$SuggestionFromJson(json);
+}
+
+@freezed
+class SuggestionPayload with _$SuggestionPayload {
+  SuggestionPayload._();
+
+  int get totalPointsRequested => children.fold<int>(
+      0, (value, element) => element.pointsRequested + value);
+
+  int get totalPointsEarned =>
+      children.fold<int>(0, (value, element) => element.pointsEarned + value);
+
+  @JsonSerializable(explicitToJson: true)
+  factory SuggestionPayload({
+    required String field,
+    required List<SuggestionPayloadChild> children,
+  }) = _SuggestionPayload;
+
+  factory SuggestionPayload.fromJson(Map<String, dynamic> json) =>
+      _$SuggestionPayloadFromJson(json);
+}
+
+@freezed
+class SuggestionPayloadChild with _$SuggestionPayloadChild {
+  SuggestionPayloadChild._();
+
+  factory SuggestionPayloadChild({
+    required String field,
+    @Default(0) int pointsRequested,
+    @Default(0) int pointsEarned,
+  }) = _SuggestionPayloadChild;
+
+  factory SuggestionPayloadChild.fromJson(Map<String, dynamic> json) =>
+      _$SuggestionPayloadChildFromJson(json);
 }

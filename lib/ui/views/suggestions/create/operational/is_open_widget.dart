@@ -12,26 +12,53 @@ class IsOpenWidget extends HookViewModelWidget<OperationalWidgetModel> {
     var theme = Theme.of(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Is the factory Operating?',
-          style: theme.textTheme.headline5,
+          'Is the factory Operating? (${model.isOpenField!.point} points)',
+          style: theme.textTheme.headline6,
         ),
-        verticalSpaceLarge,
-        model.isOpen == null || !model.isOpen!
-            ? OutlinedButton(
-                onPressed: () {
-                  model.isOpen = true;
-                },
-                child: Text('Yes, Open'))
-            : ElevatedButton(onPressed: () => true, child: Text('Yes, Open')),
-        model.isOpen == null || model.isOpen!
-            ? OutlinedButton(
-                onPressed: () {
-                  model.isOpen = false;
-                },
-                child: Text('No, Close'))
-            : ElevatedButton(onPressed: () => true, child: Text('No, Close')),
+        verticalSpaceMedium,
+        Row(
+          children: [
+            Radio(
+              value: true,
+              groupValue: model.isOpen,
+              onChanged: (bool? value) {
+                model.isOpen = value;
+              },
+            ),
+            GestureDetector(
+              onTap: () {
+                model.isOpen = true;
+              },
+              child: Text(
+                'Yes',
+                style: theme.textTheme.headline6,
+              ),
+            )
+          ],
+        ),
+        Row(
+          children: [
+            Radio(
+              value: false,
+              groupValue: model.isOpen,
+              onChanged: (bool? value) {
+                model.isOpen = value;
+              },
+            ),
+            GestureDetector(
+              onTap: () {
+                model.isOpen = false;
+              },
+              child: Text(
+                'No',
+                style: theme.textTheme.headline6,
+              ),
+            )
+          ],
+        ),
       ],
     );
   }

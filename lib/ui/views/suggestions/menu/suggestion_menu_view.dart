@@ -10,7 +10,6 @@ class SuggestionMenuView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var s = S.of(context);
-    var theme = Theme.of(context);
     return ViewModelBuilder<SuggestionMenuViewModel>.reactive(
       builder: (context, model, child) {
         return BaseLayout(

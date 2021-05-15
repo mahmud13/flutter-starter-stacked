@@ -899,14 +899,14 @@ class _$UserFaktoryTearOff {
       {required String id,
       required String name,
       String? designation,
-      dynamic totalPointsEarned = 0,
-      int totalPointsReceived = 0}) {
+      int totalPointsEarned = 0,
+      int totalPointsRequested = 0}) {
     return _UserFaktory(
       id: id,
       name: name,
       designation: designation,
       totalPointsEarned: totalPointsEarned,
-      totalPointsReceived: totalPointsReceived,
+      totalPointsRequested: totalPointsRequested,
     );
   }
 
@@ -923,8 +923,8 @@ mixin _$UserFaktory {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get designation => throw _privateConstructorUsedError;
-  dynamic get totalPointsEarned => throw _privateConstructorUsedError;
-  int get totalPointsReceived => throw _privateConstructorUsedError;
+  int get totalPointsEarned => throw _privateConstructorUsedError;
+  int get totalPointsRequested => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -941,8 +941,8 @@ abstract class $UserFaktoryCopyWith<$Res> {
       {String id,
       String name,
       String? designation,
-      dynamic totalPointsEarned,
-      int totalPointsReceived});
+      int totalPointsEarned,
+      int totalPointsRequested});
 }
 
 /// @nodoc
@@ -959,7 +959,7 @@ class _$UserFaktoryCopyWithImpl<$Res> implements $UserFaktoryCopyWith<$Res> {
     Object? name = freezed,
     Object? designation = freezed,
     Object? totalPointsEarned = freezed,
-    Object? totalPointsReceived = freezed,
+    Object? totalPointsRequested = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -977,10 +977,10 @@ class _$UserFaktoryCopyWithImpl<$Res> implements $UserFaktoryCopyWith<$Res> {
       totalPointsEarned: totalPointsEarned == freezed
           ? _value.totalPointsEarned
           : totalPointsEarned // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      totalPointsReceived: totalPointsReceived == freezed
-          ? _value.totalPointsReceived
-          : totalPointsReceived // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalPointsRequested: totalPointsRequested == freezed
+          ? _value.totalPointsRequested
+          : totalPointsRequested // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -997,8 +997,8 @@ abstract class _$UserFaktoryCopyWith<$Res>
       {String id,
       String name,
       String? designation,
-      dynamic totalPointsEarned,
-      int totalPointsReceived});
+      int totalPointsEarned,
+      int totalPointsRequested});
 }
 
 /// @nodoc
@@ -1017,7 +1017,7 @@ class __$UserFaktoryCopyWithImpl<$Res> extends _$UserFaktoryCopyWithImpl<$Res>
     Object? name = freezed,
     Object? designation = freezed,
     Object? totalPointsEarned = freezed,
-    Object? totalPointsReceived = freezed,
+    Object? totalPointsRequested = freezed,
   }) {
     return _then(_UserFaktory(
       id: id == freezed
@@ -1034,10 +1034,11 @@ class __$UserFaktoryCopyWithImpl<$Res> extends _$UserFaktoryCopyWithImpl<$Res>
               as String?,
       totalPointsEarned: totalPointsEarned == freezed
           ? _value.totalPointsEarned
-          : totalPointsEarned,
-      totalPointsReceived: totalPointsReceived == freezed
-          ? _value.totalPointsReceived
-          : totalPointsReceived // ignore: cast_nullable_to_non_nullable
+          : totalPointsEarned // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalPointsRequested: totalPointsRequested == freezed
+          ? _value.totalPointsRequested
+          : totalPointsRequested // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -1051,7 +1052,7 @@ class _$_UserFaktory extends _UserFaktory with DiagnosticableTreeMixin {
       required this.name,
       this.designation,
       this.totalPointsEarned = 0,
-      this.totalPointsReceived = 0})
+      this.totalPointsRequested = 0})
       : super._();
 
   factory _$_UserFaktory.fromJson(Map<String, dynamic> json) =>
@@ -1065,14 +1066,14 @@ class _$_UserFaktory extends _UserFaktory with DiagnosticableTreeMixin {
   final String? designation;
   @JsonKey(defaultValue: 0)
   @override
-  final dynamic totalPointsEarned;
+  final int totalPointsEarned;
   @JsonKey(defaultValue: 0)
   @override
-  final int totalPointsReceived;
+  final int totalPointsRequested;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UserFaktory(id: $id, name: $name, designation: $designation, totalPointsEarned: $totalPointsEarned, totalPointsReceived: $totalPointsReceived)';
+    return 'UserFaktory(id: $id, name: $name, designation: $designation, totalPointsEarned: $totalPointsEarned, totalPointsRequested: $totalPointsRequested)';
   }
 
   @override
@@ -1084,7 +1085,7 @@ class _$_UserFaktory extends _UserFaktory with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('designation', designation))
       ..add(DiagnosticsProperty('totalPointsEarned', totalPointsEarned))
-      ..add(DiagnosticsProperty('totalPointsReceived', totalPointsReceived));
+      ..add(DiagnosticsProperty('totalPointsRequested', totalPointsRequested));
   }
 
   @override
@@ -1101,9 +1102,9 @@ class _$_UserFaktory extends _UserFaktory with DiagnosticableTreeMixin {
             (identical(other.totalPointsEarned, totalPointsEarned) ||
                 const DeepCollectionEquality()
                     .equals(other.totalPointsEarned, totalPointsEarned)) &&
-            (identical(other.totalPointsReceived, totalPointsReceived) ||
+            (identical(other.totalPointsRequested, totalPointsRequested) ||
                 const DeepCollectionEquality()
-                    .equals(other.totalPointsReceived, totalPointsReceived)));
+                    .equals(other.totalPointsRequested, totalPointsRequested)));
   }
 
   @override
@@ -1113,7 +1114,7 @@ class _$_UserFaktory extends _UserFaktory with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(designation) ^
       const DeepCollectionEquality().hash(totalPointsEarned) ^
-      const DeepCollectionEquality().hash(totalPointsReceived);
+      const DeepCollectionEquality().hash(totalPointsRequested);
 
   @JsonKey(ignore: true)
   @override
@@ -1131,8 +1132,8 @@ abstract class _UserFaktory extends UserFaktory {
       {required String id,
       required String name,
       String? designation,
-      dynamic totalPointsEarned,
-      int totalPointsReceived}) = _$_UserFaktory;
+      int totalPointsEarned,
+      int totalPointsRequested}) = _$_UserFaktory;
   _UserFaktory._() : super._();
 
   factory _UserFaktory.fromJson(Map<String, dynamic> json) =
@@ -1145,9 +1146,9 @@ abstract class _UserFaktory extends UserFaktory {
   @override
   String? get designation => throw _privateConstructorUsedError;
   @override
-  dynamic get totalPointsEarned => throw _privateConstructorUsedError;
+  int get totalPointsEarned => throw _privateConstructorUsedError;
   @override
-  int get totalPointsReceived => throw _privateConstructorUsedError;
+  int get totalPointsRequested => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UserFaktoryCopyWith<_UserFaktory> get copyWith =>
@@ -1589,5 +1590,657 @@ abstract class _PointFieldChild extends PointFieldChild {
   @override
   @JsonKey(ignore: true)
   _$PointFieldChildCopyWith<_PointFieldChild> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Suggestion _$SuggestionFromJson(Map<String, dynamic> json) {
+  return _Suggestion.fromJson(json);
+}
+
+/// @nodoc
+class _$SuggestionTearOff {
+  const _$SuggestionTearOff();
+
+  _Suggestion call(
+      {required String faktoryId,
+      required String userId,
+      required DateTime submittedAt,
+      required SuggestionPayload payload}) {
+    return _Suggestion(
+      faktoryId: faktoryId,
+      userId: userId,
+      submittedAt: submittedAt,
+      payload: payload,
+    );
+  }
+
+  Suggestion fromJson(Map<String, Object> json) {
+    return Suggestion.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $Suggestion = _$SuggestionTearOff();
+
+/// @nodoc
+mixin _$Suggestion {
+  String get faktoryId => throw _privateConstructorUsedError;
+  String get userId => throw _privateConstructorUsedError;
+  DateTime get submittedAt => throw _privateConstructorUsedError;
+  SuggestionPayload get payload => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SuggestionCopyWith<Suggestion> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SuggestionCopyWith<$Res> {
+  factory $SuggestionCopyWith(
+          Suggestion value, $Res Function(Suggestion) then) =
+      _$SuggestionCopyWithImpl<$Res>;
+  $Res call(
+      {String faktoryId,
+      String userId,
+      DateTime submittedAt,
+      SuggestionPayload payload});
+
+  $SuggestionPayloadCopyWith<$Res> get payload;
+}
+
+/// @nodoc
+class _$SuggestionCopyWithImpl<$Res> implements $SuggestionCopyWith<$Res> {
+  _$SuggestionCopyWithImpl(this._value, this._then);
+
+  final Suggestion _value;
+  // ignore: unused_field
+  final $Res Function(Suggestion) _then;
+
+  @override
+  $Res call({
+    Object? faktoryId = freezed,
+    Object? userId = freezed,
+    Object? submittedAt = freezed,
+    Object? payload = freezed,
+  }) {
+    return _then(_value.copyWith(
+      faktoryId: faktoryId == freezed
+          ? _value.faktoryId
+          : faktoryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      submittedAt: submittedAt == freezed
+          ? _value.submittedAt
+          : submittedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      payload: payload == freezed
+          ? _value.payload
+          : payload // ignore: cast_nullable_to_non_nullable
+              as SuggestionPayload,
+    ));
+  }
+
+  @override
+  $SuggestionPayloadCopyWith<$Res> get payload {
+    return $SuggestionPayloadCopyWith<$Res>(_value.payload, (value) {
+      return _then(_value.copyWith(payload: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$SuggestionCopyWith<$Res> implements $SuggestionCopyWith<$Res> {
+  factory _$SuggestionCopyWith(
+          _Suggestion value, $Res Function(_Suggestion) then) =
+      __$SuggestionCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String faktoryId,
+      String userId,
+      DateTime submittedAt,
+      SuggestionPayload payload});
+
+  @override
+  $SuggestionPayloadCopyWith<$Res> get payload;
+}
+
+/// @nodoc
+class __$SuggestionCopyWithImpl<$Res> extends _$SuggestionCopyWithImpl<$Res>
+    implements _$SuggestionCopyWith<$Res> {
+  __$SuggestionCopyWithImpl(
+      _Suggestion _value, $Res Function(_Suggestion) _then)
+      : super(_value, (v) => _then(v as _Suggestion));
+
+  @override
+  _Suggestion get _value => super._value as _Suggestion;
+
+  @override
+  $Res call({
+    Object? faktoryId = freezed,
+    Object? userId = freezed,
+    Object? submittedAt = freezed,
+    Object? payload = freezed,
+  }) {
+    return _then(_Suggestion(
+      faktoryId: faktoryId == freezed
+          ? _value.faktoryId
+          : faktoryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      submittedAt: submittedAt == freezed
+          ? _value.submittedAt
+          : submittedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      payload: payload == freezed
+          ? _value.payload
+          : payload // ignore: cast_nullable_to_non_nullable
+              as SuggestionPayload,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(explicitToJson: true)
+class _$_Suggestion extends _Suggestion with DiagnosticableTreeMixin {
+  _$_Suggestion(
+      {required this.faktoryId,
+      required this.userId,
+      required this.submittedAt,
+      required this.payload})
+      : super._();
+
+  factory _$_Suggestion.fromJson(Map<String, dynamic> json) =>
+      _$_$_SuggestionFromJson(json);
+
+  @override
+  final String faktoryId;
+  @override
+  final String userId;
+  @override
+  final DateTime submittedAt;
+  @override
+  final SuggestionPayload payload;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Suggestion(faktoryId: $faktoryId, userId: $userId, submittedAt: $submittedAt, payload: $payload)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Suggestion'))
+      ..add(DiagnosticsProperty('faktoryId', faktoryId))
+      ..add(DiagnosticsProperty('userId', userId))
+      ..add(DiagnosticsProperty('submittedAt', submittedAt))
+      ..add(DiagnosticsProperty('payload', payload));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Suggestion &&
+            (identical(other.faktoryId, faktoryId) ||
+                const DeepCollectionEquality()
+                    .equals(other.faktoryId, faktoryId)) &&
+            (identical(other.userId, userId) ||
+                const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.submittedAt, submittedAt) ||
+                const DeepCollectionEquality()
+                    .equals(other.submittedAt, submittedAt)) &&
+            (identical(other.payload, payload) ||
+                const DeepCollectionEquality().equals(other.payload, payload)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(faktoryId) ^
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(submittedAt) ^
+      const DeepCollectionEquality().hash(payload);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SuggestionCopyWith<_Suggestion> get copyWith =>
+      __$SuggestionCopyWithImpl<_Suggestion>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_SuggestionToJson(this);
+  }
+}
+
+abstract class _Suggestion extends Suggestion {
+  factory _Suggestion(
+      {required String faktoryId,
+      required String userId,
+      required DateTime submittedAt,
+      required SuggestionPayload payload}) = _$_Suggestion;
+  _Suggestion._() : super._();
+
+  factory _Suggestion.fromJson(Map<String, dynamic> json) =
+      _$_Suggestion.fromJson;
+
+  @override
+  String get faktoryId => throw _privateConstructorUsedError;
+  @override
+  String get userId => throw _privateConstructorUsedError;
+  @override
+  DateTime get submittedAt => throw _privateConstructorUsedError;
+  @override
+  SuggestionPayload get payload => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$SuggestionCopyWith<_Suggestion> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+SuggestionPayload _$SuggestionPayloadFromJson(Map<String, dynamic> json) {
+  return _SuggestionPayload.fromJson(json);
+}
+
+/// @nodoc
+class _$SuggestionPayloadTearOff {
+  const _$SuggestionPayloadTearOff();
+
+  _SuggestionPayload call(
+      {required String field, required List<SuggestionPayloadChild> children}) {
+    return _SuggestionPayload(
+      field: field,
+      children: children,
+    );
+  }
+
+  SuggestionPayload fromJson(Map<String, Object> json) {
+    return SuggestionPayload.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $SuggestionPayload = _$SuggestionPayloadTearOff();
+
+/// @nodoc
+mixin _$SuggestionPayload {
+  String get field => throw _privateConstructorUsedError;
+  List<SuggestionPayloadChild> get children =>
+      throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SuggestionPayloadCopyWith<SuggestionPayload> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SuggestionPayloadCopyWith<$Res> {
+  factory $SuggestionPayloadCopyWith(
+          SuggestionPayload value, $Res Function(SuggestionPayload) then) =
+      _$SuggestionPayloadCopyWithImpl<$Res>;
+  $Res call({String field, List<SuggestionPayloadChild> children});
+}
+
+/// @nodoc
+class _$SuggestionPayloadCopyWithImpl<$Res>
+    implements $SuggestionPayloadCopyWith<$Res> {
+  _$SuggestionPayloadCopyWithImpl(this._value, this._then);
+
+  final SuggestionPayload _value;
+  // ignore: unused_field
+  final $Res Function(SuggestionPayload) _then;
+
+  @override
+  $Res call({
+    Object? field = freezed,
+    Object? children = freezed,
+  }) {
+    return _then(_value.copyWith(
+      field: field == freezed
+          ? _value.field
+          : field // ignore: cast_nullable_to_non_nullable
+              as String,
+      children: children == freezed
+          ? _value.children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<SuggestionPayloadChild>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$SuggestionPayloadCopyWith<$Res>
+    implements $SuggestionPayloadCopyWith<$Res> {
+  factory _$SuggestionPayloadCopyWith(
+          _SuggestionPayload value, $Res Function(_SuggestionPayload) then) =
+      __$SuggestionPayloadCopyWithImpl<$Res>;
+  @override
+  $Res call({String field, List<SuggestionPayloadChild> children});
+}
+
+/// @nodoc
+class __$SuggestionPayloadCopyWithImpl<$Res>
+    extends _$SuggestionPayloadCopyWithImpl<$Res>
+    implements _$SuggestionPayloadCopyWith<$Res> {
+  __$SuggestionPayloadCopyWithImpl(
+      _SuggestionPayload _value, $Res Function(_SuggestionPayload) _then)
+      : super(_value, (v) => _then(v as _SuggestionPayload));
+
+  @override
+  _SuggestionPayload get _value => super._value as _SuggestionPayload;
+
+  @override
+  $Res call({
+    Object? field = freezed,
+    Object? children = freezed,
+  }) {
+    return _then(_SuggestionPayload(
+      field: field == freezed
+          ? _value.field
+          : field // ignore: cast_nullable_to_non_nullable
+              as String,
+      children: children == freezed
+          ? _value.children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<SuggestionPayloadChild>,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(explicitToJson: true)
+class _$_SuggestionPayload extends _SuggestionPayload
+    with DiagnosticableTreeMixin {
+  _$_SuggestionPayload({required this.field, required this.children})
+      : super._();
+
+  factory _$_SuggestionPayload.fromJson(Map<String, dynamic> json) =>
+      _$_$_SuggestionPayloadFromJson(json);
+
+  @override
+  final String field;
+  @override
+  final List<SuggestionPayloadChild> children;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SuggestionPayload(field: $field, children: $children)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SuggestionPayload'))
+      ..add(DiagnosticsProperty('field', field))
+      ..add(DiagnosticsProperty('children', children));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SuggestionPayload &&
+            (identical(other.field, field) ||
+                const DeepCollectionEquality().equals(other.field, field)) &&
+            (identical(other.children, children) ||
+                const DeepCollectionEquality()
+                    .equals(other.children, children)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(field) ^
+      const DeepCollectionEquality().hash(children);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SuggestionPayloadCopyWith<_SuggestionPayload> get copyWith =>
+      __$SuggestionPayloadCopyWithImpl<_SuggestionPayload>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_SuggestionPayloadToJson(this);
+  }
+}
+
+abstract class _SuggestionPayload extends SuggestionPayload {
+  factory _SuggestionPayload(
+      {required String field,
+      required List<SuggestionPayloadChild> children}) = _$_SuggestionPayload;
+  _SuggestionPayload._() : super._();
+
+  factory _SuggestionPayload.fromJson(Map<String, dynamic> json) =
+      _$_SuggestionPayload.fromJson;
+
+  @override
+  String get field => throw _privateConstructorUsedError;
+  @override
+  List<SuggestionPayloadChild> get children =>
+      throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$SuggestionPayloadCopyWith<_SuggestionPayload> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+SuggestionPayloadChild _$SuggestionPayloadChildFromJson(
+    Map<String, dynamic> json) {
+  return _SuggestionPayloadChild.fromJson(json);
+}
+
+/// @nodoc
+class _$SuggestionPayloadChildTearOff {
+  const _$SuggestionPayloadChildTearOff();
+
+  _SuggestionPayloadChild call(
+      {required String field, int pointsRequested = 0, int pointsEarned = 0}) {
+    return _SuggestionPayloadChild(
+      field: field,
+      pointsRequested: pointsRequested,
+      pointsEarned: pointsEarned,
+    );
+  }
+
+  SuggestionPayloadChild fromJson(Map<String, Object> json) {
+    return SuggestionPayloadChild.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $SuggestionPayloadChild = _$SuggestionPayloadChildTearOff();
+
+/// @nodoc
+mixin _$SuggestionPayloadChild {
+  String get field => throw _privateConstructorUsedError;
+  int get pointsRequested => throw _privateConstructorUsedError;
+  int get pointsEarned => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SuggestionPayloadChildCopyWith<SuggestionPayloadChild> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SuggestionPayloadChildCopyWith<$Res> {
+  factory $SuggestionPayloadChildCopyWith(SuggestionPayloadChild value,
+          $Res Function(SuggestionPayloadChild) then) =
+      _$SuggestionPayloadChildCopyWithImpl<$Res>;
+  $Res call({String field, int pointsRequested, int pointsEarned});
+}
+
+/// @nodoc
+class _$SuggestionPayloadChildCopyWithImpl<$Res>
+    implements $SuggestionPayloadChildCopyWith<$Res> {
+  _$SuggestionPayloadChildCopyWithImpl(this._value, this._then);
+
+  final SuggestionPayloadChild _value;
+  // ignore: unused_field
+  final $Res Function(SuggestionPayloadChild) _then;
+
+  @override
+  $Res call({
+    Object? field = freezed,
+    Object? pointsRequested = freezed,
+    Object? pointsEarned = freezed,
+  }) {
+    return _then(_value.copyWith(
+      field: field == freezed
+          ? _value.field
+          : field // ignore: cast_nullable_to_non_nullable
+              as String,
+      pointsRequested: pointsRequested == freezed
+          ? _value.pointsRequested
+          : pointsRequested // ignore: cast_nullable_to_non_nullable
+              as int,
+      pointsEarned: pointsEarned == freezed
+          ? _value.pointsEarned
+          : pointsEarned // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$SuggestionPayloadChildCopyWith<$Res>
+    implements $SuggestionPayloadChildCopyWith<$Res> {
+  factory _$SuggestionPayloadChildCopyWith(_SuggestionPayloadChild value,
+          $Res Function(_SuggestionPayloadChild) then) =
+      __$SuggestionPayloadChildCopyWithImpl<$Res>;
+  @override
+  $Res call({String field, int pointsRequested, int pointsEarned});
+}
+
+/// @nodoc
+class __$SuggestionPayloadChildCopyWithImpl<$Res>
+    extends _$SuggestionPayloadChildCopyWithImpl<$Res>
+    implements _$SuggestionPayloadChildCopyWith<$Res> {
+  __$SuggestionPayloadChildCopyWithImpl(_SuggestionPayloadChild _value,
+      $Res Function(_SuggestionPayloadChild) _then)
+      : super(_value, (v) => _then(v as _SuggestionPayloadChild));
+
+  @override
+  _SuggestionPayloadChild get _value => super._value as _SuggestionPayloadChild;
+
+  @override
+  $Res call({
+    Object? field = freezed,
+    Object? pointsRequested = freezed,
+    Object? pointsEarned = freezed,
+  }) {
+    return _then(_SuggestionPayloadChild(
+      field: field == freezed
+          ? _value.field
+          : field // ignore: cast_nullable_to_non_nullable
+              as String,
+      pointsRequested: pointsRequested == freezed
+          ? _value.pointsRequested
+          : pointsRequested // ignore: cast_nullable_to_non_nullable
+              as int,
+      pointsEarned: pointsEarned == freezed
+          ? _value.pointsEarned
+          : pointsEarned // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_SuggestionPayloadChild extends _SuggestionPayloadChild
+    with DiagnosticableTreeMixin {
+  _$_SuggestionPayloadChild(
+      {required this.field, this.pointsRequested = 0, this.pointsEarned = 0})
+      : super._();
+
+  factory _$_SuggestionPayloadChild.fromJson(Map<String, dynamic> json) =>
+      _$_$_SuggestionPayloadChildFromJson(json);
+
+  @override
+  final String field;
+  @JsonKey(defaultValue: 0)
+  @override
+  final int pointsRequested;
+  @JsonKey(defaultValue: 0)
+  @override
+  final int pointsEarned;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SuggestionPayloadChild(field: $field, pointsRequested: $pointsRequested, pointsEarned: $pointsEarned)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SuggestionPayloadChild'))
+      ..add(DiagnosticsProperty('field', field))
+      ..add(DiagnosticsProperty('pointsRequested', pointsRequested))
+      ..add(DiagnosticsProperty('pointsEarned', pointsEarned));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SuggestionPayloadChild &&
+            (identical(other.field, field) ||
+                const DeepCollectionEquality().equals(other.field, field)) &&
+            (identical(other.pointsRequested, pointsRequested) ||
+                const DeepCollectionEquality()
+                    .equals(other.pointsRequested, pointsRequested)) &&
+            (identical(other.pointsEarned, pointsEarned) ||
+                const DeepCollectionEquality()
+                    .equals(other.pointsEarned, pointsEarned)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(field) ^
+      const DeepCollectionEquality().hash(pointsRequested) ^
+      const DeepCollectionEquality().hash(pointsEarned);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SuggestionPayloadChildCopyWith<_SuggestionPayloadChild> get copyWith =>
+      __$SuggestionPayloadChildCopyWithImpl<_SuggestionPayloadChild>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_SuggestionPayloadChildToJson(this);
+  }
+}
+
+abstract class _SuggestionPayloadChild extends SuggestionPayloadChild {
+  factory _SuggestionPayloadChild(
+      {required String field,
+      int pointsRequested,
+      int pointsEarned}) = _$_SuggestionPayloadChild;
+  _SuggestionPayloadChild._() : super._();
+
+  factory _SuggestionPayloadChild.fromJson(Map<String, dynamic> json) =
+      _$_SuggestionPayloadChild.fromJson;
+
+  @override
+  String get field => throw _privateConstructorUsedError;
+  @override
+  int get pointsRequested => throw _privateConstructorUsedError;
+  @override
+  int get pointsEarned => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$SuggestionPayloadChildCopyWith<_SuggestionPayloadChild> get copyWith =>
       throw _privateConstructorUsedError;
 }
