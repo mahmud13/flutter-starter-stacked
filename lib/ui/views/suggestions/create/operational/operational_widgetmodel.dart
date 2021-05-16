@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:crowd_sourcing/models/application_models.dart';
 import 'package:crowd_sourcing/services/faktory_service.dart';
+import 'package:crowd_sourcing/ui/base/authentication_viewmodel.dart';
 import 'package:crowd_sourcing/ui/base/stepper_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -15,10 +16,13 @@ import '../../../../../app/app.logger.dart';
 import '../../../../../models/application_models.dart';
 import '../../../../../services/suggestion_service.dart';
 
-class OperationalWidgetModel extends BaseViewModel with StepperViewModel {
+class OperationalWidgetModel extends BaseViewModel
+    with StepperViewModel, AuthenticationViewModel {
   final _navigationService = locator<NavigationService>();
   final _suggestionService = locator<SuggestionService>();
   final _faktoryService = locator<FaktoryService>();
+  final _dialogeService = locator<DialogService>();
+
   final _picker = ImagePicker();
   final log = getLogger('OperationalWidgetModel');
 
@@ -62,11 +66,47 @@ class OperationalWidgetModel extends BaseViewModel with StepperViewModel {
     this.totalSteps = totalSteps;
   }
 
-  void handleNext() {
-    try {
-      stepUp();
-    } on NoStepFoundException {
-      print('sbmit now');
+  Future<void> handleNext() async {
+    var shouldStepup = true;
+    if (currentStep == 0 && _isOpen == null) {
+      await _dialogeService.showDialog(
+          title: 'Error!', description: 'The answer is required.');
+      shouldStepup = false;
+    }
+    if (currentStep == 1 && _gatePictureFile == null) {
+      var result = await _dialogeService.showConfirmationDialog(
+        title: 'Warning!!',
+        description:
+            'Do you really want to skip and lose the chance to win ${gatePictureField!.point} points?',
+        confirmationTitle: 'Try again',
+        cancelTitle: 'Skip Anyway',
+      );
+
+      shouldStepup = result != null && !result.confirmed;
+    }
+    if (currentStep == 2 && _currentPosition == null) {
+      var result = await _dialogeService.showConfirmationDialog(
+        title: 'Warning!!',
+        description:
+            'Do you really want to skip and lose the chance to win ${gpsField!.point} points?',
+        confirmationTitle: 'Try again',
+        cancelTitle: 'Skip Anyway',
+      );
+
+      if (result != null && !result.confirmed) {
+        await submit();
+        shouldStepup = false;
+        _navigationService.back();
+      }
+    }
+    if (shouldStepup) {
+      try {
+        stepUp();
+      } on NoStepFoundException {
+        print('sbmit now');
+        await submit();
+        _navigationService.back();
+      }
     }
   }
 
@@ -154,6 +194,40 @@ class OperationalWidgetModel extends BaseViewModel with StepperViewModel {
           .firstWhere((element) => element.field == 'gps');
     }
     return null;
+  }
+
+  Future<void> submit() async {
+    var children = <SuggestionPayloadChild>[];
+    if (_isOpen != null) {
+      children.add(SuggestionPayloadChild(
+        field: 'isOpen',
+        pointsEarned: 0,
+        pointsRequested: isOpenField!.point,
+        value: _isOpen,
+      ));
+    }
+    if (_currentPosition != null) {
+      children.add(SuggestionPayloadChild(
+        field: 'gps',
+        pointsEarned: 0,
+        pointsRequested: gpsField!.point,
+        value: {
+          'longitude': _currentPosition!.longitude,
+          'latitude': _currentPosition!.latitude,
+          'distance': _distance,
+        },
+      ));
+    }
+    var suggestion = Suggestion(
+        faktoryId: _faktory!.id,
+        userId: currentUser.id!,
+        submittedAt: DateTime.now(),
+        payload: SuggestionPayload(
+          field: 'operational',
+          children: children,
+        ),
+        status: SuggestionStatus.submitted);
+    await _suggestionService.store(suggestion);
   }
 
   @override

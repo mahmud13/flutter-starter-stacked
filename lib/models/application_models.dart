@@ -104,6 +104,8 @@ class PointFieldChild with _$PointFieldChild {
       _$PointFieldChildFromJson(json);
 }
 
+enum SuggestionStatus { submitted, approved, rejected }
+
 @freezed
 class Suggestion with _$Suggestion {
   Suggestion._();
@@ -114,6 +116,7 @@ class Suggestion with _$Suggestion {
     required String userId,
     required DateTime submittedAt,
     required SuggestionPayload payload,
+    required SuggestionStatus status,
   }) = _Suggestion;
 
   factory Suggestion.fromJson(Map<String, dynamic> json) =>
@@ -146,6 +149,7 @@ class SuggestionPayloadChild with _$SuggestionPayloadChild {
 
   factory SuggestionPayloadChild({
     required String field,
+    required dynamic value,
     @Default(0) int pointsRequested,
     @Default(0) int pointsEarned,
   }) = _SuggestionPayloadChild;

@@ -11,4 +11,8 @@ class SuggestionService {
   Future<List<PointField>> getPointTable() async {
     return await _firestoreApi.getPointTable();
   }
+
+  Future<void> store(Suggestion suggestion) async {
+    await _firestoreApi.storeSuggestion(suggestion);
+  }
 }

@@ -16,6 +16,9 @@ class FirestoreApi {
   final CollectionReference pointTableCollection =
       FirebaseFirestore.instance.collection('pointTable');
 
+  final CollectionReference suggestionCollection =
+      FirebaseFirestore.instance.collection('suggestions');
+
   Future<void> createUser({required User user}) async {
     log.i('user:$user');
 
@@ -76,5 +79,9 @@ class FirestoreApi {
     return snapshot.size > 0
         ? snapshot.docs.map((doc) => PointField.fromJson(doc.data())).toList()
         : [];
+  }
+
+  Future<void> storeSuggestion(Suggestion suggestion) async {
+    await suggestionCollection.add(suggestion.toJson());
   }
 }

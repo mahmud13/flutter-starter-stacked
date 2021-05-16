@@ -131,6 +131,7 @@ _$_Suggestion _$_$_SuggestionFromJson(Map<String, dynamic> json) {
     submittedAt: DateTime.parse(json['submittedAt'] as String),
     payload:
         SuggestionPayload.fromJson(json['payload'] as Map<String, dynamic>),
+    status: _$enumDecode(_$SuggestionStatusEnumMap, json['status']),
   );
 }
 
@@ -140,7 +141,40 @@ Map<String, dynamic> _$_$_SuggestionToJson(_$_Suggestion instance) =>
       'userId': instance.userId,
       'submittedAt': instance.submittedAt.toIso8601String(),
       'payload': instance.payload.toJson(),
+      'status': _$SuggestionStatusEnumMap[instance.status],
     };
+
+K _$enumDecode<K, V>(
+  Map<K, V> enumValues,
+  Object? source, {
+  K? unknownValue,
+}) {
+  if (source == null) {
+    throw ArgumentError(
+      'A value must be provided. Supported values: '
+      '${enumValues.values.join(', ')}',
+    );
+  }
+
+  return enumValues.entries.singleWhere(
+    (e) => e.value == source,
+    orElse: () {
+      if (unknownValue == null) {
+        throw ArgumentError(
+          '`$source` is not one of the supported values: '
+          '${enumValues.values.join(', ')}',
+        );
+      }
+      return MapEntry(unknownValue, enumValues.values.first);
+    },
+  ).key;
+}
+
+const _$SuggestionStatusEnumMap = {
+  SuggestionStatus.submitted: 'submitted',
+  SuggestionStatus.approved: 'approved',
+  SuggestionStatus.rejected: 'rejected',
+};
 
 _$_SuggestionPayload _$_$_SuggestionPayloadFromJson(Map<String, dynamic> json) {
   return _$_SuggestionPayload(
@@ -162,6 +196,7 @@ _$_SuggestionPayloadChild _$_$_SuggestionPayloadChildFromJson(
     Map<String, dynamic> json) {
   return _$_SuggestionPayloadChild(
     field: json['field'] as String,
+    value: json['value'],
     pointsRequested: json['pointsRequested'] as int? ?? 0,
     pointsEarned: json['pointsEarned'] as int? ?? 0,
   );
@@ -171,6 +206,7 @@ Map<String, dynamic> _$_$_SuggestionPayloadChildToJson(
         _$_SuggestionPayloadChild instance) =>
     <String, dynamic>{
       'field': instance.field,
+      'value': instance.value,
       'pointsRequested': instance.pointsRequested,
       'pointsEarned': instance.pointsEarned,
     };

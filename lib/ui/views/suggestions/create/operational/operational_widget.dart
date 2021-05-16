@@ -40,9 +40,7 @@ class OperationalWidget extends StatelessWidget {
                         steps: [
                           Step(
                             title: Text('Open/Close'),
-                            content: Center(
-                              child: IsOpenWidget(),
-                            ),
+                            content: IsOpenWidget(),
                             isActive: model.currentStep >= 0,
                             state: model.currentStep == 0
                                 ? StepState.editing
