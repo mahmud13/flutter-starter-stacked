@@ -46,13 +46,13 @@ class ProfilePhotoWidget extends StatelessWidget {
               Container(
                 width: double.infinity,
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.green[700]),
                   onPressed: () => onSubmit(model.file),
                   child: const Text('Sign up'),
                 ),
               ),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(primary: Colors.red[700]),
+                style: ElevatedButton.styleFrom(
+                    primary: Theme.of(context).errorColor),
                 onPressed: () {
                   onBack();
                 },

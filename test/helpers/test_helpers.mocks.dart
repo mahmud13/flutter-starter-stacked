@@ -46,12 +46,38 @@ class MockUserService extends _i1.Mock implements _i3.UserService {
           returnValue: Future<void>.value(null),
           returnValueForMissingStub: Future.value()) as _i4.Future<void>);
   @override
-  _i4.Future<String> uploadProPic(
+  _i4.Future<void> uploadProPic(
           {_i6.File? image, String? userId, String? fileName}) =>
       (super.noSuchMethod(
           Invocation.method(#uploadProPic, [],
               {#image: image, #userId: userId, #fileName: fileName}),
-          returnValue: Future<String>.value('')) as _i4.Future<String>);
+          returnValue: Future<void>.value(null),
+          returnValueForMissingStub: Future.value()) as _i4.Future<void>);
+  @override
+  _i4.Future<void> updateTotalPoints(
+          int? totalPointsRequested, String? faktoryId) =>
+      (super.noSuchMethod(
+          Invocation.method(
+              #updateTotalPoints, [totalPointsRequested, faktoryId]),
+          returnValue: Future<void>.value(null),
+          returnValueForMissingStub: Future.value()) as _i4.Future<void>);
+  @override
+  void listenToReactiveValues(List<dynamic>? reactiveValues) =>
+      super.noSuchMethod(
+          Invocation.method(#listenToReactiveValues, [reactiveValues]),
+          returnValueForMissingStub: null);
+  @override
+  void addListener(void Function()? listener) =>
+      super.noSuchMethod(Invocation.method(#addListener, [listener]),
+          returnValueForMissingStub: null);
+  @override
+  void removeListener(void Function()? listener) =>
+      super.noSuchMethod(Invocation.method(#removeListener, [listener]),
+          returnValueForMissingStub: null);
+  @override
+  void notifyListeners() =>
+      super.noSuchMethod(Invocation.method(#notifyListeners, []),
+          returnValueForMissingStub: null);
 }
 
 /// A class which mocks [NavigationService].

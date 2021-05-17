@@ -1,6 +1,7 @@
-import 'brands_widgetmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+
+import 'brands_widgetmodel.dart';
 
 class BrandsWidget extends StatelessWidget {
   final String faktoryId;

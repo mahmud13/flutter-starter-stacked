@@ -8,7 +8,9 @@ class FirestorageApi {
   final log = getLogger('FirestoreApi');
 
   Future<UploadTask> uploadFile(
-      File file, String fileName, String filePath) async {
+      {required File file,
+      required String fileName,
+      required String filePath}) async {
     var ref = FirebaseStorage.instance.ref().child(filePath).child(fileName);
     final metadata =
         SettableMetadata(contentType: 'image/jpeg', customMetadata: {

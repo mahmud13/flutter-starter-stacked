@@ -19,7 +19,7 @@ class GpsWidget extends HookViewModelWidget<OperationalWidgetModel> {
         ),
         verticalSpaceMedium,
         ElevatedButton.icon(
-          onPressed: () => model.getPosition(),
+          onPressed: model.isBusy ? null : () => model.getPosition(),
           label: Text('Locate me'),
           icon: Icon(Icons.gps_fixed),
         ),
@@ -80,6 +80,10 @@ class GpsWidget extends HookViewModelWidget<OperationalWidgetModel> {
                 style: theme.textTheme.caption,
               )
             ],
+          ),
+        if (model.isBusy)
+          Center(
+            child: CircularProgressIndicator(),
           ),
       ],
     );

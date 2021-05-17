@@ -1,10 +1,10 @@
-import 'package:crowd_sourcing/ui/views/suggestions/create/operational/gate_picture_widget.dart';
-import 'package:crowd_sourcing/ui/views/suggestions/create/operational/gps_widget.dart';
-import 'package:crowd_sourcing/ui/views/suggestions/create/operational/is_open_widget.dart';
-
-import 'operational_widgetmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+
+import 'gate_picture_widget.dart';
+import 'gps_widget.dart';
+import 'is_open_widget.dart';
+import 'operational_widgetmodel.dart';
 
 class OperationalWidget extends StatelessWidget {
   final String faktoryId;
@@ -86,7 +86,7 @@ class OperationalWidget extends StatelessWidget {
                   Align(
                     alignment: Alignment.bottomRight,
                     child: ElevatedButton(
-                        onPressed: model.handleNext,
+                        onPressed: model.isBusy ? null : model.handleNext,
                         child: Row(
                           children: [
                             Text(model.canGoForward ? 'Next' : 'Submit'),

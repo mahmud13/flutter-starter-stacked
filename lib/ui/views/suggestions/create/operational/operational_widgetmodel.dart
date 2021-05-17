@@ -1,10 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:crowd_sourcing/models/application_models.dart';
-import 'package:crowd_sourcing/services/faktory_service.dart';
-import 'package:crowd_sourcing/ui/base/authentication_viewmodel.dart';
-import 'package:crowd_sourcing/ui/base/stepper_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
@@ -14,12 +10,17 @@ import 'package:stacked_services/stacked_services.dart';
 import '../../../../../app/app.locator.dart';
 import '../../../../../app/app.logger.dart';
 import '../../../../../models/application_models.dart';
+import '../../../../../services/faktory_service.dart';
 import '../../../../../services/suggestion_service.dart';
+import '../../../../../services/user_service.dart';
+import '../../../../base/authentication_viewmodel.dart';
+import '../../../../base/stepper_viewmodel.dart';
 
 class OperationalWidgetModel extends BaseViewModel
     with StepperViewModel, AuthenticationViewModel {
   final _navigationService = locator<NavigationService>();
   final _suggestionService = locator<SuggestionService>();
+  final _userService = locator<UserService>();
   final _faktoryService = locator<FaktoryService>();
   final _dialogeService = locator<DialogService>();
 
@@ -90,7 +91,7 @@ class OperationalWidgetModel extends BaseViewModel
         description:
             'Do you really want to skip and lose the chance to win ${gpsField!.point} points?',
         confirmationTitle: 'Try again',
-        cancelTitle: 'Skip Anyway',
+        cancelTitle: 'Submit Anyway',
       );
 
       if (result != null && !result.confirmed) {
@@ -120,7 +121,9 @@ class OperationalWidgetModel extends BaseViewModel
 
   Future<void> getPosition() async {
     isLocationServiceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (isLocationServiceEnabled!) {
+    setBusy(true);
+    if (isLocationServiceEnabled! &&
+        (_positionStream == null || _positionStream!.isPaused)) {
       locationPermission = await Geolocator.requestPermission();
       if (locationPermission! == LocationPermission.always ||
           locationPermission! == LocationPermission.whileInUse) {
@@ -130,6 +133,7 @@ class OperationalWidgetModel extends BaseViewModel
         ).listen(
           (Position position) {
             log.v('got location');
+            setBusy(false);
             if (!(_currentPosition is Position) ||
                 position.latitude != _currentPosition!.latitude ||
                 position.longitude != _currentPosition!.longitude) {
@@ -197,7 +201,9 @@ class OperationalWidgetModel extends BaseViewModel
   }
 
   Future<void> submit() async {
+    setBusy(true);
     var children = <SuggestionPayloadChild>[];
+    var totalPoints = 0;
     if (_isOpen != null) {
       children.add(SuggestionPayloadChild(
         field: 'isOpen',
@@ -205,6 +211,19 @@ class OperationalWidgetModel extends BaseViewModel
         pointsRequested: isOpenField!.point,
         value: _isOpen,
       ));
+      totalPoints += isOpenField!.point;
+    }
+    if (_gatePictureFile != null) {
+      var imageUrl = await _suggestionService.uploadGatePicture(
+          image: _gatePictureFile!,
+          fileName: 'operational-${DateTime.now().toIso8601String()}.jpg');
+      children.add(SuggestionPayloadChild(
+        field: 'gatePicture',
+        pointsEarned: 0,
+        pointsRequested: gatePictureField!.point,
+        value: imageUrl,
+      ));
+      totalPoints += gatePictureField!.point;
     }
     if (_currentPosition != null) {
       children.add(SuggestionPayloadChild(
@@ -217,6 +236,7 @@ class OperationalWidgetModel extends BaseViewModel
           'distance': _distance,
         },
       ));
+      totalPoints += gpsField!.point;
     }
     var suggestion = Suggestion(
         faktoryId: _faktory!.id,
@@ -228,6 +248,9 @@ class OperationalWidgetModel extends BaseViewModel
         ),
         status: SuggestionStatus.submitted);
     await _suggestionService.store(suggestion);
+    await _userService.updateTotalPoints(totalPoints, _faktory!.id);
+    await _userService.syncUserAccount();
+    setBusy(false);
   }
 
   @override

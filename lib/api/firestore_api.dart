@@ -84,4 +84,16 @@ class FirestoreApi {
   Future<void> storeSuggestion(Suggestion suggestion) async {
     await suggestionCollection.add(suggestion.toJson());
   }
+
+  Future<List<Suggestion>> getSuggestionsByUserId(String? id) async {
+    var snapshot =
+        await suggestionCollection.where('userId', isEqualTo: id).get();
+    return snapshot.size > 0
+        ? snapshot.docs.map((doc) => Suggestion.fromJson(doc.data())).toList()
+        : [];
+  }
+
+  Future<void> updateTotalPoints(User user) async {
+    await usersCollection.doc(user.id).update(user.toJson());
+  }
 }

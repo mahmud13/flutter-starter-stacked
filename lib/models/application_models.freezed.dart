@@ -24,7 +24,7 @@ class _$UserTearOff {
       {String? id,
       String? email,
       String? name,
-      String? password,
+      @JsonKey(ignore: true) String? password,
       String? phone,
       String? designation,
       String? imageUrl,
@@ -60,6 +60,7 @@ mixin _$User {
   String? get id => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   String? get password => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String? get designation => throw _privateConstructorUsedError;
@@ -82,7 +83,7 @@ abstract class $UserCopyWith<$Res> {
       {String? id,
       String? email,
       String? name,
-      String? password,
+      @JsonKey(ignore: true) String? password,
       String? phone,
       String? designation,
       String? imageUrl,
@@ -172,7 +173,7 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       {String? id,
       String? email,
       String? name,
-      String? password,
+      @JsonKey(ignore: true) String? password,
       String? phone,
       String? designation,
       String? imageUrl,
@@ -262,7 +263,7 @@ class _$_User extends _User with DiagnosticableTreeMixin {
       {this.id,
       this.email,
       this.name,
-      this.password,
+      @JsonKey(ignore: true) this.password,
       this.phone,
       this.designation,
       this.imageUrl,
@@ -282,6 +283,7 @@ class _$_User extends _User with DiagnosticableTreeMixin {
   @override
   final String? name;
   @override
+  @JsonKey(ignore: true)
   final String? password;
   @override
   final String? phone;
@@ -391,7 +393,7 @@ abstract class _User extends User {
       {String? id,
       String? email,
       String? name,
-      String? password,
+      @JsonKey(ignore: true) String? password,
       String? phone,
       String? designation,
       String? imageUrl,
@@ -410,6 +412,7 @@ abstract class _User extends User {
   @override
   String? get name => throw _privateConstructorUsedError;
   @override
+  @JsonKey(ignore: true)
   String? get password => throw _privateConstructorUsedError;
   @override
   String? get phone => throw _privateConstructorUsedError;

@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import '../../../models/application_models.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../generated/l10n.dart';
+import '../../../models/application_models.dart';
 import '../../shared/ui_helpers.dart';
 import 'factory_name/factory_name_view.dart';
 import 'personal_info/personal_info_widget.dart';

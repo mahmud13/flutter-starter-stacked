@@ -11,7 +11,7 @@ import '../../../generated/l10n.dart';
 import '../../../models/application_models.dart';
 import '../../../services/user_service.dart';
 
-class HomeViewModel extends BaseViewModel {
+class HomeViewModel extends ReactiveViewModel {
   final _userService = locator<UserService>();
   final _dialogService = locator<DialogService>();
   final _navigationService = locator<NavigationService>();
@@ -22,6 +22,9 @@ class HomeViewModel extends BaseViewModel {
   User get currentUser {
     return _userService.currentUser!;
   }
+
+  @override
+  List<ReactiveServiceMixin> get reactiveServices => [_userService];
 
   Future<bool> handleBack() async {
     var result = await _dialogService.showConfirmationDialog(
@@ -39,5 +42,7 @@ class HomeViewModel extends BaseViewModel {
     unawaited(_navigationService.navigateTo(Routes.suggestionMenuView));
   }
 
-  void navigateToViewSubmissions() {}
+  void navigateToViewSubmissions() {
+    _navigationService.navigateTo(Routes.submissionReportView);
+  }
 }

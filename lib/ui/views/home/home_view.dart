@@ -1,10 +1,10 @@
-import '../../../generated/l10n.dart';
-import '../../dumb_widgets/base_layout.dart';
-import '../../shared/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../../generated/l10n.dart';
+import '../../dumb_widgets/base_layout.dart';
+import '../../shared/ui_helpers.dart';
 import 'home_viewmodel.dart';
 
 class HomeView extends HookWidget {
@@ -53,14 +53,16 @@ class HomeView extends HookWidget {
                     ),
                   verticalSpaceLarge,
                   Text(
-                    'Earned Points: ' + 250.toString(),
+                    'Earned Points: ' +
+                        model.currentUser.totalPointsEarned.toString(),
                     style: TextStyle(
                       fontSize: 16,
                       color: theme.primaryColorDark,
                     ),
                   ),
                   Text(
-                    'Points under review: ' + 150.toString(),
+                    'Points requested: ' +
+                        model.currentUser.totalPointsRequested.toString(),
                     style: TextStyle(
                       fontSize: 16,
                       color: theme.primaryColorDark,

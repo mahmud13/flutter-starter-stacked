@@ -1,3 +1,4 @@
+import 'package:crowd_sourcing/ui/views/report/submission_report_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -22,6 +23,7 @@ import '../ui/views/suggestions/menu/suggestion_menu_view.dart';
     CupertinoRoute(page: HomeView),
     CupertinoRoute(page: SuggestionMenuView),
     CupertinoRoute(page: SuggestionCreateView),
+    CupertinoRoute(page: SubmissionReportView),
   ],
   dependencies: [
     LazySingleton(classType: NavigationService),

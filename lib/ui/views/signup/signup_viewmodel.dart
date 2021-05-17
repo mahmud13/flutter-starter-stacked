@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:crowd_sourcing/ui/base/stepper_viewmodel.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/services.dart';
 import 'package:pedantic/pedantic.dart';
@@ -14,6 +13,7 @@ import '../../../generated/l10n.dart';
 import '../../../models/application_models.dart';
 import '../../../services/user_service.dart';
 import '../../../ui/base/custom_form_view_model.dart';
+import '../../base/stepper_viewmodel.dart';
 
 class SignupViewModel extends CustomFormViewModel with StepperViewModel {
   final _firebaseAuthenticationService =
@@ -41,6 +41,9 @@ class SignupViewModel extends CustomFormViewModel with StepperViewModel {
 
   void setPersonalInfo(Map<String, dynamic> info) {
     _user = User.fromJson(info);
+    if (_user != null) {
+      _user = _user!.copyWith(password: info['password']);
+    }
   }
 
   void setFaktories(List<UserFaktory> faktories) {
