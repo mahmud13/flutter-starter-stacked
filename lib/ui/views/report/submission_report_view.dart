@@ -17,17 +17,31 @@ class SubmissionReportView extends StatelessWidget {
         return BaseLayout(
           appBarTitle: 'Report',
           body: Container(
-            alignment: Alignment.center,
             child: Padding(
-              padding: const EdgeInsets.only(top: 24.0),
+              padding: const EdgeInsets.all(12),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'hi',
+                    'Table',
                     style: theme.textTheme.headline6,
                   ),
                   verticalSpaceSmall,
+                  Table(
+                    children: [
+                      TableRow(children: [
+                        Text('Field'),
+                        Text('Points Requested'),
+                        Text('Points earned')
+                      ]),
+                      for (var submission in model.submissions)
+                        TableRow(children: [
+                          Text(submission.payload.field),
+                          Text(submission.payload.totalPointsRequested
+                              .toString()),
+                          Text(submission.payload.totalPointsEarned.toString()),
+                        ]),
+                    ],
+                  )
                 ],
               ),
             ),
