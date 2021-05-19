@@ -1400,10 +1400,14 @@ class _$PointFieldChildTearOff {
   const _$PointFieldChildTearOff();
 
   _PointFieldChild call(
-      {required String field, required String label, required int point}) {
+      {required String field,
+      required String label,
+      PointFieldChildType type = PointFieldChildType.text,
+      required int point}) {
     return _PointFieldChild(
       field: field,
       label: label,
+      type: type,
       point: point,
     );
   }
@@ -1420,6 +1424,7 @@ const $PointFieldChild = _$PointFieldChildTearOff();
 mixin _$PointFieldChild {
   String get field => throw _privateConstructorUsedError;
   String get label => throw _privateConstructorUsedError;
+  PointFieldChildType get type => throw _privateConstructorUsedError;
   int get point => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1433,7 +1438,7 @@ abstract class $PointFieldChildCopyWith<$Res> {
   factory $PointFieldChildCopyWith(
           PointFieldChild value, $Res Function(PointFieldChild) then) =
       _$PointFieldChildCopyWithImpl<$Res>;
-  $Res call({String field, String label, int point});
+  $Res call({String field, String label, PointFieldChildType type, int point});
 }
 
 /// @nodoc
@@ -1449,6 +1454,7 @@ class _$PointFieldChildCopyWithImpl<$Res>
   $Res call({
     Object? field = freezed,
     Object? label = freezed,
+    Object? type = freezed,
     Object? point = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1460,6 +1466,10 @@ class _$PointFieldChildCopyWithImpl<$Res>
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
               as String,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as PointFieldChildType,
       point: point == freezed
           ? _value.point
           : point // ignore: cast_nullable_to_non_nullable
@@ -1475,7 +1485,7 @@ abstract class _$PointFieldChildCopyWith<$Res>
           _PointFieldChild value, $Res Function(_PointFieldChild) then) =
       __$PointFieldChildCopyWithImpl<$Res>;
   @override
-  $Res call({String field, String label, int point});
+  $Res call({String field, String label, PointFieldChildType type, int point});
 }
 
 /// @nodoc
@@ -1493,6 +1503,7 @@ class __$PointFieldChildCopyWithImpl<$Res>
   $Res call({
     Object? field = freezed,
     Object? label = freezed,
+    Object? type = freezed,
     Object? point = freezed,
   }) {
     return _then(_PointFieldChild(
@@ -1504,6 +1515,10 @@ class __$PointFieldChildCopyWithImpl<$Res>
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
               as String,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as PointFieldChildType,
       point: point == freezed
           ? _value.point
           : point // ignore: cast_nullable_to_non_nullable
@@ -1516,7 +1531,10 @@ class __$PointFieldChildCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PointFieldChild extends _PointFieldChild with DiagnosticableTreeMixin {
   _$_PointFieldChild(
-      {required this.field, required this.label, required this.point})
+      {required this.field,
+      required this.label,
+      this.type = PointFieldChildType.text,
+      required this.point})
       : super._();
 
   factory _$_PointFieldChild.fromJson(Map<String, dynamic> json) =>
@@ -1526,12 +1544,15 @@ class _$_PointFieldChild extends _PointFieldChild with DiagnosticableTreeMixin {
   final String field;
   @override
   final String label;
+  @JsonKey(defaultValue: PointFieldChildType.text)
+  @override
+  final PointFieldChildType type;
   @override
   final int point;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PointFieldChild(field: $field, label: $label, point: $point)';
+    return 'PointFieldChild(field: $field, label: $label, type: $type, point: $point)';
   }
 
   @override
@@ -1541,6 +1562,7 @@ class _$_PointFieldChild extends _PointFieldChild with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('type', 'PointFieldChild'))
       ..add(DiagnosticsProperty('field', field))
       ..add(DiagnosticsProperty('label', label))
+      ..add(DiagnosticsProperty('type', type))
       ..add(DiagnosticsProperty('point', point));
   }
 
@@ -1552,6 +1574,8 @@ class _$_PointFieldChild extends _PointFieldChild with DiagnosticableTreeMixin {
                 const DeepCollectionEquality().equals(other.field, field)) &&
             (identical(other.label, label) ||
                 const DeepCollectionEquality().equals(other.label, label)) &&
+            (identical(other.type, type) ||
+                const DeepCollectionEquality().equals(other.type, type)) &&
             (identical(other.point, point) ||
                 const DeepCollectionEquality().equals(other.point, point)));
   }
@@ -1561,6 +1585,7 @@ class _$_PointFieldChild extends _PointFieldChild with DiagnosticableTreeMixin {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(field) ^
       const DeepCollectionEquality().hash(label) ^
+      const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(point);
 
   @JsonKey(ignore: true)
@@ -1578,6 +1603,7 @@ abstract class _PointFieldChild extends PointFieldChild {
   factory _PointFieldChild(
       {required String field,
       required String label,
+      PointFieldChildType type,
       required int point}) = _$_PointFieldChild;
   _PointFieldChild._() : super._();
 
@@ -1588,6 +1614,8 @@ abstract class _PointFieldChild extends PointFieldChild {
   String get field => throw _privateConstructorUsedError;
   @override
   String get label => throw _privateConstructorUsedError;
+  @override
+  PointFieldChildType get type => throw _privateConstructorUsedError;
   @override
   int get point => throw _privateConstructorUsedError;
   @override
@@ -1605,12 +1633,14 @@ class _$SuggestionTearOff {
   const _$SuggestionTearOff();
 
   _Suggestion call(
-      {required String faktoryId,
+      {String? id,
+      required String faktoryId,
       required String userId,
       required DateTime submittedAt,
       required SuggestionPayload payload,
       required SuggestionStatus status}) {
     return _Suggestion(
+      id: id,
       faktoryId: faktoryId,
       userId: userId,
       submittedAt: submittedAt,
@@ -1629,6 +1659,7 @@ const $Suggestion = _$SuggestionTearOff();
 
 /// @nodoc
 mixin _$Suggestion {
+  String? get id => throw _privateConstructorUsedError;
   String get faktoryId => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
   DateTime get submittedAt => throw _privateConstructorUsedError;
@@ -1647,7 +1678,8 @@ abstract class $SuggestionCopyWith<$Res> {
           Suggestion value, $Res Function(Suggestion) then) =
       _$SuggestionCopyWithImpl<$Res>;
   $Res call(
-      {String faktoryId,
+      {String? id,
+      String faktoryId,
       String userId,
       DateTime submittedAt,
       SuggestionPayload payload,
@@ -1666,6 +1698,7 @@ class _$SuggestionCopyWithImpl<$Res> implements $SuggestionCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? faktoryId = freezed,
     Object? userId = freezed,
     Object? submittedAt = freezed,
@@ -1673,6 +1706,10 @@ class _$SuggestionCopyWithImpl<$Res> implements $SuggestionCopyWith<$Res> {
     Object? status = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       faktoryId: faktoryId == freezed
           ? _value.faktoryId
           : faktoryId // ignore: cast_nullable_to_non_nullable
@@ -1711,7 +1748,8 @@ abstract class _$SuggestionCopyWith<$Res> implements $SuggestionCopyWith<$Res> {
       __$SuggestionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String faktoryId,
+      {String? id,
+      String faktoryId,
       String userId,
       DateTime submittedAt,
       SuggestionPayload payload,
@@ -1733,6 +1771,7 @@ class __$SuggestionCopyWithImpl<$Res> extends _$SuggestionCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? faktoryId = freezed,
     Object? userId = freezed,
     Object? submittedAt = freezed,
@@ -1740,6 +1779,10 @@ class __$SuggestionCopyWithImpl<$Res> extends _$SuggestionCopyWithImpl<$Res>
     Object? status = freezed,
   }) {
     return _then(_Suggestion(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       faktoryId: faktoryId == freezed
           ? _value.faktoryId
           : faktoryId // ignore: cast_nullable_to_non_nullable
@@ -1769,7 +1812,8 @@ class __$SuggestionCopyWithImpl<$Res> extends _$SuggestionCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true)
 class _$_Suggestion extends _Suggestion with DiagnosticableTreeMixin {
   _$_Suggestion(
-      {required this.faktoryId,
+      {this.id,
+      required this.faktoryId,
       required this.userId,
       required this.submittedAt,
       required this.payload,
@@ -1779,6 +1823,8 @@ class _$_Suggestion extends _Suggestion with DiagnosticableTreeMixin {
   factory _$_Suggestion.fromJson(Map<String, dynamic> json) =>
       _$_$_SuggestionFromJson(json);
 
+  @override
+  final String? id;
   @override
   final String faktoryId;
   @override
@@ -1792,7 +1838,7 @@ class _$_Suggestion extends _Suggestion with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Suggestion(faktoryId: $faktoryId, userId: $userId, submittedAt: $submittedAt, payload: $payload, status: $status)';
+    return 'Suggestion(id: $id, faktoryId: $faktoryId, userId: $userId, submittedAt: $submittedAt, payload: $payload, status: $status)';
   }
 
   @override
@@ -1800,6 +1846,7 @@ class _$_Suggestion extends _Suggestion with DiagnosticableTreeMixin {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'Suggestion'))
+      ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('faktoryId', faktoryId))
       ..add(DiagnosticsProperty('userId', userId))
       ..add(DiagnosticsProperty('submittedAt', submittedAt))
@@ -1811,6 +1858,8 @@ class _$_Suggestion extends _Suggestion with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Suggestion &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.faktoryId, faktoryId) ||
                 const DeepCollectionEquality()
                     .equals(other.faktoryId, faktoryId)) &&
@@ -1829,6 +1878,7 @@ class _$_Suggestion extends _Suggestion with DiagnosticableTreeMixin {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(faktoryId) ^
       const DeepCollectionEquality().hash(userId) ^
       const DeepCollectionEquality().hash(submittedAt) ^
@@ -1848,7 +1898,8 @@ class _$_Suggestion extends _Suggestion with DiagnosticableTreeMixin {
 
 abstract class _Suggestion extends Suggestion {
   factory _Suggestion(
-      {required String faktoryId,
+      {String? id,
+      required String faktoryId,
       required String userId,
       required DateTime submittedAt,
       required SuggestionPayload payload,
@@ -1858,6 +1909,8 @@ abstract class _Suggestion extends Suggestion {
   factory _Suggestion.fromJson(Map<String, dynamic> json) =
       _$_Suggestion.fromJson;
 
+  @override
+  String? get id => throw _privateConstructorUsedError;
   @override
   String get faktoryId => throw _privateConstructorUsedError;
   @override
@@ -2300,5 +2353,208 @@ abstract class _SuggestionPayloadChild extends SuggestionPayloadChild {
   @override
   @JsonKey(ignore: true)
   _$SuggestionPayloadChildCopyWith<_SuggestionPayloadChild> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+GpsField _$GpsFieldFromJson(Map<String, dynamic> json) {
+  return _GpsField.fromJson(json);
+}
+
+/// @nodoc
+class _$GpsFieldTearOff {
+  const _$GpsFieldTearOff();
+
+  _GpsField call(
+      {required double longitude,
+      required double latitude,
+      required double distance}) {
+    return _GpsField(
+      longitude: longitude,
+      latitude: latitude,
+      distance: distance,
+    );
+  }
+
+  GpsField fromJson(Map<String, Object> json) {
+    return GpsField.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $GpsField = _$GpsFieldTearOff();
+
+/// @nodoc
+mixin _$GpsField {
+  double get longitude => throw _privateConstructorUsedError;
+  double get latitude => throw _privateConstructorUsedError;
+  double get distance => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GpsFieldCopyWith<GpsField> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $GpsFieldCopyWith<$Res> {
+  factory $GpsFieldCopyWith(GpsField value, $Res Function(GpsField) then) =
+      _$GpsFieldCopyWithImpl<$Res>;
+  $Res call({double longitude, double latitude, double distance});
+}
+
+/// @nodoc
+class _$GpsFieldCopyWithImpl<$Res> implements $GpsFieldCopyWith<$Res> {
+  _$GpsFieldCopyWithImpl(this._value, this._then);
+
+  final GpsField _value;
+  // ignore: unused_field
+  final $Res Function(GpsField) _then;
+
+  @override
+  $Res call({
+    Object? longitude = freezed,
+    Object? latitude = freezed,
+    Object? distance = freezed,
+  }) {
+    return _then(_value.copyWith(
+      longitude: longitude == freezed
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      latitude: latitude == freezed
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      distance: distance == freezed
+          ? _value.distance
+          : distance // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$GpsFieldCopyWith<$Res> implements $GpsFieldCopyWith<$Res> {
+  factory _$GpsFieldCopyWith(_GpsField value, $Res Function(_GpsField) then) =
+      __$GpsFieldCopyWithImpl<$Res>;
+  @override
+  $Res call({double longitude, double latitude, double distance});
+}
+
+/// @nodoc
+class __$GpsFieldCopyWithImpl<$Res> extends _$GpsFieldCopyWithImpl<$Res>
+    implements _$GpsFieldCopyWith<$Res> {
+  __$GpsFieldCopyWithImpl(_GpsField _value, $Res Function(_GpsField) _then)
+      : super(_value, (v) => _then(v as _GpsField));
+
+  @override
+  _GpsField get _value => super._value as _GpsField;
+
+  @override
+  $Res call({
+    Object? longitude = freezed,
+    Object? latitude = freezed,
+    Object? distance = freezed,
+  }) {
+    return _then(_GpsField(
+      longitude: longitude == freezed
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      latitude: latitude == freezed
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      distance: distance == freezed
+          ? _value.distance
+          : distance // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_GpsField extends _GpsField with DiagnosticableTreeMixin {
+  _$_GpsField(
+      {required this.longitude, required this.latitude, required this.distance})
+      : super._();
+
+  factory _$_GpsField.fromJson(Map<String, dynamic> json) =>
+      _$_$_GpsFieldFromJson(json);
+
+  @override
+  final double longitude;
+  @override
+  final double latitude;
+  @override
+  final double distance;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'GpsField(longitude: $longitude, latitude: $latitude, distance: $distance)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'GpsField'))
+      ..add(DiagnosticsProperty('longitude', longitude))
+      ..add(DiagnosticsProperty('latitude', latitude))
+      ..add(DiagnosticsProperty('distance', distance));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _GpsField &&
+            (identical(other.longitude, longitude) ||
+                const DeepCollectionEquality()
+                    .equals(other.longitude, longitude)) &&
+            (identical(other.latitude, latitude) ||
+                const DeepCollectionEquality()
+                    .equals(other.latitude, latitude)) &&
+            (identical(other.distance, distance) ||
+                const DeepCollectionEquality()
+                    .equals(other.distance, distance)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(longitude) ^
+      const DeepCollectionEquality().hash(latitude) ^
+      const DeepCollectionEquality().hash(distance);
+
+  @JsonKey(ignore: true)
+  @override
+  _$GpsFieldCopyWith<_GpsField> get copyWith =>
+      __$GpsFieldCopyWithImpl<_GpsField>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_GpsFieldToJson(this);
+  }
+}
+
+abstract class _GpsField extends GpsField {
+  factory _GpsField(
+      {required double longitude,
+      required double latitude,
+      required double distance}) = _$_GpsField;
+  _GpsField._() : super._();
+
+  factory _GpsField.fromJson(Map<String, dynamic> json) = _$_GpsField.fromJson;
+
+  @override
+  double get longitude => throw _privateConstructorUsedError;
+  @override
+  double get latitude => throw _privateConstructorUsedError;
+  @override
+  double get distance => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$GpsFieldCopyWith<_GpsField> get copyWith =>
       throw _privateConstructorUsedError;
 }

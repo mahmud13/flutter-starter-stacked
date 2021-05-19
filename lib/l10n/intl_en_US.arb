@@ -37,5 +37,6 @@
     "welcome": "Welcome",
     "home": "Home",
     "newSuggestion": "New Suggestion",
-    "fieldSelection": "Field Selection"
+    "fieldSelection": "Field Selection",
+    "details": "Details"
 }

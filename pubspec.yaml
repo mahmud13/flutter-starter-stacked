@@ -57,6 +57,7 @@ dependencies:
   flutter_hooks: ^0.16.0
   stacked_hooks: ^0.2.0
   geolocator: ^7.0.3
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "designation": MessageLookupByLibrary.simpleMessage("Designation"),
         "designationIsRequired":
             MessageLookupByLibrary.simpleMessage("Designation is required"),
+        "details": MessageLookupByLibrary.simpleMessage("Details"),
         "doYouWantToExit":
             MessageLookupByLibrary.simpleMessage("Do you want to exit?"),
         "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage(

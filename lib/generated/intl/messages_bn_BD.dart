@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "designation": MessageLookupByLibrary.simpleMessage("পদমর্যাদা"),
         "designationIsRequired":
             MessageLookupByLibrary.simpleMessage("পদ লাগবেই"),
+        "details": MessageLookupByLibrary.simpleMessage("বিস্তারিত"),
         "doYouWantToExit":
             MessageLookupByLibrary.simpleMessage("আপনি কি বের হয়ে যেতে চান?"),
         "dontHaveAnAccount":

@@ -230,11 +230,11 @@ class OperationalWidgetModel extends BaseViewModel
         field: 'gps',
         pointsEarned: 0,
         pointsRequested: gpsField!.point,
-        value: {
-          'longitude': _currentPosition!.longitude,
-          'latitude': _currentPosition!.latitude,
-          'distance': _distance,
-        },
+        value: GpsField(
+          longitude: _currentPosition!.longitude,
+          latitude: _currentPosition!.latitude,
+          distance: _distance,
+        ).toJson(),
       ));
       totalPoints += gpsField!.point;
     }

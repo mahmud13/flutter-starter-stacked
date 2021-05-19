@@ -16,6 +16,10 @@ class SuggestionService {
     return await _firestoreApi.getPointTable();
   }
 
+  Future<PointField> getPointField(String field) async {
+    return await _firestoreApi.getPointField(field);
+  }
+
   Future<void> store(Suggestion suggestion) async {
     await _firestoreApi.storeSuggestion(suggestion);
   }
@@ -31,5 +35,9 @@ class SuggestionService {
     await task;
     var imageUrl = await task.snapshot.ref.getDownloadURL();
     return imageUrl;
+  }
+
+  Future<Suggestion> getSuggestion(String id) async {
+    return await _firestoreApi.getSuggestion(id);
   }
 }

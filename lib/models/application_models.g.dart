@@ -111,6 +111,8 @@ _$_PointFieldChild _$_$_PointFieldChildFromJson(Map<String, dynamic> json) {
   return _$_PointFieldChild(
     field: json['field'] as String,
     label: json['label'] as String,
+    type: _$enumDecodeNullable(_$PointFieldChildTypeEnumMap, json['type']) ??
+        PointFieldChildType.text,
     point: json['point'] as int,
   );
 }
@@ -119,27 +121,8 @@ Map<String, dynamic> _$_$_PointFieldChildToJson(_$_PointFieldChild instance) =>
     <String, dynamic>{
       'field': instance.field,
       'label': instance.label,
+      'type': _$PointFieldChildTypeEnumMap[instance.type],
       'point': instance.point,
-    };
-
-_$_Suggestion _$_$_SuggestionFromJson(Map<String, dynamic> json) {
-  return _$_Suggestion(
-    faktoryId: json['faktoryId'] as String,
-    userId: json['userId'] as String,
-    submittedAt: DateTime.parse(json['submittedAt'] as String),
-    payload:
-        SuggestionPayload.fromJson(json['payload'] as Map<String, dynamic>),
-    status: _$enumDecode(_$SuggestionStatusEnumMap, json['status']),
-  );
-}
-
-Map<String, dynamic> _$_$_SuggestionToJson(_$_Suggestion instance) =>
-    <String, dynamic>{
-      'faktoryId': instance.faktoryId,
-      'userId': instance.userId,
-      'submittedAt': instance.submittedAt.toIso8601String(),
-      'payload': instance.payload.toJson(),
-      'status': _$SuggestionStatusEnumMap[instance.status],
     };
 
 K _$enumDecode<K, V>(
@@ -167,6 +150,46 @@ K _$enumDecode<K, V>(
     },
   ).key;
 }
+
+K? _$enumDecodeNullable<K, V>(
+  Map<K, V> enumValues,
+  dynamic source, {
+  K? unknownValue,
+}) {
+  if (source == null) {
+    return null;
+  }
+  return _$enumDecode<K, V>(enumValues, source, unknownValue: unknownValue);
+}
+
+const _$PointFieldChildTypeEnumMap = {
+  PointFieldChildType.boolean: 'boolean',
+  PointFieldChildType.text: 'text',
+  PointFieldChildType.image: 'image',
+  PointFieldChildType.gps: 'gps',
+};
+
+_$_Suggestion _$_$_SuggestionFromJson(Map<String, dynamic> json) {
+  return _$_Suggestion(
+    id: json['id'] as String?,
+    faktoryId: json['faktoryId'] as String,
+    userId: json['userId'] as String,
+    submittedAt: DateTime.parse(json['submittedAt'] as String),
+    payload:
+        SuggestionPayload.fromJson(json['payload'] as Map<String, dynamic>),
+    status: _$enumDecode(_$SuggestionStatusEnumMap, json['status']),
+  );
+}
+
+Map<String, dynamic> _$_$_SuggestionToJson(_$_Suggestion instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'faktoryId': instance.faktoryId,
+      'userId': instance.userId,
+      'submittedAt': instance.submittedAt.toIso8601String(),
+      'payload': instance.payload.toJson(),
+      'status': _$SuggestionStatusEnumMap[instance.status],
+    };
 
 const _$SuggestionStatusEnumMap = {
   SuggestionStatus.submitted: 'submitted',
@@ -207,4 +230,19 @@ Map<String, dynamic> _$_$_SuggestionPayloadChildToJson(
       'value': instance.value,
       'pointsRequested': instance.pointsRequested,
       'pointsEarned': instance.pointsEarned,
+    };
+
+_$_GpsField _$_$_GpsFieldFromJson(Map<String, dynamic> json) {
+  return _$_GpsField(
+    longitude: (json['longitude'] as num).toDouble(),
+    latitude: (json['latitude'] as num).toDouble(),
+    distance: (json['distance'] as num).toDouble(),
+  );
+}
+
+Map<String, dynamic> _$_$_GpsFieldToJson(_$_GpsField instance) =>
+    <String, dynamic>{
+      'longitude': instance.longitude,
+      'latitude': instance.latitude,
+      'distance': instance.distance,
     };

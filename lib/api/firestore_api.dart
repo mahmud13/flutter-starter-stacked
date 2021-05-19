@@ -81,6 +81,12 @@ class FirestoreApi {
         : [];
   }
 
+  Future<PointField> getPointField(String field) async {
+    var snapshot =
+        await pointTableCollection.where('field', isEqualTo: field).get();
+    return PointField.fromJson(snapshot.docs.first.data());
+  }
+
   Future<void> storeSuggestion(Suggestion suggestion) async {
     await suggestionCollection.add(suggestion.toJson());
   }
@@ -89,11 +95,18 @@ class FirestoreApi {
     var snapshot =
         await suggestionCollection.where('userId', isEqualTo: id).get();
     return snapshot.size > 0
-        ? snapshot.docs.map((doc) => Suggestion.fromJson(doc.data())).toList()
+        ? snapshot.docs
+            .map((doc) => Suggestion.fromJson(doc.data()).copyWith(id: doc.id))
+            .toList()
         : [];
   }
 
   Future<void> updateTotalPoints(User user) async {
     await usersCollection.doc(user.id).update(user.toJson());
+  }
+
+  Future<Suggestion> getSuggestion(String id) async {
+    var doc = await suggestionCollection.doc(id).get();
+    return Suggestion.fromJson(doc.data()!);
   }
 }

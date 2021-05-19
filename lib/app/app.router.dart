@@ -12,7 +12,8 @@ import 'package:stacked/stacked.dart';
 
 import '../ui/views/home/home_view.dart';
 import '../ui/views/login/login_view.dart';
-import '../ui/views/report/submission_report_view.dart';
+import '../ui/views/report/detail/submission_report_detail_view.dart';
+import '../ui/views/report/summary/submission_report_view.dart';
 import '../ui/views/signup/signup_view.dart';
 import '../ui/views/startup/startup_view.dart';
 import '../ui/views/suggestions/create/suggestion_create_view.dart';
@@ -26,6 +27,8 @@ class Routes {
   static const String suggestionMenuView = '/suggestion-menu-view';
   static const String suggestionCreateView = '/suggestion-create-view';
   static const String submissionReportView = '/submission-report-view';
+  static const String submissionReportDetailView =
+      '/submission-report-detail-view';
   static const all = <String>{
     startUpView,
     loginView,
@@ -34,6 +37,7 @@ class Routes {
     suggestionMenuView,
     suggestionCreateView,
     submissionReportView,
+    submissionReportDetailView,
   };
 }
 
@@ -48,6 +52,8 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.suggestionMenuView, page: SuggestionMenuView),
     RouteDef(Routes.suggestionCreateView, page: SuggestionCreateView),
     RouteDef(Routes.submissionReportView, page: SubmissionReportView),
+    RouteDef(Routes.submissionReportDetailView,
+        page: SubmissionReportDetailView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -97,6 +103,12 @@ class StackedRouter extends RouterBase {
     SubmissionReportView: (data) {
       return CupertinoPageRoute<dynamic>(
         builder: (context) => SubmissionReportView(),
+        settings: data,
+      );
+    },
+    SubmissionReportDetailView: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => SubmissionReportDetailView(),
         settings: data,
       );
     },
